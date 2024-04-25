@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Verifiable Credentials Document Overview</title>
+    <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
+    <!--
+      === NOTA BENE ===
+      For the three scripts below, if your spec resides on dev.w3 you can check them
+      out in the same tree and use relative links so that they'll work offline,
+     -->
+    <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove'></script>
+
+    <script type="text/javascript" class="remove">
+      var respecConfig = {
+        // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+        specStatus: "DNOTE",
+
+        // the specification's short name, as in http://www.w3.org/TR/short-name/
+        shortName: "vc-overview",
+
+        // if you wish the publication date to be other than today, set this
+        //publishDate:  "2023-11-07",
+
+        // if there a publicly available Editor's Draft, this is the link
+        edDraftURI: "https://w3c.github.io/vc-overview/",
+
+        // if you want to have extra CSS, append them to this list
+        // it is recommended that the respec.css stylesheet be kept
+        //extraCSS:             ["spec.css", "prettify.css"],
+
+        // editors, add as many as you like
+        // only "name" is required
+        editors: [
+          // {
+          //   name: "Manu Sporny", url: "https://www.linkedin.com/in/manusporny/",
+          //   company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/",
+          //   w3cid: 41758
+          // },
+          {
+            name: "Ivan Herman", url: "https://www.w3.org/People/Ivan/",
+            company: "W3C", companyURL: "https://www.w3.org",
+            w3cid: 7382, orcid: "0000-0003-0782-2704"
+          },
+        ],
+
+        authors: [
+          {
+            name: "Greg Bernstein", url: "https://www.grotto-networking.com/",
+            company: "Invited Expert", w3cid: 140479
+          },
+          {
+            name: "Daniel C. Burnett", url: "https://www.linkedin.com/in/daburnett/",
+            company: "ConsenSys", companyURL: "https://consensys.net/",
+            w3cid: 37473
+          },
+
+          {
+            name: "David Chadwick",
+            url: "https://www.linkedin.com/in/davidwchadwick/",
+            company: "Crossword Cybersecurity PLC",
+            companyURL: "https://www.crosswordcybersecurity.com/",
+            w3cid: 46156
+          },
+          {
+            name: "Gabe Cohen", url: "https://github.com/decentralgabe",
+            company: "Block", companyURL: "https://block.xyz/",
+            w3cid: 116851
+          },
+          {
+            name: "Michael B. Jones", url: "https://self-issued.info/",
+            company: "Invited Expert",
+            w3cid: 38745
+          },
+          {
+            name: "Dave Longley", url: "https://digitalbazaar.com/",
+            company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/",
+            w3cid: 48025
+          },
+          {
+            name: "Manu Sporny", url: "https://digitalbazaar.com/",
+            company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/",
+            w3cid: 41758
+          },
+          {
+            name: "Orie Steele", url: "https://github.com/OR13",
+            company: "Transmute",
+            companyURL: "https://www.transmute.industries/",
+            w3cid: 109171
+          },
+          {
+            name: "Ted Thibodeau Jr", url: "https://github.com/TallTed",
+            company: "OpenLink Software", companyURL: "https://www.openlinksw.com/",
+            w3cid: 42501
+          },
+          {
+            name: "Brent Zundel", url: "https://www.linkedin.com/in/bzundel/",
+            company: "mesur.io", companyURL: "https://www.mesur.io",
+            w3cid: 102128
+          },
+
+        ],
+
+        // name of the WG
+        group: "vc",
+
+        // name (with the @w3c.org) of the public mailing to which comments are due
+        wgPublicList: "public-vc-wg",
+
+        github: "w3c/vc-overview",
+
+        // URI of the patent status for this WG, for Rec-track documents
+        // !!!! IMPORTANT !!!!
+        // This is important for Rec-track documents, do not copy a patent URI from a random
+        // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+        // Team Contact.
+        //wgPatentURI:  "",
+        maxTocLevel: 3,
+        lint: { "informative-dfn": false },
+
+        /*preProcess: [ ],
+        alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
+        */
+        localBiblio: {
+          "JOSE-REGISTRIES": {
+            title: "The JSON Object Signing and Encryption (JOSE) Registries",
+            href: "https://www.iana.org/assignments/jose",
+            authors: ["The Internet Assigned Numbers Authority"],
+            status: "REC",
+            publisher: "The Internet Assigned Numbers Authority"
+          },
+          "ZCAP": {
+            title: "Authorization Capabilities for Linked Data",
+            href: "https://w3c-ccg.github.io/zcap-spec/",
+            status: "CGDRAFT",
+            publisher: "Credentials Community Group"
+          },
+          "MULTIBASE": {
+            title: "The Multibase Data Format",
+            date: "February 2023",
+            href: "https://datatracker.ietf.org/doc/draft-multiformats-multibase",
+            authors: [
+              "Juan Benet",
+              "Manu Sporny"
+            ],
+            status: "Internet-Draft",
+            publisher: "IETF"
+          },
+          "MULTIHASH": {
+            title: "The Multihash Data Format",
+            date: "February 2023",
+            href: "https://datatracker.ietf.org/doc/draft-multiformats-multihash",
+            authors: [
+              "Juan Benet",
+              "Manu Sporny"
+            ],
+            status: "Internet-Draft",
+            publisher: "IETF"
+          },
+          "MULTICODEC": {
+            title: "The Multi Codec Encoding Scheme",
+            date: "February 2022",
+            href: "https://github.com/multiformats/multicodec/blob/master/table.csv",
+            authors: [
+              "The Multiformats Community"
+            ],
+            status: "Internet-Draft",
+            publisher: "IETF"
+          },
+          "DID-KEY": {
+            title: "The did:key Method",
+            href: "https://w3c-ccg.github.io/did-method-key/",
+            authors: [
+              "Manu Sporny",
+              "Dmitri Zagidulin",
+              "Dave Longley",
+              "Orie Steele"
+            ],
+            status: "CG-DRAFT",
+            publisher: "W3C Credentials Community Group"
+          },
+          "SHA3": {
+            title: "SHA-3 Standard: Permutation-Based Hash and Extendable-Output Functions",
+            href: "https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf",
+            authors: [
+              "National Institute of Standards and Technology",
+            ],
+            status: "National Standard",
+            publisher: "U.S. Department of Commerce"
+          },
+          "SD-JWT": {
+            title: "Selective Disclosure for JWTs (SD-JWT)",
+            href: "https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/",
+            authors: [
+              "Daniel Fett",
+              "Kristina Yasuda",
+              "Brian Campbell"
+            ],
+            status: "I-D",
+            publisher: "The IETF OAuth Working Group"
+          }
+        },
+        // postProcess: [restrictRefs],
+      };
+    </script>
+    <style>
+      code {
+        color: rgb(199, 73, 0);
+        font-weight: bold;
+      }
+
+      pre.nohighlight {
+        overflow-x: auto;
+        white-space: pre-wrap;
+      }
+
+      ol.algorithm {
+        counter-reset: numsection;
+        list-style-type: none;
+      }
+
+      ol.algorithm li {
+        margin: 0.5em 0;
+      }
+
+      ol.algorithm li:before {
+        font-weight: bold;
+        counter-increment: numsection;
+        content: counters(numsection, ".") ") ";
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <section id='abstract'>
+      <p>
+          Credentials are a part of our daily lives; driver's licenses are used to assert that we are capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries. 
+          The family of Recommendations for Verifiable Credentials, described in this overview document, provide a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable.
+      </p>    
+    </section>
+
+    <section id='sotd'>
+
+    </section>
+
+    <section>
+      <h2>Introduction</h2>
+      <p>
+        This document provides a non-normative high-level overview of W3C’s Verifiable Credentials and serves as a roadmap for the documents that define, describe, and secure these credentials.
+      </p>
+    </section>
+    <section>
+      <h2>High level overview</h2>
+      <p>
+        <a href="#overall"></a> provides and overview of the main building blocks of Verifiable Credentials, including their (normative) dependencies.
+        The [[[VC-DATA-MODEL-2.0]]] [[VC-DATA-MODEL-2.0]] specification, which defines the core concepts that all other specifications depend on, plays a central role.
+        Applications express their specific credentials using a serialization of this data model in, for example, JSON.
+      </p>
+
+      <p>
+        Credentials can be secured using two different mechanisms: [=enveloping proofs=] or [=embedded proofs=].
+        In both cases, a proof secures a credential by cryptographic means (for example, digital signatures), which can be
+        verified by a “verifier” (for example, the receiver of the credential).
+        In the enveloping case the proof wraps the credential,  whereas a embedded proofs are included in the serialization of the credential itself.
+      </p>
+
+      <p>
+        A family of enveloping proofs is defined in the [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] document, relying on technologies defined by the IETF.
+        They are based on JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), Selective Disclosure for JWTs [[SD-JWT]], or CBOR Object Signing and Encryption (COSE) [[RFC9052]]. 
+        Other types of embedded proofs may be specified by the community.
+      </p>
+
+      <p>
+        The general structure for embedded proofs is defined in a separate [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification.
+        The Working Group also defines three instantiations of this general structure in the forms of three “cryptosuites”: [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. Other cryptosuites may be specified by the community.
+      </p>
+
+      <p>
+        Verifiable Credentials are serialized in JSON; it is important to trust that the structure may be interpreted in a consistent manner by all participants of verifiable credential ecosystem. 
+        The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] defines how [[JSON-SCHEMA]] can be used for that purpose.
+      </p>
+
+      <p>
+        Finally, the [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information such as suspension or revocation of Verifiable Credentials through use of bitstrings.
+      </p>
+
+      <figure id="overall">
+        <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg" alt="TBD">
+        <figcaption style="text-align: center;">
+          Verifiable Credentials Working Group Recommendations
+        </figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>Data model</h2>
+
+      <section>
+        <h3>Ecosystem Overview</h3>
+        <p>
+          The Verifiable Credential specifications rely on an ecosystem consisting of entities that play different “roles”. 
+          These roles are:  
+        </p>
+
+        <dl>
+          <dt>issuer</dt>
+          <dd>
+            An entity that <em>creates</em> a credential, consisting of a series of claims related to the subject of a credential. 
+            An example is a university that issues credentials for university degrees or that want to officially state that a person is indeed an alumni.
+          </dd>
+
+          <dt>holder</dt>
+          <dd>
+            An entity that <em>possesses</em> on or more credentials, and who can transmit <em>presentations</em> of those credentials to third parties. 
+            An example may be the person who “holds“ his/her own educational degrees.
+          </dd>
+
+          <dt>verifier</dt>
+          <dd>
+            An entity that performs verification on a credential to check the validity, consistency, etc., of a credential.
+            An example may be an employer who intends to check the validity of a university degree before deciding on the employment of a person.
+          </dd>
+        </dl>
+
+        <p>
+          For a more detailed definition of these roles, see the relevant <a data-cite="VC-DATA-MODEL-2.0#ecosystem-overview">section</a> in the data model specification.
+        </p>
+
+        <figure id="roles">
+          <img style="margin: auto; display: block; width: 100%;" src="diagrams/ecosystem.svg" alt="diagram showing how
+                       credentials flow from issuer to holder and
+                       presentations flow from holder to verifier where all
+                       three parties can use information from a logical
+                       verifiable data registry">
+          <figcaption style="text-align: center;">
+            The roles and information flows forming the basis for this VC Data Model.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section>
+        <h3>Basic structure</h3>
+        <section>
+          <h4>Claims, properties</h4>
+          <p>
+            A core concept is that of “claims”: statements made about various entities, referred to as “subjects”. 
+            Subjects may be the holders, issuers, or verifiers as listed above, but may also be any other person (e.g., the person holding a university degree), an animal, an abstract concepts, etc. 
+            Claims are expressed using “properties” referring to “values”. 
+          </p>
+
+          <figure id="basic-structure">
+            <img style="margin: auto; display: block; width: 80%;" src="diagrams/claim.svg" alt="subject has a property which
+                      has a value">
+            <figcaption style="text-align: center;">
+              The basic structure of a claim.
+            </figcaption>
+          </figure>
+
+          <p>
+            The [[[VC-DATA-MODEL-2.0]]] specifies a number of standard properties. These include, for example, `credentialSubject`, `type`, `issuer`, `validFrom`, etc. Developers may define their own properties to be used for a specific kind of credentials, like a driving license, university degrees, or marriage certificates.
+          </p>
+        </section>
+
+        <section>
+          <h4>Verifiable Credentials</h4>
+
+          <p>
+            A credential is a set of one or more claims made by the same entity.
+            Credentials might also include an identifier and metadata to describe properties of the credential, such as the issuer, the validity date and time period, a representative image, the revocation mechanism, and so on. 
+            A <em>verifiable</em> credential is a set of claims and metadata that also includes verification mechanisms that cryptographically prove who issued it.
+          </p>
+
+          <p>
+            For a more detailed description of abstract credentials, with examples, see the relevant <a
+              data-cite="VC-DATA-MODEL-2.0#credentials">section</a> in the data model specification.
+          </p>
+
+          <figure id="basic-vc">
+            <img style="margin: auto; display: block; width: 50%;" src="diagrams/vc.svg" alt="a Verifiable
+                        Credential contains Credential Metadata, Claim(s), and
+                        Proof(s)">
+            <figcaption style="text-align: center;">
+              Basic components of a verifiable credential.
+            </figcaption>
+          </figure>
+        </section>
+
+        <section>
+          <h4>Verifiable Presentations</h4>
+          <p>
+            Enhancing privacy is a key design feature of Verifiable Credentials. 
+            Therefore, it is important for entities using this technology to be able to express only the portions of their persona that are appropriate for a given situation.
+            The expression of a subset of one's persona is called a <em>verifiable presentation</em>. 
+            Examples of different personas include a person’s professional persona, their online gaming persona, their family persona, or an incognito persona.
+          </p>
+          
+          <p>
+            A verifiable presentation is created by a holder, can express data from multiple verifiable credentials, and can contain arbitrary additional metadata in forms of additional claims. 
+            They are used to present claims to a verifier. 
+            It is also possible to present verifiable credential directly.
+          </p>
+
+          <figure id="basic-vp">
+            <img style="margin: auto; display: block; width: 50%;" src="diagrams/presentation.svg" alt="A Verifiable
+                      Presentation contains Presentation Metadata, Verifiable
+                      Credential(s), and Proof(s)">
+            <figcaption style="text-align: center;">
+              Basic components of a verifiable presentation.
+            </figcaption>
+          </figure>
+        </section>
+      </section>
+      <section>
+        <h3>Serialization</h3>
+
+        <p>
+          In [[VC-DATA-MODEL-2.0]], Verifiable Credentials and Presentations are expressed in JSON [[RFC7519]], more specifically [[JSON-LD11]]. 
+          In this serialization, properties of claims are represented as JSON names, and values as JSON objects or literals.
+          Subjects of claims are either explicitly identified by an `id` property, or implicitly by appearing as an object with their own JSON name-value pairs.
+        </p>
+
+        <p>
+          Standard properties defined by [[VC-DATA-MODEL-2.0]] form a distinct set of names, also referred to as a <em>vocabulary</em>.
+          And important characteristics of Verifiable Credentials in JSON-LD is that it favors a decentralized and permissionless approach 
+          to extend to a new application area through other vocabularies distributed on the Web: anyone can “publish” such a vocabulary, following certain rules described in the <a data-cite="VC-DATA-MODEL-2.0#Extensibility">Extensibility section</a> of the specification.
+        </p>
+
+        <p>
+          The following figure is an example for a simple Credential. It states that the person named "Pat", identified by `https://www.exampl.org/persons/pat`, is an alumni of the Example University (identified by `did:example:c276e12ec21ebfeb1f712ebc6f1`).
+          The Credential is valid from the 1st of January 2010, and is issued by an entity identified by `did:example:2g55q912ec3476eba2l9812ecbfe`.
+          Most of the properties in the Credential are from the standard Verifiable Credentials vocabulary, but some terms (like `alumniOf`, `AlumniCredential`) are added by the application-specific vocabulary referred to by `https://www.example.org/vocabs/alumni`.
+        </p>
+
+        <pre class="example nohighlight" title="Credential example">
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://www.example.org/vocabs/alumni"
+          ],
+          "id": "http://university.example/Credential123",
+          "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+          "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+          "validFrom": "2010-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://www.example.org/persons/pat",
+            "name": "Pat",
+            "alumniOf": {
+              "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+              "name": "Example University"
+            }
+          }
+        }
+        </pre>
+
+        <p>
+          <a href="#credential-example-claims"></a> shows the same Credential, but represented as claims, as described in <a href="#claims-properties"></a>.
+        </p>
+
+        <figure id="credential-example-claims">
+          <img style="margin: auto; display: block; width: 100%;" src="diagrams/credential_example.svg" alt="A Verifiable
+                              Presentation contains Presentation Metadata, Verifiable
+                              Credential(s), and Proof(s)">
+          <figcaption style="text-align: center;">
+            Credential in <a href="#example-credential-example"></a> represented as a collection of claims.
+          </figcaption>
+        </figure>
+
+        <p>
+          The Credential in <a href="#example-credential-example"></a>, issued by Example University, is stored by a holder (possibly the subject of the credential, i.e., John Doe). On request, the holder may “present” a Credential to a verifier, by encapsulating the Credential in a Verifiable Presentation. This is how the result looks like in the JSON-LD serialization:
+        </p>
+
+        <pre class="example nohighlight" title="Presentation example">
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://www.example.org/vocabs/alumni"
+            ],
+            "type": "VerifiablePresentation",
+            "id" : "urn:uuid:313801ba-24b7-11ee-be02-ff560265cf9b",
+            "holder": "did:example:12345678",
+            "validUntil": "2020-12-31T00:00:00Z"
+            "verifiableCredential": {
+              "id": "http://university.example/Credential123",
+              "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+              "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://www.example.org/persons/pat",
+                "name": "Pat",
+                "alumniOf": {
+                  "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                  "name": "Example University"
+                }
+              }
+            }
+          }
+        </pre>
+
+        <p>
+          Note that the holder could have presented several credentials within the same presentation, or create a new credential by combining others. A Verifiable Presentation is usually short-lived, it is not meant at being stored for a longer period.
+        </p>
+
+      </section>
+    </section>
+
+  </body>
+
+</html>
