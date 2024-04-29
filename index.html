@@ -247,102 +247,113 @@
     <section>
       <h2>Introduction</h2>
       <p>
-        This document provides a non-normative high-level overview of W3C’s Verifiable Credentials and serves as a roadmap for the documents that define, describe, and secure these credentials.
+        This document provides a non-normative, high-level overview of W3C’s Verifiable Credentials and serves as a roadmap for the documents that define, describe, and secure these credentials.
+        It is not the goal of being very precise, nor does this overview cover all the details. 
+        The intention is to provide users, implementers, or anyone interested in the subject, an idea of the general concepts and how the various recommendations, published by the Verifiable Credentials Working Group fit together.
       </p>
+
+      <section>
+        <h2>High Level View of the Specifications</h2>
+        <p>
+          <a href="#overall"></a> provides and overview of the main building blocks of Verifiable Credentials, including their (normative) dependencies.
+        </p>
+        <p>
+          The [[[VC-DATA-MODEL-2.0]]] [[VC-DATA-MODEL-2.0]] specification, which defines the core concepts that all other specifications depend on, plays a central role.
+          Applications express their specific credentials using a serialization of this data model in, for example, JSON.
+        </p>
+
+        <p>
+          Credentials can be secured using two different mechanisms: [=enveloping proofs=] or [=embedded proofs=].
+          In both cases, a proof secures a Credential by cryptographic means (for example, digital signatures), which can be
+          verified by a “verifier” (for example, the receiver of the credential).
+          In the enveloping case the proof wraps the Credential,  whereas a embedded proofs are included in the serialization of the Credential itself.
+        </p>
+
+        <p>
+          A family of enveloping proofs is defined in the [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] document, relying on technologies defined by the IETF.
+          They are based on JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), Selective Disclosure for JWTs [[SD-JWT]], or CBOR Object Signing and Encryption (COSE) [[RFC9052]]. 
+          Other types of embedded proofs may be specified by the community.
+        </p>
+
+        <p>
+          The general structure for embedded proofs is defined in a separate [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification.
+          Three instantiations of this general structure are also specified by the Working Group also defines in the forms of “cryptosuites”: [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
+          Other cryptosuites may be specified by the community.
+        </p>
+
+        <p>
+          Verifiable Credentials are serialized in JSON; it is important to trust that the structure of Credentials may be interpreted in a consistent manner by all participants of verifiable credential ecosystem. 
+          The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] defines how [[JSON-SCHEMA]] can be used for that purpose.
+        </p>
+
+        <p>
+          Finally, the [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information such as suspension or revocation of Verifiable Credentials through use of bitstrings.
+        </p>
+
+        <figure id="overall">
+          <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg" alt="TBD">
+          <figcaption style="text-align: center;">
+            Verifiable Credentials Working Group Recommendations
+          </figcaption>
+        </figure>
+      </section>
     </section>
+
     <section>
-      <h2>High level overview</h2>
+      <h3>Ecosystem Overview</h3>
       <p>
-        <a href="#overall"></a> provides and overview of the main building blocks of Verifiable Credentials, including their (normative) dependencies.
-        The [[[VC-DATA-MODEL-2.0]]] [[VC-DATA-MODEL-2.0]] specification, which defines the core concepts that all other specifications depend on, plays a central role.
-        Applications express their specific credentials using a serialization of this data model in, for example, JSON.
+        The Verifiable Credential specifications rely on an ecosystem consisting of entities that play different “roles”.
+        The main roles are:
       </p>
-
+    
+      <dl>
+        <dt>Issuer</dt>
+        <dd>
+          An entity that <em>creates</em> a credential, consisting of a series of claims related to the subject of a
+          Credential.
+          An example is a university that issues credentials for university degrees or that want to officially state that a
+          person is indeed an alumni.
+        </dd>
+    
+        <dt>Holder</dt>
+        <dd>
+          An entity that <em>possesses</em> on or more Credentials, and who can transmit <em>presentations</em> of those
+          Credentials to third parties.
+          An example may be the person who “holds“ his/her own educational degrees.
+        </dd>
+    
+        <dt>Verifier</dt>
+        <dd>
+          An entity that performs verification on a Credential to check the validity, consistency, etc., of a credential.
+          An example may be an employer who intends to check the validity of a university degree before deciding on the
+          employment of a person.
+        </dd>
+      </dl>
+    
       <p>
-        Credentials can be secured using two different mechanisms: [=enveloping proofs=] or [=embedded proofs=].
-        In both cases, a proof secures a credential by cryptographic means (for example, digital signatures), which can be
-        verified by a “verifier” (for example, the receiver of the credential).
-        In the enveloping case the proof wraps the credential,  whereas a embedded proofs are included in the serialization of the credential itself.
+        For a more precise definition of these roles, as well as possible other roles, see the relevant <a
+          data-cite="VC-DATA-MODEL-2.0#ecosystem-overview">section</a> in the data model specification.
       </p>
-
-      <p>
-        A family of enveloping proofs is defined in the [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] document, relying on technologies defined by the IETF.
-        They are based on JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), Selective Disclosure for JWTs [[SD-JWT]], or CBOR Object Signing and Encryption (COSE) [[RFC9052]]. 
-        Other types of embedded proofs may be specified by the community.
-      </p>
-
-      <p>
-        The general structure for embedded proofs is defined in a separate [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification.
-        The Working Group also defines three instantiations of this general structure in the forms of three “cryptosuites”: [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. Other cryptosuites may be specified by the community.
-      </p>
-
-      <p>
-        Verifiable Credentials are serialized in JSON; it is important to trust that the structure may be interpreted in a consistent manner by all participants of verifiable credential ecosystem. 
-        The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] defines how [[JSON-SCHEMA]] can be used for that purpose.
-      </p>
-
-      <p>
-        Finally, the [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information such as suspension or revocation of Verifiable Credentials through use of bitstrings.
-      </p>
-
-      <figure id="overall">
-        <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg" alt="TBD">
+    
+      <figure id="roles">
+        <img style="margin: auto; display: block; width: 100%;" src="diagrams/ecosystem.svg" alt="diagram showing how
+                            credentials flow from issuer to holder and
+                            presentations flow from holder to verifier where all
+                            three parties can use information from a logical
+                            verifiable data registry">
         <figcaption style="text-align: center;">
-          Verifiable Credentials Working Group Recommendations
+          The roles and information flows forming the basis for this VC Data Model.
         </figcaption>
       </figure>
     </section>
 
     <section>
-      <h2>Data model</h2>
+      <h2>Verifiable Credentials Data Model</h2>
 
       <section>
-        <h3>Ecosystem Overview</h3>
-        <p>
-          The Verifiable Credential specifications rely on an ecosystem consisting of entities that play different “roles”. 
-          These roles are:  
-        </p>
-
-        <dl>
-          <dt>issuer</dt>
-          <dd>
-            An entity that <em>creates</em> a credential, consisting of a series of claims related to the subject of a credential. 
-            An example is a university that issues credentials for university degrees or that want to officially state that a person is indeed an alumni.
-          </dd>
-
-          <dt>holder</dt>
-          <dd>
-            An entity that <em>possesses</em> on or more credentials, and who can transmit <em>presentations</em> of those credentials to third parties. 
-            An example may be the person who “holds“ his/her own educational degrees.
-          </dd>
-
-          <dt>verifier</dt>
-          <dd>
-            An entity that performs verification on a credential to check the validity, consistency, etc., of a credential.
-            An example may be an employer who intends to check the validity of a university degree before deciding on the employment of a person.
-          </dd>
-        </dl>
-
-        <p>
-          For a more detailed definition of these roles, see the relevant <a data-cite="VC-DATA-MODEL-2.0#ecosystem-overview">section</a> in the data model specification.
-        </p>
-
-        <figure id="roles">
-          <img style="margin: auto; display: block; width: 100%;" src="diagrams/ecosystem.svg" alt="diagram showing how
-                       credentials flow from issuer to holder and
-                       presentations flow from holder to verifier where all
-                       three parties can use information from a logical
-                       verifiable data registry">
-          <figcaption style="text-align: center;">
-            The roles and information flows forming the basis for this VC Data Model.
-          </figcaption>
-        </figure>
-      </section>
-
-      <section>
-        <h3>Basic structure</h3>
+        <h3>Basic Structure</h3>
         <section>
-          <h4>Claims, properties</h4>
+          <h4>Claims, Properties</h4>
           <p>
             A core concept is that of “claims”: statements made about various entities, referred to as “subjects”. 
             Subjects may be the holders, issuers, or verifiers as listed above, but may also be any other person (e.g., the person holding a university degree), an animal, an abstract concepts, etc. 
@@ -353,12 +364,17 @@
             <img style="margin: auto; display: block; width: 80%;" src="diagrams/claim.svg" alt="subject has a property which
                       has a value">
             <figcaption style="text-align: center;">
-              The basic structure of a claim.
+              The basic structure of a claim with a literal value.
             </figcaption>
           </figure>
 
           <p>
-            The [[[VC-DATA-MODEL-2.0]]] specifies a number of standard properties. These include, for example, `credentialSubject`, `type`, `issuer`, `validFrom`, etc. Developers may define their own properties to be used for a specific kind of credentials, like a driving license, university degrees, or marriage certificates.
+            Values may be literals, but may also be other entities, referred to, usually, by a URL[[URL]]. It the latter case, the  entity may become the subject of another claim; these claims, together, can be seen as a “graph” of claims that, together, form a Credential. 
+            See <a href="#credential-example-claims"></a> for and example of such a graph or, for more complex examples, the [[[VC-DATA-MODEL-2.0]]] specification itself. 
+          </p>
+
+          <p>
+            The [[[VC-DATA-MODEL-2.0]]] document specifies a number of standard properties. These include, for example, `credentialSubject`, `type`, `issuer`, `validFrom`, etc. Developers may define their own properties to be used for a specific kind of Credentials, like a driving license, university degrees, or marriage certificates.
           </p>
         </section>
 
@@ -366,22 +382,22 @@
           <h4>Verifiable Credentials</h4>
 
           <p>
-            A credential is a set of one or more claims made by the same entity.
+            A Credential is a set of one or more claims made by the same entity.
             Credentials might also include an identifier and metadata to describe properties of the credential, such as the issuer, the validity date and time period, a representative image, the revocation mechanism, and so on. 
-            A <em>verifiable</em> credential is a set of claims and metadata that also includes verification mechanisms that cryptographically prove who issued it.
+            A <em>Verifiable</em> Credential is a set of claims and metadata that also includes verification mechanisms that cryptographically prove who issued it.
           </p>
 
           <p>
-            For a more detailed description of abstract credentials, with examples, see the relevant <a
+            For a more detailed description of abstract Credentials, with examples, see the relevant <a
               data-cite="VC-DATA-MODEL-2.0#credentials">section</a> in the data model specification.
           </p>
 
           <figure id="basic-vc">
-            <img style="margin: auto; display: block; width: 50%;" src="diagrams/vc.svg" alt="a Verifiable
+            <img style="margin: auto; display: block; width: 35%;" src="diagrams/vc.svg" alt="a Verifiable
                         Credential contains Credential Metadata, Claim(s), and
                         Proof(s)">
             <figcaption style="text-align: center;">
-              Basic components of a verifiable credential.
+              Basic components of a Verifiable Credential.
             </figcaption>
           </figure>
         </section>
@@ -391,18 +407,22 @@
           <p>
             Enhancing privacy is a key design feature of Verifiable Credentials. 
             Therefore, it is important for entities using this technology to be able to express only the portions of their persona that are appropriate for a given situation.
-            The expression of a subset of one's persona is called a <em>verifiable presentation</em>. 
+            The expression of a subset of one's persona is called a <em>Verifiable Presentation</em>. 
             Examples of different personas include a person’s professional persona, their online gaming persona, their family persona, or an incognito persona.
           </p>
           
           <p>
-            A verifiable presentation is created by a holder, can express data from multiple verifiable credentials, and can contain arbitrary additional metadata in forms of additional claims. 
+            A Verifiable Presentation is created by a holder, can express data from multiple Verifiable Credentials, and can contain arbitrary additional metadata in forms of additional claims. 
             They are used to present claims to a verifier. 
-            It is also possible to present verifiable credential directly.
+            It is also possible to present Verifiable Credential directly.
+          </p>
+
+          <p>
+            A Verifiable Presentation is usually short-lived, it is not meant at being stored for a longer period.
           </p>
 
           <figure id="basic-vp">
-            <img style="margin: auto; display: block; width: 50%;" src="diagrams/presentation.svg" alt="A Verifiable
+            <img style="margin: auto; display: block; width: 35%;" src="diagrams/presentation.svg" alt="A Verifiable
                       Presentation contains Presentation Metadata, Verifiable
                       Credential(s), and Proof(s)">
             <figcaption style="text-align: center;">
@@ -412,18 +432,17 @@
         </section>
       </section>
       <section>
-        <h3>Serialization</h3>
+        <h3>Serialization in JSON</h3>
 
         <p>
           In [[VC-DATA-MODEL-2.0]], Verifiable Credentials and Presentations are expressed in JSON [[RFC7519]], more specifically [[JSON-LD11]]. 
-          In this serialization, properties of claims are represented as JSON names, and values as JSON objects or literals.
-          Subjects of claims are either explicitly identified by an `id` property, or implicitly by appearing as an object with their own JSON name-value pairs.
+          In this serialization, properties of claims are represented as JSON names, and values as JSON literals or objects.
+          Subjects of claims are either explicitly identified by an `id` property, or implicitly by appearing as an object of another claim.
         </p>
 
         <p>
-          Standard properties defined by [[VC-DATA-MODEL-2.0]] form a distinct set of names, also referred to as a <em>vocabulary</em>.
-          And important characteristics of Verifiable Credentials in JSON-LD is that it favors a decentralized and permissionless approach 
-          to extend to a new application area through other vocabularies distributed on the Web: anyone can “publish” such a vocabulary, following certain rules described in the <a data-cite="VC-DATA-MODEL-2.0#Extensibility">Extensibility section</a> of the specification.
+          Standard properties defined by the [[VC-DATA-MODEL-2.0]] form a distinct set of JSON names, also referred to as a <em>vocabulary</em>.
+          An important characteristics of Verifiable Credentials in JSON-LD is that it favors a decentralized and permissionless approach to <em>extend</em> to a new application area through additional set of properties, i.e., vocabularies, distributed on the Web: anyone can “publish” such a vocabulary, following some rules described in the <a data-cite="VC-DATA-MODEL-2.0#Extensibility">extensibility section</a> of the specification.
         </p>
 
         <p>
@@ -432,13 +451,13 @@
           Most of the properties in the Credential are from the standard Verifiable Credentials vocabulary, but some terms (like `alumniOf`, `AlumniCredential`) are added by the application-specific vocabulary referred to by `https://www.example.org/vocabs/alumni`.
         </p>
 
-        <pre class="example nohighlight" title="Credential example">
+        <pre class="example nohighlight" title="A simple Credential">
         {
           "@context": [
             "https://www.w3.org/ns/credentials/v2",
             "https://www.example.org/vocabs/alumni"
           ],
-          "id": "http://university.example/Credential123",
+          "id": "https://university.example/Credential123",
           "type": ["VerifiableCredential", "ExampleAlumniCredential"],
           "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
           "validFrom": "2010-01-01T00:00:00Z",
@@ -454,7 +473,7 @@
         </pre>
 
         <p>
-          <a href="#credential-example-claims"></a> shows the same Credential, but represented as claims, as described in <a href="#claims-properties"></a>.
+          <a href="#credential-example-claims"></a> shows the same Credential, but represented as a graph of claims, as described in <a href="#claims-properties"></a>.
         </p>
 
         <figure id="credential-example-claims">
@@ -462,15 +481,15 @@
                               Presentation contains Presentation Metadata, Verifiable
                               Credential(s), and Proof(s)">
           <figcaption style="text-align: center;">
-            Credential in <a href="#example-credential-example"></a> represented as a collection of claims.
+            Credential in <a href="#example-a-simple-credential"></a> represented as a collection of claims.
           </figcaption>
         </figure>
 
         <p>
-          The Credential in <a href="#example-credential-example"></a>, issued by Example University, is stored by a holder (possibly the subject of the credential, i.e., John Doe). On request, the holder may “present” a Credential to a verifier, by encapsulating the Credential in a Verifiable Presentation. This is how the result looks like in the JSON-LD serialization:
+          The Credential in <a href="#example-a-simple-credential"></a>, issued by Example University, is stored by a holder (who may be simple the subject of the credential, i.e., John Doe). On request, the holder may “present” a Credential to a verifier, by encapsulating the Credential in a Verifiable Presentation. This is how the result looks like in the JSON-LD serialization:
         </p>
 
-        <pre class="example nohighlight" title="Presentation example">
+        <pre class="example nohighlight" title="Presenting the Credential">
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
@@ -481,7 +500,7 @@
             "holder": "did:example:12345678",
             "validUntil": "2020-12-31T00:00:00Z"
             "verifiableCredential": {
-              "id": "http://university.example/Credential123",
+              "id": "https://university.example/Credential123",
               "type": ["VerifiableCredential", "ExampleAlumniCredential"],
               "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
               "validFrom": "2010-01-01T00:00:00Z",
@@ -498,8 +517,199 @@
         </pre>
 
         <p>
-          Note that the holder could have presented several credentials within the same presentation, or create a new credential by combining others. A Verifiable Presentation is usually short-lived, it is not meant at being stored for a longer period.
+          Note that the holder could have presented several Credentials within the same presentation or create a new Credential by either combining it with others or removing some claims as irrelevant for the specific context. 
         </p>
+
+
+      </section>
+      <section>
+        <h4>Checking Structure with JSON Schemas</h4>
+
+        <p>
+          A significant part of the integrity of a Verifiable Credential comes from the ability to structure its contents so that all three parties — issuer, holder, verifier — may have a consistent mechanism of trust in interpreting the data that they are provided with.
+          One way of doing that is to use [[JSON-SCHEMA]] the check the validity of the Credential.
+          The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] specifications adds some standard properties to express the association of a Credential with a JSON Schema.
+          Consider the following example:
+        </p>
+
+        <pre class="example nohighlight" title="A simple Credential with a JSON Schema">
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://www.example.org/vocabs/alumni"
+            ],
+            "id": "https://university.example/Credential123",
+            "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+            "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+            "validFrom": "2010-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://www.example.org/persons/pat",
+              "name": "Pat",
+              "alumniOf": {
+                "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                "name": "Example University"
+              }
+            },
+            "credentialSchema" : {
+              "id": "https://university.example/Credential123-schema.json",
+              "type": "JsonSchema"
+            }
+          }
+        </pre>
+
+        <p>When dereferenced, the URL `https://university.example/Credential123-schema.json` should return a JSON Schema, for example:</p>
+        
+        <pre class="example nohighlight" title="A simple Credential with a JSON Schema">
+          {
+            "$id": "https://example.com/schemas/email.json",
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "title": "ExampleAlumniCredential",
+            "description": "Alumni Credential using JsonSchema",
+            "type": "object",
+            "properties": {
+            "credentialSubject": {
+              "type": "object",
+              "properties": {
+                "alumniOf": {
+                  "type": "string",
+                  "format": "url"
+                }
+              },
+              "required": [
+                  "alumniOf"
+                ]
+              }
+            }
+          }
+        </pre>
+
+        <p>
+          For security reasons one may want to go further: check/verify the JSON Schema itself. This can be done by referring to the JSON Schema _indirectly_, namely through a Verifiable Credential.
+          The reference to such a Verifiable Credential looks very much like <a href="#example-a-simple-credential-with-a-json-schema"></a> except for the value of the `type`:
+        </p>
+
+        <pre class="example nohighlight" title="A simple Credential with a JSON Schema">
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://www.example.org/vocabs/alumni"
+            ],
+            "id": "https://university.example/Credential123",
+            "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+            "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+            "validFrom": "2010-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://www.example.org/persons/pat",
+              "name": "Pat",
+              "alumniOf": {
+                "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                "name": "Example University"
+              }
+            },
+            "credentialSchema" : {
+              "id": "https://university.example/Credential123-schema-credential",
+              "type": "JsonSchemaCredential"
+            }
+          }
+        </pre>
+
+        <p>
+          In this case, when dereferenced, the URL `https://university.example/Credential123-schema-credential` should return a Verifiable Credential, whose `credentialSubject` property should refer to a bona fide JSON Schema. 
+          See <a data-cite="VC-JSON-SCHEMA#jsonschemacredential">the example</a> in the [[[VC-JSON-SCHEMA]]] specification for further details.
+        </p>
+      </section>
+    </section>
+
+    <section>
+      <h2>Securing Credentials</h2>
+
+      <section>
+        <h3>Enveloping Proofs</h3>
+
+        <p>
+          Enveloping proofs of Credentials, defined by this Working Group, are based JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), CBOR Object Signing and Encryption (COSE) [[RFC9052]], or Selective Disclosure for JWTs [[SD-JWT]]. 
+          These are all based IETF specifications (or families of specifications, like JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
+          The [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] specification makes the “bridge” between these and the [[[VC-DATA-MODEL-2.0]]],
+          specifying the suitable header claims, media types, etc.
+        </p>
+
+        <p>
+          The common in all approaches is that the Credential (or Presentation) is the (unencoded) _payload_ (to use the IETF terminology), which is supplemented by a suitable header and, for verification, a signature.
+          These are then encoded, signed, and concatenated to be transferred in a compact form by one entity to an other (e.g., sent by the holder to the verifier).
+          All the intricate details on signatures, encryption keys, etc., are defined by the IETF specifications.
+        </p>
+
+        <p>
+          A simple (unencoded) example for the JOSE case is as follows:
+        </p>
+        <pre class="example nohighlight" title="A simple Credential in JWT">
+          // Header
+          {
+            "iss": "did:example:2g55q912ec3476eba2l9812ecbfe",
+            "alg": "HS256",
+            "cty": "vc+ld+json",
+            "typ": "vc+ld+json+jwt"
+          }
+
+          ---
+          
+          // Payload
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://www.example.org/vocabs/alumni"
+            ],
+            "id": "https://university.example/Credential123",
+            "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+            "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+            "validFrom": "2010-01-01T00:00:00Z",
+            "credentialSubject": {
+              "id": "https://www.example.org/persons/pat",
+              "name": "Pat",
+              "alumniOf": {
+                "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                "name": "Example University"
+              }
+            }
+          }
+        </pre>
+
+        <p>
+          As a next step, the header and the payload is encoded, concatenated, and then signed using the methods defined by JWS [[RFC7515]]. 
+          The encoded and signed Credential could look like (depending on the signature secret):
+        </p>
+
+        <pre class="example nohighlight" title="A simple Credential in JOSE">
+          <span style="color:red">eyJpc3MiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwiYWxnIjoiSFMyNTYiLCJjdHkiOiJ2YytsZCtqc29uIiwidHlwIjoidmMrbGQranNvbitqd3QifQ.</span>eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3d3dy5leGFtcGxlLm9yZy92b2NhYnMvYWx1bW5pIl0sImlkIjoiaHR0cHM6Ly91bml2ZXJzaXR5LmV4YW1wbGUvQ3JlZGVudGlhbDEyMyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFeGFtcGxlQWx1bW5pQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwidmFsaWRGcm9tIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUub3JnL3BlcnNvbnMvcGF0IiwibmFtZSI6IlBhdCIsImFsdW1uaU9mIjp7ImlkIjoiZGlkOmV4YW1wbGU6YzI3NmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9fX0.<span style="color:blue">b91tE1oZjpS4_84--SOYbiXC_dO4Xmrx12EFgxdWD_I</span>
+        </pre>
+
+
+        <p>
+          The COSE [[RFC9052]] is similar to JOSE, except that all structures are represented in CBOR [[RFC8949]].
+          This results for a payload with significantly smaller footprint.
+          From the Credentials point of view, however, the structure is similar insofar as the Credential (or the Presentation) is again the payload for COSE.
+          The result is a Credential representation that can be, for example, encoded in a QR Code.
+        </p>
+
+        <p>
+          The [[[SD-JWT]]] [[SD-JWT]] is a variant of JOSE, which allows for the selective disclosure of individual claims. 
+          Claims can be selectively hidden or revealed to the verifier, but nevertheless all claims are cryptographically protected against modification.
+          This approach is obviously more complicated than the JOSE case but, from the Credentials point of view, the structure is again similar.
+          The original Credential is the payload for SD-JWT; and it is the holder’s responsibility to use the SD-JWT approach when presenting the Credential to a verifier using selective disclosure.
+        </p>
+
+      </section>
+
+      <section>
+        <h3>Embedded Proofs</h3>
+
+        <section>
+          <h4>Generic Data Integrity Structure</h4>
+        </section>
+
+        <section>
+          <h4>Cryptosuites</h4>
+        </section>
 
       </section>
     </section>
