@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-0.5 -0.5 991 111">
+    <a xlink:href="https://www.w3.org/TR/vc-json-schema/" target="_blank">
+        <rect width="115" height="60" x="20.01" y="20" fill="none" stroke="#000" pointer-events="all" rx="9" ry="9"/>
+        <switch transform="translate(-.5 -.5)">
+            <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:113px;height:1px;padding-top:50px;margin-left:21px">
+                    <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                        <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                            <font>
+                                <span style="font-size:20px">
+                                    Credential
+                                </span>
+                                <br/>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </foreignObject>
+            <text xmlns="http://www.w3.org/2000/svg" x="78" y="55" font-family="Helvetica" font-size="16" text-anchor="middle">Credential
+</text>
+        </switch>
+    </a>
+    <a xlink:href="https://www.w3.org/TR/vc-json-schema/" target="_blank">
+        <rect width="115" height="60" x="855" y="20" fill="none" stroke="#000" pointer-events="all" rx="9" ry="9"/>
+        <switch transform="translate(-.5 -.5)">
+            <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:113px;height:1px;padding-top:50px;margin-left:856px">
+                    <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                        <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                            <font>
+                                <span style="font-size:20px">
+                                    Credential with Proof
+                                </span>
+                                <br/>
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </foreignObject>
+            <text xmlns="http://www.w3.org/2000/svg" x="913" y="55" font-family="Helvetica" font-size="16" text-anchor="middle">Credential wit...</text>
+        </switch>
+    </a>
+    <path fill="none" stroke="#000" stroke-miterlimit="10" d="M211 20h120l30 30-30 30H211l30-30Z" pointer-events="all"/>
+    <switch transform="translate(-.5 -.5)">
+        <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:148px;height:1px;padding-top:50px;margin-left:212px">
+                <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                        <font style="font-size:20px">
+                            Transform
+                        </font>
+                        <div style="font-size:20px">
+                            <font style="font-size:20px">
+                                Credential
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </foreignObject>
+        <text xmlns="http://www.w3.org/2000/svg" x="286" y="54" font-family="Helvetica" font-size="12" text-anchor="middle">Transform...</text>
+    </switch>
+    <path fill="none" stroke="#000" stroke-miterlimit="10" d="M420 20h120l30 30-30 30H420l30-30Z" pointer-events="all"/>
+    <switch transform="translate(-.5 -.5)">
+        <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:148px;height:1px;padding-top:50px;margin-left:421px">
+                <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                        <div style="font-size:20px">
+                            <font style="font-size:20px">
+                                Hash
+                            </font>
+                        </div>
+                        <div style="font-size:20px">
+                            <font style="font-size:20px">
+                                Credential
+                            </font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </foreignObject>
+        <text xmlns="http://www.w3.org/2000/svg" x="495" y="54" font-family="Helvetica" font-size="12" text-anchor="middle">Hash...</text>
+    </switch>
+    <path fill="none" stroke="#000" stroke-miterlimit="10" d="M629 20h120l30 30-30 30H629l30-30Z" pointer-events="all"/>
+    <switch transform="translate(-.5 -.5)">
+        <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:148px;height:1px;padding-top:50px;margin-left:630px">
+                <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                    <div style="display:inline-block;font-size:12px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                        <div style="font-size:20px">
+                            <span style="background-color:initial">
+                                Generate
+                            </span>
+                        </div>
+                        <div style="font-size:20px">
+                            <span style="background-color:initial">
+                                Proof
+                            </span>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </foreignObject>
+        <text xmlns="http://www.w3.org/2000/svg" x="704" y="54" font-family="Helvetica" font-size="12" text-anchor="middle">Generate...</text>
+    </switch>
+    <path fill="none" stroke="#000" stroke-miterlimit="10" d="M135.01 50H241M361 50h89M570 50h89M779 50h76" pointer-events="stroke"/>
+</svg>
