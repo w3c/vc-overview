@@ -8,7 +8,7 @@
                         <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
                             <font>
                                 <span style="font-size:20px">
-                                    Credential
+                                    Data
                                 </span>
                                 <br/>
                             </font>
@@ -16,7 +16,7 @@
                     </div>
                 </div>
             </foreignObject>
-            <text xmlns="http://www.w3.org/2000/svg" x="78" y="55" font-family="Helvetica" font-size="16" text-anchor="middle">Credential
+            <text xmlns="http://www.w3.org/2000/svg" x="78" y="55" font-family="Helvetica" font-size="16" text-anchor="middle">Data
 </text>
         </switch>
     </a>
@@ -29,7 +29,7 @@
                         <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
                             <font>
                                 <span style="font-size:20px">
-                                    Credential with Proof
+                                    Data with Proof
                                 </span>
                                 <br/>
                             </font>
@@ -37,7 +37,7 @@
                     </div>
                 </div>
             </foreignObject>
-            <text xmlns="http://www.w3.org/2000/svg" x="913" y="55" font-family="Helvetica" font-size="16" text-anchor="middle">Credential wit...</text>
+            <text xmlns="http://www.w3.org/2000/svg" x="913" y="55" font-family="Helvetica" font-size="16" text-anchor="middle">Data with Proo...</text>
         </switch>
     </a>
     <path fill="none" stroke="#000" stroke-miterlimit="10" d="M211 20h120l30 30-30 30H211l30-30Z" pointer-events="all"/>
@@ -51,7 +51,7 @@
                         </font>
                         <div style="font-size:20px">
                             <font style="font-size:20px">
-                                Credential
+                                Data
                             </font>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div style="font-size:20px">
                             <font style="font-size:20px">
-                                Credential
+                                Data
                             </font>
                         </div>
                     </div>

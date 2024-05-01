@@ -2,7 +2,7 @@
 <html>
 
   <head>
-    <title>Verifiable Credentials Document Overview</title>
+    <title>Verifiable Credentials Overview</title>
     <meta http-equiv='Content-Type' content='text/html;charset=utf-8' />
     <!--
       === NOTA BENE ===
@@ -115,7 +115,7 @@
         // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
         // Team Contact.
         //wgPatentURI:  "",
-        maxTocLevel: 3,
+        maxTocLevel: 4,
         lint: { "informative-dfn": false },
 
         /*preProcess: [ ],
@@ -164,6 +164,18 @@
             ],
             status: "I-D",
             publisher: "The IETF OAuth Working Group"
+          },
+          "CFRG-BBS-SIGNATURE": {
+            title: "The BBS Signature Scheme",
+            href: "https://www.ietf.org/archive/id/draft-irtf-cfrg-bbs-signatures-05.html",
+            authors: [
+              "Tobias Looker",
+              "Vasilis Kalos",
+              "Andrew Whitehead",
+              "Mike Lodder",
+            ],
+            status: "I-D",
+            publisher: "IETF"
           }
         },
         // postProcess: [restrictRefs],
@@ -417,7 +429,7 @@
           Most of the properties in the Credential are from the standard Verifiable Credentials vocabulary, but some terms (like `alumniOf`, `AlumniCredential`) are added by the application-specific vocabulary referred to by `https://www.example.org/vocabs/alumni`.
         </p>
 
-        <pre class="example nohighlight" title="A Simple Credential">
+        <pre id="base_example" class="example nohighlight" title="A Simple Credential">
         {
           "@context": [
             "https://www.w3.org/ns/credentials/v2",
@@ -447,12 +459,12 @@
                               Presentation contains Presentation Metadata, Verifiable
                               Credential(s), and Proof(s)">
           <figcaption style="text-align: center;">
-            Credential in <a href="#example-a-simple-credential"></a> represented as a collection of claims.
+            Credential in <a href="#base_example"></a> represented as a collection of claims.
           </figcaption>
         </figure>
 
         <p>
-          The Credential in <a href="#example-a-simple-credential"></a>, issued by Example University, is stored by a holder (who may be simple the subject of the credential, i.e., John Doe). On request, the holder may “present” a Credential to a verifier, by encapsulating the Credential in a Verifiable Presentation. This is how the result looks like in the JSON-LD serialization:
+          The Credential in <a href="#base_example"></a>, issued by Example University, is stored by a holder (who may be simple the subject of the credential, i.e., John Doe). On request, the holder may “present” a Credential to a verifier, by encapsulating the Credential in a Verifiable Presentation. This is how the result looks like in the JSON-LD serialization:
         </p>
 
         <pre class="example nohighlight" title="Presenting the Credential">
@@ -498,7 +510,7 @@
           Consider the following example:
         </p>
 
-        <pre class="example nohighlight" title="A Simple Credential with a JSON Schema">
+        <pre id="base_example_schema" class="example nohighlight" title="A Simple Credential with a JSON Schema">
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
@@ -550,8 +562,9 @@
         </pre>
 
         <p>
-          For security reasons one may want to go further: check/verify the JSON Schema itself. This can be done by referring to the JSON Schema _indirectly_, namely through a Verifiable Credential.
-          The reference to such a Verifiable Credential looks very much like <a href="#example-a-simple-credential-with-a-json-schema"></a> except for the value of the `type`:
+          For security reasons one may want to go further: check/verify the JSON Schema itself. 
+          This can be done by referring to the JSON Schema <em>indirectly</em> through a Verifiable Credential.
+          The reference to such a Verifiable Credential looks very much like <a href="#base_example_schema"></a> except for the value of the `type`:
         </p>
 
         <pre class="example nohighlight" title="A Simple Credential with a JSON Schema Credential">
@@ -594,120 +607,151 @@
 
         <p>
           Enveloping proofs of Credentials, defined by this Working Group, are based JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), CBOR Object Signing and Encryption (COSE) [[RFC9052]], or Selective Disclosure for JWTs [[SD-JWT]]. 
-          These are all based IETF specifications (or families of specifications, like JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
+          These are all based IETF specifications (or families of specifications, like JOSE that refers to JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
           The [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] specification makes the “bridge” between these and the [[[VC-DATA-MODEL-2.0]]],
           specifying the suitable header claims, media types, etc.
         </p>
 
         <p>
-          The common in all approaches is that the Credential (or Presentation) is the (unencoded) _payload_ (to use the IETF terminology), which is supplemented by a suitable header and, for verification, a signature.
-          These are then encoded, signed, and concatenated to be transferred in a compact form by one entity to an other (e.g., sent by the holder to the verifier).
-          All the intricate details on signatures, encryption keys, etc., are defined by the IETF specifications.
+          The common in all approaches is that the Credential (or Presentation) is the (unencoded) “payload” (to use the IETF terminology), which is supplemented by a suitable header and, for verification, a signature.
+          These are encoded, signed, and concatenated to be transferred in a compact form by one entity to an other (e.g., sent by the holder to the verifier)
+          All the intricate details on signatures, encryption keys, etc., are defined by the IETF specifications; see <a href="#base_example_jwt_unencoded"></a> for a specific case.
         </p>
-
-        <p>
-          A simple (unencoded) example for the JOSE case is as follows:
-        </p>
-        <pre class="example nohighlight" title="A Simple Credential in JWT">
-          // Header
-          {
-            "iss": "did:example:2g55q912ec3476eba2l9812ecbfe",
-            "alg": "HS256",
-            "cty": "vc+ld+json",
-            "typ": "vc+ld+json+jwt"
-          }
-
-          ---
-          
-          // Payload
-          {
-            "@context": [
-              "https://www.w3.org/ns/credentials/v2",
-              "https://www.example.org/vocabs/alumni"
-            ],
-            "id": "https://university.example/Credential123",
-            "type": ["VerifiableCredential", "ExampleAlumniCredential"],
-            "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
-            "validFrom": "2010-01-01T00:00:00Z",
-            "credentialSubject": {
-              "id": "https://www.example.org/persons/pat",
-              "name": "Pat",
-              "alumniOf": {
-                "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
-                "name": "Example University"
-              }
-            }
-          }
-        </pre>
-
-        <p>
-          As a next step, the header and the payload is encoded, concatenated, and then signed using the methods defined by JWS [[RFC7515]]. 
-          The encoded and signed Credential could look like (depending on the signature secret):
-        </p>
-
-        <pre class="example nohighlight" title="A Simple Credential Enveloped using JOSE">
-          <span style="color:red">eyJpc3MiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwiYWxnIjoiSFMyNTYiLCJjdHkiOiJ2YytsZCtqc29uIiwidHlwIjoidmMrbGQranNvbitqd3QifQ.</span>eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3d3dy5leGFtcGxlLm9yZy92b2NhYnMvYWx1bW5pIl0sImlkIjoiaHR0cHM6Ly91bml2ZXJzaXR5LmV4YW1wbGUvQ3JlZGVudGlhbDEyMyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFeGFtcGxlQWx1bW5pQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwidmFsaWRGcm9tIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUub3JnL3BlcnNvbnMvcGF0IiwibmFtZSI6IlBhdCIsImFsdW1uaU9mIjp7ImlkIjoiZGlkOmV4YW1wbGU6YzI3NmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9fX0.<span style="color:blue">b91tE1oZjpS4_84--SOYbiXC_dO4Xmrx12EFgxdWD_I</span>
-        </pre>
-
 
         <p>
           The COSE [[RFC9052]] is similar to JOSE, except that all structures are represented in CBOR [[RFC8949]].
           This results for a payload with significantly smaller footprint.
-          From the Credentials point of view, however, the structure is similar insofar as the Credential (or the Presentation) is again the payload for COSE.
+          From the Credentials point of view, however, the structure is similar insofar as the Credential (or the Presentation)
+          is again the payload for COSE.
           The result is a Credential representation that can be, for example, encoded in a QR Code.
         </p>
-
+        
         <p>
-          The [[[SD-JWT]]] [[SD-JWT]] is a variant of JOSE, which allows for the selective disclosure of individual claims. 
-          Claims can be selectively hidden or revealed to the verifier, but nevertheless all claims are cryptographically protected against modification.
-          This approach is obviously more complicated than the JOSE case but, from the Credentials point of view, the structure is again similar.
-          The original Credential is the payload for SD-JWT; and it is the holder’s responsibility to use the SD-JWT approach when presenting the Credential to a verifier using selective disclosure.
+          The [[[SD-JWT]]] [[SD-JWT]] is a variant of JOSE, which allows for the selective disclosure of individual claims.
+          Claims can be selectively hidden or revealed to the verifier, but nevertheless all claims are cryptographically
+          protected against modification.
+          This approach is obviously more complicated than the JOSE case but, from the Credentials point of view, the structure
+          is similar.
+          The original Credential is the payload for SD-JWT; and it is the holder’s responsibility to use the SD-JWT approach
+          when presenting the Credential to a verifier using selective disclosure.
         </p>
 
+        <section>
+          <h4>A Complete Example with JOSE</h4>
+
+          <p>
+            The Credential example, shown in <a href="#base_example"></a>, and enriched with a reference to a JSON Schema in <a
+              href="#base_example_schema"></a>, can be secured via an enveloping proof as follows:
+          <p>
+          <pre id="base_example_jwt_unencoded" class="example nohighlight" title="A Simple Credential in JWT (unencoded)">
+            // Header
+            {
+              "iss": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "alg": "HS256",
+              "cty": "vc+ld+json",
+              "typ": "vc+ld+json+jwt"
+            }
+
+            ---
+            
+            // Payload
+            {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://www.example.org/vocabs/alumni"
+              ],
+              "id": "https://university.example/Credential123",
+              "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+              "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://www.example.org/persons/pat",
+                "name": "Pat",
+                "alumniOf": {
+                  "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                  "name": "Example University"
+                },
+                "credentialSchema" : {
+                  "id": "https://university.example/Credential123-schema-credential",
+                  "type": "JsonSchemaCredential"
+                }
+              }
+            }
+          </pre>
+
+          <p>
+            As a next step, the header and the payload is encoded, concatenated, and then signed using the methods defined by JWS [[RFC7515]]. 
+            The encoded and signed Credential could look like (depending on the signature secret):
+          </p>
+
+          <pre  id="base_example_jwt_encoded" class="example nohighlight" title="A Simple Credential Enveloped using JOSE">
+
+            <span style="color:red">eyJpc3MiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwiYWxnIjoiSFMyNTYiLCJjdHkiOiJ2YytsZCtqc29uIiwidHlwIjoidmMrbGQranNvbitqd3QifQ.</span>eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3d3dy5leGFtcGxlLm9yZy92b2NhYnMvYWx1bW5pIl0sImlkIjoiaHR0cHM6Ly91bml2ZXJzaXR5LmV4YW1wbGUvQ3JlZGVudGlhbDEyMyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFeGFtcGxlQWx1bW5pQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwidmFsaWRGcm9tIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUub3JnL3BlcnNvbnMvcGF0IiwibmFtZSI6IlBhdCIsImFsdW1uaU9mIjp7ImlkIjoiZGlkOmV4YW1wbGU6YzI3NmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9LCJjcmVkZW50aWFsU2NoZW1hIjp7ImlkIjoiaHR0cHM6Ly91bml2ZXJzaXR5LmV4YW1wbGUvQ3JlZGVudGlhbDEyMy1zY2hlbWEtY3JlZGVudGlhbCIsInR5cGUiOiJKc29uU2NoZW1hQ3JlZGVudGlhbCJ9fX0.<span style="color:blue">GWlu7UyajDlXO6vCAfWuhfqcgHK2Vy1LL7BzyGk-k-E</span>
+          </pre>
+        </section>
       </section>
 
       <section>
         <h3>Embedded Proofs</h3>
 
         <section>
-          <h4>Generic Data Integrity Structure</h4>
+          <h4 id="di-integrity-structure">Generic Data Integrity Structure</h4>
 
           <p>
             The operation of Data Integrity is conceptually simple. To create a cryptographic proof, the following steps are performed: 1) Transformation, 2) Hashing, and 3) Proof Generation.
           </p>
 
-          <figure id="credential-example-claims">
+          <figure id="di-integrity-structure-figure">
             <img style="margin: auto; display: block; width: 90%;" src="diagrams/di_crypto_proof.svg" alt="TBD">
             <figcaption style="text-align: center;">
-              Credential in <a href="#example-a-simple-credential"></a> represented as a collection of claims.
+              Generic view of the proof generation steps.
             </figcaption>
           </figure>
 
+
+          <ol>
+            <li>
+              <em>Transformation</em> is a process described by a <em>transformation algorithm</em> that takes input data and prepares it for the hashing process.
+              In the case of any kind of data serialized in JSON this transformation means to remove all the artifacts that do not influence the semantics of the data like spaces, new lines, order of JSON names, etc. 
+              This step is often referred to as <em>canonicalization</em>.
+            </li>
+            <li>
+              <em>Hashing</em> is a process described by a <em>hashing algorithm</em> that calculates an identifier for the transformed data using a
+              <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">cryptographic hash function</a>.
+              Typically, the size of the resulting hash is smaller than the data, which makes it more suitable for complex cryptographic functions like signatures.
+            </li>
+            <li>
+              <em>Proof Generation</em> is a process described by a <em>proof method</em> that calculates a value that protects the
+              integrity of the input data from modification or otherwise proves a certain desired threshold of trust.
+              A typical example is the application of a cryptographic signature method using asymmetric keys, yielding the signature of the data.
+            </li>
+          </ol>
+
           <p>
-            <em>Transformation</em> is the process that prepares the Credential for the hashing process. 
-            Typically, this means to canonicalize the serialized Credential so that different artifacts of serialization (number of spacing, order of claims, etc) would not affect the final result. 
-            <em>Hashing</em> uses one of the well known cryptographic hash functions applied on the canonicalized Credential. 
-            Finally, <em>proof generation</em> uses some cryptographic tool to generate a value that cryptographically protects the data from modification or otherwise proves a certain desired threshold of trust. 
-            A simple example for this step is to generate a cryptographic signature of the hashed Credential. 
+            <em>Verification</em> of a proof involves repeating the same steps on the verifier’s side and, depending on the proof method, validating the proof value. 
+            In the case of a signature, this test usually involves comparing the calculated signature value with the one which is embedded in the data.
+          </p>
+        </section>
+        <section>
+          <h4>VC Data Integrity</h4>
+
+          <p>
+            The [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification relies on the general structure to define a set of standard properties describing the details of the proof generation process.
+            The specific proof generation details (canonicalization, hash and/or proof method algorithms, etc.) are defined by <em>cryptosuites</em>. 
+            The Working Group has defined a number of such cryptosuites as separate specifications, see <a href="#cryptosuites"></a> below.
           </p>
 
           <p>
-            <em>Verification</em> of a proof involves repeating the same steps on the verifier’s side and, depending on the nature of the proof, validating the signature. 
-            In the case of a signature, this test usually involves comparing the calculated signature value and the one part of the embedded proof.
-          </p>
-
-          <p>
-            The [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification relies on this general structure and defines a set of standard properties describe the details of the proof generation process.
-            The specific proof generation details (canonicalization methods, hash and/or signature algorithms, etc.) are defined by the separate <em>cryptosuite</em> specifications. 
-            The central property is the `proof` property: it used to embed a claim into the Credential for the proof details:
+            The core property, in the general structure, is `proof`. 
+            This property embeds a claim into the Credential, referring to a separate collection of claims (a <em>ProofGraph</em>) detailing all the claims about the proof itself.
+            See the example below:
           </p>
 
           <pre class="example nohighlight" title="Skeleton of a proof added to a Credential">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://www.example.org/vocabs/alumni",
-                "https://w3id.org/security/data-integrity/v2"
+                "https://www.example.org/vocabs/alumni"
               ],
               "id": "https://university.example/Credential123",
               "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -728,30 +772,163 @@
               "proof" : {
                 "type": "DataIntegrityProof",
                 …
+                // All the details about the proof
+                …
                 "proofValue": "zQeVb…Wx"
               }
             }
           </pre>
 
           <p>
-            Note the new value in the context (`https://w3id.org/security/data-integrity/v2`) which identifies a separate vocabulary, and the `proofValue` property with the result of the proof generation process.
-            The <a data-cite="VC-DATA-INTEGRITY#proof">definition of `proof`</a> introduces a number standard properties that can be used for metadata-like claims (e.g., `created`, `expires`, `domain`, `proofPurpose`), and claims that identify the cryptosuite, cryptographic keys, a nonce value if needed, and of course the `proofValue` itself.
+            Note the `proofValue` property, whose object is the result of the proof generation process.
+          </p>
+
+          <p class="note">
+            The proof value is for illustrative purposes only, and does not reflect the result of real cryptographic calculations.
           </p>
 
           <p>
-            Public cryptographic keys may be embedded in the proof structure (via the <a data-cite="VC-DATA-INTEGRITY#verification-methods">`verificationMethod`</a> property).
-            The keys themselves may be expressed in various formats, for example using JWK [[RFC7517]] or using a Multibase [[MULTIBASE]] encoding of the public and private keys.
-            <!-- Keys may be also referred to, if they are available on the Web, for example, or may be exposed to a verifier by other means, in which case they do not appear in the embedded proof. -->
+            The <a data-cite="VC-DATA-INTEGRITY#proof">definition of `proof`</a> introduces a number of additional properties. 
+            Some of these are metadata properties on the proof, like `created`, `expires`, or `domain`. 
+            Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to the cryptographic keys.
+            The public and private keys themselves may be expressed in JWK [[RFC7517]] format or using a Multibase [[MULTIBASE]] encoding of the keys, called <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a>.
+            Details of the key formats are defined by other communities (IETF, cryptography experts, etc.) and they are very dependent on the specific cryptographic functions they operate on.
           </p>
 
           <p>
-            It is possible to embed several proofs for the same Credentials either as a set of independent proofs, or as a “chain” or proofs that must be evaluated in a given order.
-            A proof may specify its “purpose”: a different proof is provided if the verifier does authentication of key agreement protocols.
+            It is possible to embed several proofs for the same Credentials.
+            These may be a set of independent proofs (based, for example, on different cryptosuites, to accommodate to the specificities of a verifier), but may also be a “chain” of proofs that must be evaluated in a given order.
           </p>
+
+          <p>
+            A proof may also specify its “purpose” via the `proofPurpose` property: different proofs may be provided for authentication, for assertion, or for key agreement protocols.
+            The verifier is supposed to choose the right proof depending on the purpose of its own operations, which is yet another possible reasons why the holder or the issuer may provide several proofs for the same Credential.
+          </p>
+
         </section>
 
         <section>
           <h4>Cryptosuites</h4>
+
+
+          <p>
+            The Working Group publishes three cryptosuite documents: [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
+            As their name suggests, the documents rely on existing cryptographic signature schemes: the Elliptic Curve Digital Signature Algorithm (ECDSA) specification [[FIPS-186-5]], the Edwards-Curve Digital Signature Algorithm (EdDSA) specification [[RFC8032]], and the BBS Signature Scheme [[CFRG-BBS-SIGNATURE]], respectively.
+          </p>
+ 
+
+          <figure id="cryptosuites-diagram">
+            <img style="margin: auto; display: block; width: 90%;" src="diagrams/cryptosuites.svg" alt="TBD">
+            <figcaption style="text-align: center;">
+              Generic view of the proof generation steps.
+            </figcaption>
+          </figure>
+
+          <p>
+            <a href="#cryptosuites-diagram"></a> provides an overall view of the six cryptosuites defined by the three recommendations. 
+            They all implement the general structure of proofs as described in <a href="#di-integrity-structure"></a>. 
+            As shown on the figure, one axes of differentiation is the data transformation function, i.e., the canonicalization of the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], the other use RDF Dataset Canonicalization (RDFC-1.0) [[RDF-CANON]]. 
+            The other axis is whether the cryptosuite provides selective disclosure or not which is the case for two of the six cryptosuites.
+          </p>
+
+          <p class="note">
+            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a> encoding. 
+            Also, the keys, whose exact formats are defined in the respective signature scheme specifications, also carry the choice of the hash functions to be used by the proof generation. 
+            This provides yet another differentiation axis among cryptosuites although, in practice, SHA-256 [[RFC6234]] is usually used.
+          </p>
+
+          <section>
+            <h5>Full Disclosure Schemes</h5>
+
+            <p>
+              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow the proof generation structure as described in <a href="#di-integrity-structure"></a>: the Credential is canonicalized (using either JCS or RDFC-1.0), the result is hashed (using the hash functions as defined by the signature key), and the proof is generated using that hash value. 
+              There is, however, an extra twist: the schemes also use a set of claims called “proof options”, which are all the proof related claims that are to be embedded into the final data <em>except</em> `proofValue`. 
+              This set of claims is also canonicalized and hashed following the same process as for the Credential, yielding a second hash value. 
+              <em>It is the concatenation of these two values</em> that is signed by EdDSA or ECDSA, respectively, producing a value for `proofValue`.
+           </p>
+
+          </section>
+
+          <section>
+            <h5>Selective Disclosure Schemes</h5>
+
+            <p>
+              The `ecdsa-sd-2023` and `bbs-2023` cryptosuites provide selective disclosures of individual claims. 
+              In both cases, the process separates the “Base Proof” (calculated by the issuer), and the “Derived Proof” (which is typically calculated by the holder when selectively presenting the credential claims to the verifier). 
+              The challenge is that the verifier should check that the holder can be trusted when verifying a partial value, without having access to the full original data.
+            </p>
+
+            <p>
+              To calculate the Base Proof, the Credential is supplemented with some extra information that define the “mandatory” and “non-mandatory” claims.
+              Using that extra information, the transformation step described in <a href="#di-integrity-structure"></a> does not only canonicalize the Credential, but also transforms it by explicitly separating these two types of claims into their own sets.
+              Furthermore, each non-mandatory claim must be signed individually, yielding a series of signatures.
+              The final Base Proof is a conceptual and encoded concatenation of all these signatures and related informations like the information on mandatory and non-mandatory claims.
+            </p>
+
+            <p>
+              The Derived Proof is generated by the holder, when presenting of the (derived) Credential.
+              These data are combined with the kind of selective disclosure requests the holder is prepared to honor; it is the combination of all these data that are used for the creation of a Derived Proof that is forwarded to the verifier.
+            </p>
+          </section>
+        </section>
+
+        <section>
+          <h4>A Complete Example with ECDSA</h4>
+
+          <p>
+            The Credential example, shown in <a href="#base_example"></a>, and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>, can be secured via an embedded proof as follows:
+          <p>
+
+          <pre class="example nohighlight" title="An ECDSA proof added to a Credential">
+            {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://www.example.org/vocabs/alumni"
+              ],
+              "id": "https://university.example/Credential123",
+              "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+              "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://www.example.org/persons/pat",
+                "name": "Pat",
+                "alumniOf": {
+                  "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                  "name": "Example University"
+                }
+              },
+              "credentialSchema" : {
+                "id": "https://university.example/Credential123-schema-credential",
+                "type": "JsonSchemaCredential"
+              },
+              "proof" : {
+                "type": "DataIntegrityProof",
+                "cryptosuite": "ecdsa-rdfc-2019",
+                "created": "2010-01-01T00:00:00Z",
+                "expires": "2040-01-01T00:00:00Z",
+                "verificationMethod: "did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key"
+                "proofPurpose": "assertionMethod"
+                "proofValue": "zQeVb…Wx"
+              }
+            }
+          </pre>
+          
+          <p>
+            When dereferenced, the URL `did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key` should return a (public) ECDSA key in Multikey, for example:
+          </p>
+          
+          <pre class="example nohighlight" title="An ECDSA public key">
+            {
+              "@context": [
+                "https://www.w3.org/ns/did/v1",
+                "https://w3id.org/security/multikey/v1"
+              ],
+              "id": "did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key",
+              "type": "Multikey",
+              "controller": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "publicKeyMultibase": "z42twTcNeSYcnqg1FLuSFs2bsGH3ZqbRHFmvS9XMsYhjxvHN"
+            }
+          </pre>
         </section>
 
       </section>
