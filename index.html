@@ -1037,6 +1037,111 @@
       </p>
     </section>
 
+    <section class="appendix">
+      <h3>Lifecycle Details</h3>
+    
+      <p>
+        The previous sections provided an overview of the Verifiable Credential ecosystem. 
+        This section provides more details about how the ecosystem is envisaged to operate.
+      </p>
+    
+      <figure id="life-cycle-details">
+        <img style="margin: auto; display: block; width: 85%;" src="diagrams/ecosystemdetail.svg" alt="diagram showing how
+              credentials flow from issuer to holder, and optionally
+              from one holder to another; and how
+              presentations flow from holder to verifier,
+              optionally from one verifier to another through verification and validation.
+              All parties can use information from a logical
+              verifiable data registry. Holder may also delete credential.">
+        <figcaption style="text-align: center;">
+          Lifecycle of a single Verifiable Credential: the roles and information flows for this specification.
+        </figcaption>
+      </figure>
+          
+      <p>
+        The roles and information flows in the Verifiable Credential ecosystem are as follows:
+      </p>
+    
+      <ul>
+        <li>
+          An issuer issues a Verifiable Credential to a holder. 
+          Issuance always occurs before any other actions involving a Credential.
+        </li>
+        <li>
+          A holder might transfer one or more of its Verifiable credentials to another holder.
+        </li>
+        <li>
+          A holder presents one or more of its verifiable credentials to a verifier, optionally inside a Verifiable Presentation.
+        </li>
+        <li>
+          A verifier verifies the authenticity of the presented Verifiable Presentation and Verifiable Credentials and checks any credential status (if present) of the Verifiable Credentials.
+        </li>
+        <li>
+          After verification, a verifier validates the relevant claims in presented Verifiable Credentials, using their own business logic to evaluate which issuers are appropriate for which claims and which subjects are appropriate for the requested use.
+        </li>
+        <li>
+          An issuer might revoke a Verifiable Credential.
+        </li>
+        <li>
+          A holder might delete a Verifiable credential.
+        </li>
+      </ul>
+    
+      <p class="note">
+        The order of the actions above is not fixed, and some actions might be taken more than once. Such action-recurrence might be immediate or at any later point.
+      </p>
+    
+      <p>
+        The most common sequence of actions is envisioned to be:
+      </p>
+    
+      <ol>
+        <li>
+          An issuer issues a verifiable credential to a holder.
+        </li>
+        <li>
+          The holder presents to a verifier.
+        </li>
+        <li>
+          The verifier verifies.
+        </li>
+        <li>
+          The verifier validates claims.
+        </li>
+        <li>
+          The verifier applies valid claims.
+        </li>
+      </ol>
+    
+      <p>
+        These specifications do not define any protocol for transferring Verifiable Credentials or Verifiable Presentations, but assuming other specifications do specify how they are transferred between entities, then this Verifiable Credential Data Model is directly applicable.
+      </p>
+    
+      <p>
+        These specifications neither define an authorization framework nor does it restrict the business decisions that a verifier might make after verifying a Verifiable Credential or Verifiable presentation. 
+        Rather, verifiers apply their own business rules before treating any claim as valid, taking into account the holder, the issuer of the Verifiable Credential, the claims of the Verifiable credential, and the verifier’s own policies.
+      </p>
+    
+      <p>
+        In particular, Sections <a data-cite="VC-DATA-MODEL-2.0#terms-of-use"></a> and the <a href="https://w3c.github.io/vc-imp-guide/#subject-holder-relationships"> Subject-Holder Relationships</a> section in the Verifiable Credentials Implementation Guide [[VC-IMP-GUIDE]] specify how a verifier can determine:
+      </p>
+    
+      <ul>
+        <li>
+          Whether the holder is a subject of a verifiable credential.
+        </li>
+        <li>
+          The relationship between the subject and the holder.
+        </li>
+        <li>
+          Whether the original holder passed a verifiable credential to a subsequent holder.
+        </li>
+        <li>
+          Any restrictions using the Verifiable credentials by the holder or verifier.
+        </li>
+      </ul>
+    </section>
+
   </body>
 
 </html>
