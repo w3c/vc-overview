@@ -241,10 +241,14 @@
         </p>
 
         <p>
+          When Verifiable Credentials are serialized in JSON it is important to trust that the structure of Credentials may be interpreted in a consistent manner by all participants of verifiable credential ecosystem.
+          The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] defines how [[JSON-SCHEMA]] can be used for that purpose.
+        </p>
+
+        <p>
           Credentials can be secured using two different mechanisms: [=enveloping proofs=] or [=embedded proofs=].
-          In both cases, a proof secures a Credential by cryptographic means (for example, digital signatures), which can be
-          verified by a “verifier” (for example, the receiver of the credential).
-          In the enveloping case the proof wraps the Credential,  whereas a embedded proofs are included in the serialization of the Credential itself.
+          In both cases, a proof secures a Credential by cryptographic means (for example, digital signatures), which can be verified by a “verifier” (for example, the receiver of the credential).
+          In the enveloping case the proof wraps the Credential, whereas a embedded proofs are included in the serialization of the Credential itself.
         </p>
 
         <p>
@@ -255,13 +259,8 @@
 
         <p>
           The general structure for embedded proofs is defined in a separate [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification.
-          Three instantiations of this general structure are also specified by the Working Group also defines in the forms of “cryptosuites”: [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
+          Some instantiations of this general structure are also specified by the Working Group in the forms of “cryptosuites” specifications: [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
           Other cryptosuites may be specified by the community.
-        </p>
-
-        <p>
-          Verifiable Credentials are serialized in JSON; it is important to trust that the structure of Credentials may be interpreted in a consistent manner by all participants of verifiable credential ecosystem. 
-          The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] defines how [[JSON-SCHEMA]] can be used for that purpose.
         </p>
 
         <p>
@@ -879,7 +878,7 @@
             The Credential example, shown in <a href="#base_example"></a>, and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>, can be secured via an embedded proof as follows:
           <p>
 
-          <pre class="example nohighlight" title="An ECDSA proof added to a Credential">
+          <pre id="base_example_ecdsa" class="example nohighlight" title="An ECDSA proof added to a Credential">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
@@ -932,6 +931,110 @@
         </section>
 
       </section>
+    </section>
+
+    <section>
+      <h2>Bitstring Status List</h2>
+      <p>
+        It is often useful for an issuer of verifiable credentials to link to a location where a verifier can check to see if a credential has been suspended or revoked. 
+        This additional resource is referred to as a “status list”.
+      </p>    
+      <p>
+        The simplest approach for a status list, where there is a one-to-one mapping between a Verifiable Credential and a URL where the status is published, raises privacy as well as performance issues.
+        In order to meet privacy expectations, it is useful to bundle the status of large sets of credentials into a single list to help with group privacy. 
+        However, doing so can place an impossible burden on both the server and client if the status information is as much as a few hundred bytes in size per credential across a population of hundreds of millions of holders.
+        The [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a highly compressible, highly space-efficient bitstring-based status list mechanism.
+        With this mechanism it is possible to create a status list where, in case a few hundred credentials have been revoked, the size of the list is less than a few hundred bytes while providing privacy in a group of 100,000 individuals.
+      </p>
+
+      <p>
+        Conceptually, a bitstring status list is a sequence of bits. 
+        When a single bit specifies a status, such as "revoked" or "suspended", then that status is expected to be true when the bit is set (1) and false when unset (0).
+        One of the benefits of using a bitstring is that it is a highly compressible data format since, in the average case, large numbers of credentials will remain unrevoked.
+        If compressed using run-length compression techniques such as gzip. 
+        The default status list size is 131,072 entries, equivalent to 16 KB of single bit values. 
+        When only a handful of verifiable credentials are revoked, GZIP compresses the bitstring to a few hundred bytes.
+      </p>
+
+      <figure id="bitstring-statuslist-concept">
+        <img style="margin: auto; display: block; width: 65%;" src="diagrams/BitstringStatusListConcept.svg" alt="TBD">
+        <figcaption style="text-align: center;">
+          A visual depiction of the concepts outlined in this section.
+        </figcaption>
+      </figure>
+
+      <p>
+        The specification introduces the `credentialStatus` property that should be used to add this additional entry to a Verifiable Credential. 
+        Our example from <a href="#base_example_ecdsa"></a> looks as follows, when expanded with a credential status:
+      </p>
+
+      <pre id="base_example_status_list" class="example nohighlight" title="Verifiable Credential with a Reference to a Status List">
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2",
+            "https://www.example.org/vocabs/alumni"
+          ],
+          "id": "https://university.example/Credential123",
+          "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+          "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+          "validFrom": "2010-01-01T00:00:00Z",
+          "credentialSubject": {
+            "id": "https://www.example.org/persons/pat",
+            "name": "Pat",
+            "alumniOf": {
+              "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+              "name": "Example University"
+            }
+          },
+          "credentialSchema" : {
+            "id": "https://university.example/Credential123-schema-credential",
+            "type": "JsonSchemaCredential"
+          },
+          "credentialStatus" : {
+            "id": "https://university.example/statuslist#123456",
+            "type": "BitstringStatusListEntry",
+            "statusPurpose": "revocation",
+            "statusListIndex": "123456",
+            "statusListCredential": "https://university.example/CredentialStatusList"
+          },
+          "proof" : {
+            "type": "DataIntegrityProof",
+            "cryptosuite": "ecdsa-rdfc-2019",
+            "created": "2010-01-01T00:00:00Z",
+            "expires": "2040-01-01T00:00:00Z",
+            "verificationMethod: "did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key"
+            "proofPurpose": "assertionMethod"
+            "proofValue": "zQeVb…Wx"
+          }
+        }
+      </pre>
+
+      <p>
+        Note the `statusListCredential` property; when dereferenced, it should return a Credential for the status list.
+        The status list itself is the subject of that Credential (which, of course, can also be signed). An example is: 
+      </p>
+
+      <pre id="status_list_credential_example" class="example nohighlight" title="A Credential for a Bitstring Status List">
+        {
+          "@context": [
+            "https://www.w3.org/ns/credentials/v2"
+          ],
+          "id": "https://university.example/CredentialStatusList",
+          "type": ["VerifiableCredential", "BitstringStatusListCredential"],
+          "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe"",
+          "validFrom": "2005-01-01T00:00:00",
+          "credentialSubject": {
+            "id": "https://university.example/statuslist#list",
+            "type": "BitstringStatusList",
+            "statusPurpose": "revocation",
+            "encodedList": "uH4sIAAAAAAAAA-3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAIC3AYbSVKsAQAAA"
+          }
+        }
+      </pre>
+
+      <p>
+        The core property in this case is `encodedList`, which is a base64url encoded version of the gzip compressed bitstring status list.
+      </p>
     </section>
 
   </body>
