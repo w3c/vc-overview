@@ -126,6 +126,15 @@
         alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
         */
         localBiblio: {
+          "CONTROLLER-DOCUMENT": {
+            title: "Controller Documents 1.0",
+            date: "May 2024",
+            href: "https://www.w3.org/TR/controller-document/",
+            authors: [
+              "Many Sporny",
+              "Michael B. Jones"
+            ]
+          },
           "MULTIBASE": {
             title: "The Multibase Data Format",
             date: "February 2023",
@@ -264,8 +273,9 @@
         <h2>High Level View of the Specifications</h2>
         <p>
           <a href="#overall"></a> provides and overview of the main building blocks for Verifiable Credentials, including their (normative) dependencies.
-          For more details, see the subsequent sections in this overview.
+          For more details, see the subsequent sections in this document.
         </p>
+
         <p>
           The [[[VC-DATA-MODEL-2.0]]] [[VC-DATA-MODEL-2.0]] specification, which defines the core concepts that all other specifications depend on, plays a central role.
           The model is defined in abstract terms, and applications express their specific credentials using a serialization of the data model.
@@ -295,7 +305,12 @@
         </p>
 
         <p>
-          Finally, the [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information, such as suspension or revocation of Verifiable Credentials, through the use of bitstrings.
+          The [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information, such as suspension or revocation of Verifiable Credentials, through the use of bitstrings.
+        </p>
+
+        <p>
+          Finally, the [[[CONTROLLER-DOCUMENT]]] [[CONTROLLER-DOCUMENT]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/controller-document/#verification-relationships">relationships</a> and
+          <a href="https://www.w3.org/TR/controller-document/#dfn-verification-method">methods</a>) that are used not only by other Verifiable Credential specifications, but also other Recommendations such as [[[DID-CORE]]] [[DID-CORE]].
         </p>
 
         <figure id="overall">
@@ -846,8 +861,8 @@
             The <a data-cite="VC-DATA-INTEGRITY#proof">definition of `proof`</a> introduces a number of additional properties. 
             Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. 
             Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to cryptographic keys.
-            The public and private keys themselves may be expressed in JWK [[RFC7517]] format or using a Multibase [[MULTIBASE]] encoding of the keys, called <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a>.
-            Details of the key formats are defined by other communities (IETF, cryptography groups, etc.) and they are very dependent on the specific cryptographic functions they operate on.
+            The exact format, when used for Credentials, of the public keys is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or use a Multibase [[MULTIBASE]] encoding of the keys, called <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a>.
+            Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and they are very dependent on the specific cryptographic functions they operate with.
           </p>
 
           <p>
@@ -857,6 +872,7 @@
 
           <p>
             A proof may also specify its "purpose" via the `proofPurpose` property: different proofs may be provided for authentication, for assertion, or for key agreement protocols.
+            These possible purposes are defined in the [[CONTROLLER-DOCUMENT]] specification.
             The verifier is supposed to choose the right proof depending on the purpose of its own operations, which is yet another possible reasons why the holder or the issuer may provide several proofs for the same Credential.
           </p>
 
@@ -875,9 +891,7 @@
             <a href="#cryptosuites-diagram"></a> provides an overall view of the six cryptosuites defined by the three
             recommendations.
             They all implement the general structure of proofs as described in <a href="#di-integrity-structure"></a>.
-            As shown on the figure, one axes of differentiation is the data transformation function, i.e., the canonicalization of
-            the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], the others use RDF Dataset
-            Canonicalization (RDFC-1.0) [[RDF-CANON]].
+            As shown on the figure, one axes of differentiation is the data transformation function, i.e., the canonicalization of the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], the others use RDF Dataset Canonicalization (RDFC-1.0) [[RDF-CANON]].
             The other axis is whether the cryptosuite provides selective disclosure, which is the case for two of the six
             cryptosuites.
           </p>
