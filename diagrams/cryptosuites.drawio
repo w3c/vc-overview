@@ -25,7 +25,7 @@
             <mxGeometry x="305" y="479" width="164.99" height="60" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="&lt;div&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;BBB&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial; font-size: 13px;&quot;&gt;based on BBS schemes&lt;/span&gt;&lt;/div&gt;" linkTarget="_blank" id="_o5h41joDnnrQmcQaRRM-3">
+        <UserObject label="&lt;div&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;BBS&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: initial; font-size: 13px;&quot;&gt;based on BBS schemes&lt;/span&gt;&lt;/div&gt;" linkTarget="_blank" id="_o5h41joDnnrQmcQaRRM-3">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;labelBackgroundColor=none;fillColor=none;" vertex="1" parent="1">
             <mxGeometry x="315" y="695" width="164.99" height="60" as="geometry" />
           </mxCell>
@@ -55,7 +55,7 @@
             <mxGeometry x="590" y="474" width="164.99" height="70" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="&lt;div&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;ecdsa-sd-2023&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 13px; background-color: initial;&quot;&gt;using RDFC1.0 for canonicalization&lt;/span&gt;&lt;/div&gt;" linkTarget="_blank" id="_o5h41joDnnrQmcQaRRM-8">
+        <UserObject label="&lt;div&gt;&lt;span style=&quot;background-color: initial; font-size: 20px;&quot;&gt;ecdsa-sd-2023&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 13px; background-color: initial;&quot;&gt;using RDFC-1.0 for canonicalization&lt;/span&gt;&lt;/div&gt;" linkTarget="_blank" id="_o5h41joDnnrQmcQaRRM-8">
           <mxCell style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;labelBackgroundColor=none;fillColor=none;flipV=1;" vertex="1" parent="1">
             <mxGeometry x="590" y="582" width="164.99" height="70" as="geometry" />
           </mxCell>
