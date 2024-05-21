@@ -369,7 +369,7 @@
       </figure>
     </section>
 
-    <section>
+    <section id="s_vcdm">
       <!--MARK: VCDM Model -->
       <h2>Verifiable Credentials Data Model</h2>
 
@@ -473,7 +473,7 @@
           Subjects of claims are either explicitly identified by an `id` property, or implicitly by appearing as an object of another claim.
         </p>
 
-        <p>
+        <p id="p_vocabularies">
           Standard properties defined by the [[VC-DATA-MODEL-2.0]] form a distinct set of JSON names, referred to as a (standard) <em>vocabulary</em>.
           An important characteristics of Verifiable Credentials in JSON-LD is that it favors a decentralized and permissionless approach to <em>extend</em> to a new application area through application-specific set of properties, i.e., vocabularies, distributed on the Web. 
           Anyone can "publish" such a vocabulary, following some rules described in the <a data-cite="VC-DATA-MODEL-2.0#Extensibility">extensibility section</a> of the specification. 
@@ -557,7 +557,7 @@
         </p>
 
       </section>
-      <section>
+      <section id="s_js_schema">
         <!--MARK: JSON Schemas -->
         <h4>Checking Structure with JSON Schemas</h4>
 
@@ -802,7 +802,7 @@
             In the case of a digital signature, this test usually means comparing the calculated signature value with the one which is embedded in the data.
           </p>
         </section>
-        <section>
+        <section id="s_di">
           <!--MARK: VC DI -->
           <h4>VC Data Integrity</h4>
 
@@ -1012,7 +1012,7 @@
       </section>
     </section>
 
-    <section>
+    <section id="s_bsl">
       <!--MARK: Bitstrings -->
       <h2>Bitstring Status List</h2>
       <p>
@@ -1114,6 +1114,65 @@
       <p>
         The core property in this case is `encodedList`, which is a base64url encoded version of the GZIP compressed bitstring status list.
       </p>
+    </section>
+
+    <section>
+      <!--MARK: Notes, Vocabularies -->
+      <h2>Additional Publications</h2>
+      <section>
+        <h3>Working Group Notes</h3>
+        <p>
+          The VC Working has also published, and continuously maintains, a few additional documents in the form of Working Group Notes. Although these are not formal standards, they represent consensus among the Working Group Participants.
+          These documents are:
+        </p>
+        <dl>
+          <dt><a href="https://www.w3.org/TR/vc-use-cases/">Verifiable Credentials Use Cases</a></dt>
+          <dd>
+            The use cases outlined in this documents were, and are, instrumental in making progress toward standardization and interoperability of both low– and high–stakes claims with the goals of storing, transmitting, and receiving digitally verifiable proof of attributes such as qualifications and achievements. 
+            The use cases focus on concrete scenarios that the technology defined by the group aims to address (including for future revisions).
+          </dd>
+
+          <dt><a href="https://www.w3.org/TR/vc-imp-guide/">Verifiable Credentials Implementation Guidelines 1.0</a></dt>
+          <dd>This document provides implementation guidance for Verifiable Credentials.</dd>
+
+          <dt><a href="https://www.w3.org/TR/vc-specs-dir/">VC Specifications Directory</a></dt>
+          <dd>
+            This document serves as an unofficial directory for all known Verifiable Credential specifications whether they are released by a global standards setting organization, a community group, an open source project, or an individual.
+          </dd>
+        </dl>
+      </section>
+
+      <section>
+        <h3>Standard Vocabularies</h3>
+
+        <p>
+          As explained in the introductory sections, the specifications define a number of standard <a href="#p_vocabularies">vocabularies</a>, i.e., standard sets of properties used as JSON names that must be used by Verifiable Credentials to ensure interoperability. 
+          Although the formal specifications of these terms are provided by the respective specifications, the vocabularies are also published separately as vocabulary documents.
+          This is done for an easier reference and overview, and these documents are also important if the Credentials are used by applications based on RDF [[RDF11-CONCEPTS]].
+          These vocabulary documents are:
+        </p>
+
+        <dl>
+          <dt><a href="https://www.w3.org/2018/credentials/">Verifiable Credentials Vocabulary v2.0</a></dt>
+          <dd>
+            Definition of property names defined, primarily, by the <a href="#s_vcdm">VC Data Model</a> specification, but with some terms defined by the <a href="#s_js_schema">VC JSON Schema</a> specification.
+          </dd>
+
+          <dt><a href="https://w3id.org/security">Security Vocabulary</a></dt>
+          <dd>
+            Definition of property names defined by the <a href="#s_bsl">Bitstring Status List</a> specification.
+          </dd>
+
+          <dt><a href="https://www.w3.org/ns/credentials/status/">Bitstring Status List Vocabulary</a></dt>
+          <dd>
+            Definition of property names defined by the <a href="#s_di">VC Data Integrity</a> specification.
+
+            <p class="ednote">
+              Some vocabulary items may migrate to the controller document, which may affect the vocabulary files as well, see <a href="https://github.com/w3c/vc-controller-document/issues/18">issue in that document</a>. 
+            </p>
+          </dd>
+        </dl>
+      </section>
     </section>
 
     <section class="appendix">
