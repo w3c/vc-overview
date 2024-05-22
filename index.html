@@ -272,7 +272,7 @@
         <!--MARK: High Level Overview -->
         <h2>High Level View of the Specifications</h2>
         <p>
-          <a href="#overall"></a> provides and overview of the main building blocks for Verifiable Credentials, including their (normative) dependencies.
+          <a href="#overall"></a> provides an overview of the main building blocks for Verifiable Credentials, including their (normative) dependencies.
           For more details, see the subsequent sections in this document.
         </p>
 
@@ -283,14 +283,14 @@
         </p>
 
         <p>
-          When Verifiable Credentials are serialized in JSON, it is important to trust that the structure of a Credential may be interpreted in a consistent manner by all participants of verifiable credential ecosystem.
+          When Verifiable Credentials are serialized in JSON, it is important to trust that the structure of a Credential may be interpreted in a consistent manner by all participants in the verifiable credential ecosystem.
           The [[[VC-JSON-SCHEMA]]] [[VC-JSON-SCHEMA]] defines how [[JSON-SCHEMA]] can be used for that purpose.
         </p>
 
         <p>
           Credentials can be secured using two different mechanisms: [=enveloping proofs=] or [=embedded proofs=].
           In both cases, a proof cryptographically secures a Credential (for example, using digital signatures).
-          In the enveloping case the proof wraps around the Credential, whereas enveloping proofs are included in the serialization, alongside the Credential itself.
+          In the enveloping case, the proof wraps around the Credential, whereas embedded proofs are included in the serialization, alongside the Credential itself.
         </p>
 
         <p>
@@ -300,7 +300,7 @@
 
         <p>
           The general structure for embedded proofs is defined in a separate [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification.
-          Furthermore, the Working Group also specifies some instantiations of this general structure in the form of the "cryptosuites": [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
+          Furthermore, the Working Group also specifies some instances of this general structure in the form of the "cryptosuites": [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
           Other cryptosuites may be specified by the community.
         </p>
 
@@ -861,8 +861,8 @@
             The <a data-cite="VC-DATA-INTEGRITY#proof">definition of `proof`</a> introduces a number of additional properties. 
             Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. 
             Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to cryptographic keys.
-            The exact format, when used for Credentials, of the public keys is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or use a Multibase [[MULTIBASE]] encoding of the keys, called <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a>.
-            Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and they are very dependent on the specific cryptographic functions they operate with.
+            The exact format of the public keys, when used for Credentials, is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or a Multibase [[MULTIBASE]] encoding of the keys, called <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a>.
+            Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
           </p>
 
           <p>
@@ -906,7 +906,7 @@
 
           <p class="note">
             A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a> encoding. 
-            Also, the keys, whose exact formats are defined in the respective signature scheme specifications, also carry the choice of the hash functions to be used by the proof generation. 
+            The keys, whose exact formats are defined in the respective signature scheme specifications, also carry the choice of the hash functions to be used by the proof generation algorithm. 
             This provides yet another differentiation axis among cryptosuites although, in practice, SHA-256 [[RFC6234]] is usually used.
           </p>
 
@@ -988,7 +988,7 @@
           </pre>
           
           <p>
-            When dereferenced, the URL `did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key` should return a (public) ECDSA key in Multikey, for example:
+            When dereferenced, the URL `did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key` should return an ECDSA public key in Multikey format, for example:
           </p>
           
           <pre class="example nohighlight" title="An ECDSA public key">
@@ -1180,13 +1180,13 @@
           An issuer issues a verifiable credential to a holder.
         </li>
         <li>
-          The holder presents to a verifier.
+          The holder presents the verifiable credential to a verifier.
         </li>
         <li>
-          The verifier verifies.
+          The verifier verifies the verifiable credential.
         </li>
         <li>
-          The verifier validates claims.
+          The verifier validates claims made in the verifiable credential against the verifier's business rules.
         </li>
         <li>
           The verifier applies valid claims.
