@@ -11,7 +11,8 @@
       out in the same tree and use relative links so that they'll work offline,
      -->
     <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove'></script>
-
+    <script class="remove" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-vc@3.0.0/dist/main.js"></script>
+    
     <script type="text/javascript" class="remove">
       var respecConfig = {
         // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -1166,6 +1167,44 @@
             href="https://github.com/w3c/vc-controller-document/issues/18">issue in the respective repository</a>.
         </p>
       </section>
+    </section>
+
+    <section class="appendix">
+      <h2>A complete example</h2>
+
+      <pre id="complete example" class="example nohighlight vc"
+        data-vc-vm="https://example.edu/issuers/565049#key-1"
+        title="Verifiable Credential with a Reference to a Status List">
+            {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://www.example.org/vocabs/alumni"
+              ],
+              "id": "https://university.example/Credential123",
+              "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+              "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://www.example.org/persons/pat",
+                "name": "Pat",
+                "alumniOf": {
+                  "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                  "name": "Example University"
+                }
+              },
+              "credentialSchema": {
+                "id": "https://university.example/Credential123-schema-credential",
+                "type": "JsonSchemaCredential"
+              },
+              "credentialStatus": {
+                "id": "https://university.example/statuslist#123456",
+                "type": "BitstringStatusListEntry",
+                "statusPurpose": "revocation",
+                "statusListIndex": "123456",
+                "statusListCredential": "https://university.example/CredentialStatusList"
+              }
+            }
+          </pre>
     </section>
 
     <section class="appendix">
