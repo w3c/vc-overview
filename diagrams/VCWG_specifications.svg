@@ -186,8 +186,8 @@
         <text xmlns="http://www.w3.org/2000/svg" x="322" y="629" font-family="Helvetica" font-size="16" text-anchor="middle">Embedded proofs</text>
     </switch>
     <g stroke="#000" stroke-miterlimit="10">
-        <path fill="none" d="m490.01 151-.22-43.13" pointer-events="stroke"/>
-        <path d="m489.76 101.12 4.55 8.98-4.52-2.23-4.48 2.27Z" pointer-events="all"/>
+        <path fill="none" d="m489.97 143.13-.21-43.13" pointer-events="stroke"/>
+        <path d="m490 149.88-4.54-8.98 4.51 2.23 4.49-2.27Z" pointer-events="all"/>
     </g>
     <a xlink:href="https://www.w3.org/TR/controller-document/" target="_blank">
         <rect width="237.5" height="70" x="371.26" y="151" fill="none" stroke="#000" pointer-events="all" rx="10.5" ry="10.5"/>
