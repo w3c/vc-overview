@@ -312,8 +312,9 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
       "id": "cfrg-bbs-signature"
     }
   },
-  "publishISODate": "2024-06-05T00:00:00.000Z",
-  "generatedSubtitle": "W3C Group Note 05 June 2024"
+  "publishDate": "2024-06-13",
+  "publishISODate": "2024-06-13T00:00:00.000Z",
+  "generatedSubtitle": "W3C Group Note 13 June 2024"
 }</script>
 <link rel="stylesheet" href="https://www.w3.org/StyleSheets/TR/2021/W3C-NOTE">
 <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="https://www.w3.org/StyleSheets/TR/2021/dark.css"></head>
@@ -322,12 +323,12 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
     <h1 id="title" class="title">Verifiable Credentials Overview</h1> 
-    <p id="w3c-state"><a href="https://www.w3.org/standards/types#NOTE">W3C Group Note</a> <time class="dt-published" datetime="2024-06-05">05 June 2024</time></p>
+    <p id="w3c-state"><a href="https://www.w3.org/standards/types#NOTE">W3C Group Note</a> <time class="dt-published" datetime="2024-06-13">13 June 2024</time></p>
     <details open="">
       <summary>More details about this document</summary>
       <dl>
         <dt>This version:</dt><dd>
-                <a class="u-url" href="https://www.w3.org/TR/2024/NOTE-vc-overview-20240605/">https://www.w3.org/TR/2024/NOTE-vc-overview-20240605/</a>
+                <a class="u-url" href="https://www.w3.org/TR/2024/NOTE-vc-overview-20240613/">https://www.w3.org/TR/2024/NOTE-vc-overview-20240613/</a>
               </dd>
         <dt>Latest published version:</dt><dd>
                 <a href="https://www.w3.org/TR/vc-overview/">https://www.w3.org/TR/vc-overview/</a>
@@ -655,7 +656,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
         <p id="p_vocabularies">
           Standard properties defined by the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model-2.0" title="Verifiable Credentials Data Model v2.0">VC-DATA-MODEL-2.0</a></cite>] form a distinct set of JSON names, referred to as a (standard) <em>vocabulary</em>.
           An important characteristics of Verifiable Credentials in JSON-LD is that it favors a decentralized and permissionless approach to <em>extend</em> to a new application area through application-specific set of properties, i.e., vocabularies, distributed on the Web. 
-          Anyone can "publish" such a vocabulary, following some rules described in the <a href="https://www.w3.org/TR/vc-data-model-2.0/#Extensibility">extensibility section</a> of the specification. 
+          Anyone can "publish" such a vocabulary, following some rules described in the <a href="https://www.w3.org/TR/vc-data-model-2.0/#extensibility">extensibility section</a> of the specification. 
         </p>
 
         <p>
@@ -1051,7 +1052,7 @@ var[data-type]:hover::after,var[data-type]:hover::before{opacity:1}
           </p></div>
 
           <p>
-            The <a href="https://www.w3.org/TR/vc-data-integrity/#proof">definition of <code>proof</code></a> introduces a number of additional properties. 
+            The <a href="https://www.w3.org/TR/vc-data-integrity/#proofs">definition of <code>proof</code></a> introduces a number of additional properties. 
             Some of these are metadata properties on the proof itself, like <code>created</code>, <code>expires</code>, or <code>domain</code>. 
             Others provide the necessary details on the proof generation process itself, like <code>cryptosuite</code>, <code>nonce</code> (if needed), or <code>verificationMethod</code> that usually refers to cryptographic keys.
             The exact format of the public keys, when used for Credentials, is defined in the [<cite><a class="bibref" data-link-type="biblio" href="#bib-controller-document" title="Controller Documents 1.0">CONTROLLER-DOCUMENT</a></cite>] specification, and is based on either the JWK&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7517" title="JSON Web Key (JWK)">RFC7517</a></cite>] format or a Multibase&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-multibase" title="The Multibase Data Format">MULTIBASE</a></cite>] encoding of the keys, called <a href="https://www.w3.org/TR/vc-data-integrity/#multikey">Multikey</a>.
