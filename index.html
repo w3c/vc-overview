@@ -709,13 +709,13 @@
 
           <p>
             <a href="#base_example_jwt_unencoded"></a> shows the Credential example, shown in <a href="#base_example"></a> and
-            enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>, secured by two different
-            enveloping proofs, namely JOSE and COSE.
+            enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>. 
+            It is secured by two different enveloping proofs, namely JOSE and COSE.
           </p>
 
           <pre id="base_example_jwt_unencoded" class="example nohighlight vc" title="A Simple Credential in JWT (unencoded)"
               data-vc-vm="https://university.example/issuers/565049#key-1"
-              data-vc-tabs="vc-jwt jose cose">
+              data-vc-tabs="jose cose">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
@@ -739,7 +739,6 @@
               }
             }
           </pre>
-
         </section>
       </section>
 
@@ -931,11 +930,11 @@
 
         <section>
           <!--MARK: Core example with ECDSA -->
-          <h4>Example: the Core Example Secured with ECDSA</h4>
+          <h4>Example: the Core Example Secured with ECDSA adn EdDSA</h4>
 
           <p>
-            <a href="#base_example_secured_di"></a> shows the Credential example, shown in <a href="#base_example"></a> and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>, secured by two different cryptosuites, namely 
-            `ecdsa-rdfc-2019` and `eddsa-rdfc-2022`.
+            <a href="#base_example_secured_di"></a> shows the Credential example, shown in <a href="#base_example"></a> and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>.
+            It is secured by two different embedded proofs, using the `ecdsa-rdfc-2019` and `eddsa-rdfc-2022` cryptosuites.
           </p>
 
           <pre id="base_example_secured_di" class="example nohighlight vc" title="ECDSA and EdDSA proofs added to a Credential"
@@ -1151,14 +1150,14 @@
 
       <p>
         <a href="#complete_example"></a> shows our Credential example used throughout this document, enriched with a 
-        reference to a JSON Schema and to the status information, and secured via different securing mechanisms 
-        defined for Verifiable Credentials.
+        reference to a JSON Schema and to the status information. 
+        It is secured via different securing mechanisms defined for Verifiable Credentials.
       </p>
  
       <pre id="complete_example" class="example nohighlight vc"
         data-vc-vm="https://example.edu/issuers/565049#key-1"
-        data-vc-tabs="ecdsa-rdfc-2019 eddsa-rdfc-2022 vc-jwt jose cose"
-        title="Verifiable Credential with a Reference to a Status List">
+        data-vc-tabs="ecdsa-rdfc-2019 eddsa-rdfc-2022 bbs-2023 jose sd-jwt cose"
+        title="Verifiable Credential with a Reference to a Credential Schema and to a Status List">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
