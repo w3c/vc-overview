@@ -681,7 +681,7 @@
         <p>
           In the case of JOSE, the Credential is the "payload" (to use the IETF terminology). 
           This is preceded by a suitable header whose details are specified by [[[VC-JOSE-COSE]]] for the usage of JWT.
-          These are encoded, concatenated, and signed, to be transferred in a compact form by one entity to an other 
+          These are encoded, concatenated, and signed, to be transferred in a compact form by one entity to another 
           (e.g., sent by the holder to the verifier).
           All the intricate details on signatures, encryption keys, etc., are defined by the IETF specifications; see <a href="#base_example_jwt_unencoded"></a> for a specific case.
         </p>
@@ -930,7 +930,7 @@
 
         <section>
           <!--MARK: Core example with ECDSA -->
-          <h4>Example: the Core Example Secured with ECDSA adn EdDSA</h4>
+          <h4>Example: the Core Example Secured with ECDSA and EdDSA</h4>
 
           <p>
             <a href="#base_example_secured_di"></a> shows the Credential example, shown in <a href="#base_example"></a> and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>.
@@ -1021,7 +1021,7 @@
         The specification introduces the `credentialStatus` property, as well as some additional sub-properties, that should be used to add this additional information to a Verifiable Credential.
       </p>
       <p>
-        <a href="#base_example_status_list"></a> shows our example from <a href="#base_example_secured_di"></a>, combined with the information on the credential status: the purpose of that status information, the reference to the bitstring, and the index into this bitstring for the enclosing credential: 
+        <a href="#base_example_status_list"></a> shows the example from <a href="#base_example_secured_di"></a>, combined with the information on the credential status: the purpose of that status information, the reference to the bitstring, and the index into this bitstring for the enclosing credential: 
       </p>
 
       <pre id="base_example_status_list" class="example nohighlight" title="Verifiable Credential with a Reference to a Status List">
@@ -1149,7 +1149,7 @@
       <h2>The complete example</h2>
 
       <p>
-        <a href="#complete_example"></a> shows our Credential example used throughout this document, enriched with a 
+        <a href="#complete_example"></a> shows the Credential example used throughout this document, enriched with a 
         reference to a JSON Schema and to the status information. 
         It is secured via different securing mechanisms defined for Verifiable Credentials.
       </p>
