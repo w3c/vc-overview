@@ -11,7 +11,8 @@
       out in the same tree and use relative links so that they'll work offline,
      -->
     <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove'></script>
-
+    <script class="remove" src="https://cdn.jsdelivr.net/gh/w3c/respec-vc/dist/main.js"></script>
+    
     <script type="text/javascript" class="remove">
       var respecConfig = {
         // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
@@ -182,7 +183,9 @@
             publisher: "IETF"
           }
         },
-        // postProcess: [restrictRefs],
+        postProcess: [
+          window.respecVc.createVcExamples
+        ],
       };
     </script>
     <style>
@@ -193,6 +196,10 @@
       pre .highlight {
         font-weight: bold;
         color: Green;
+      }
+      pre .highlight2 {
+        font-weight: bold;
+        color: teal;
       }
       pre .subject {
         font-weight: bold;
@@ -473,14 +480,14 @@
         <p>
           The following JSON-LD code is an example for a simple Credential. It states that the person named "Pat", identified by <code>https://www.exampl.org/persons/pat</code>, is an alumni of the Example University (identified by <code>did:example:c276e12ec21ebfeb1f712ebc6f1</code>).
           The Credential is valid from the 1st of January 2010, and is issued by an entity identified by <code>did:example:2g55q912ec3476eba2l9812ecbfe</code>.
-          Most of the properties in the Credential are from the standard Verifiable Credentials vocabulary, but some terms (like `alumniOf`, `AlumniCredential`) are added by the application-specific vocabulary referred to by <code>https://www.example.org/vocabs/alumni</code>.
+          Most of the properties in the Credential are from the standard Verifiable Credentials vocabulary, but some terms (like `alumniOf`, `AlumniCredential`) are added by the application-specific vocabulary referred to by <code>https://www.w3.org/ns/credentials/examples/v2</code>.
         </p>
 
         <pre id="base_example" class="example nohighlight" title="A Simple Credential">
         {
           "@context": [
             "https://www.w3.org/ns/credentials/v2",
-            "https://www.example.org/vocabs/alumni"
+            "https://www.w3.org/ns/credentials/examples/v2"
           ],
           "id": "https://university.example/Credential123",
           "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -520,7 +527,7 @@
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://www.example.org/vocabs/alumni"
+              "https://www.w3.org/ns/credentials/examples/v2"
             ],
             "type": "VerifiablePresentation",
             "id": "urn:uuid:313801ba-24b7-11ee-be02-ff560265cf9b",
@@ -566,7 +573,7 @@
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://www.example.org/vocabs/alumni"
+              "https://www.w3.org/ns/credentials/examples/v2"
             ],
             "id": "https://university.example/Credential123",
             "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -591,7 +598,7 @@
         
         <pre class="example nohighlight" title="JSON Schema for the Simple Credential">
           {
-            "$id": "https://example.com/schemas/email.json",
+            "$id": "https://university.example/schemas/credential.json",
             "$schema": "https://json-schema.org/draft/2020-12/schema",
             "title": "ExampleAlumniCredential",
             "description": "Alumni Credential using JsonSchema",
@@ -627,7 +634,7 @@
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://www.example.org/vocabs/alumni"
+              "https://www.w3.org/ns/credentials/examples/v2"
             ],
             "id": "https://university.example/Credential123",
             "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -649,8 +656,8 @@
         </pre>
 
         <p>
-          In this case, when dereferenced, the URL `https://university.example/Credential123-schema-credential` should return a Verifiable Credential, whose `credentialSubject` property refers to the required JSON Schema (i.e., <code>https://university.example/Credential-schema.json</code>). 
-          See the <a data-cite="VC-JSON-SCHEMA#jsonschemacredential">example</a> in the [[[VC-JSON-SCHEMA]]] specification for an example and for further details.
+          In this case, when dereferenced, the URL `https://university.example/Credential-schema-credential` should return a Verifiable Credential, whose `credentialSubject` property refers to the required JSON Schema (i.e., <code>https://university.example/Credential-schema.json</code>). 
+          See the <a data-cite="VC-JSON-SCHEMA#jsonschemacredential">example</a> in the [[[VC-JSON-SCHEMA]]] specification for an example and for further details.
         </p>
       </section>
     </section>
@@ -664,8 +671,9 @@
         <h3>Enveloping Proofs</h3>
 
         <p>
-          Enveloping proofs of Credentials, defined by this Working Group, are based on JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), CBOR Object Signing and Encryption (COSE) [[RFC9052]], or Selective Disclosure for JWTs [[SD-JWT]]. 
-          These are all IETF specifications, or groups of specification like JOSE that refers to JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
+          Enveloping proofs of Credentials, defined by this Working Group, are based on JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), 
+          CBOR Object Signing and Encryption (COSE) [[RFC9052]], or Selective Disclosure for JWTs [[SD-JWT]]. 
+          These are all IETF specifications, or groups of specifications like JOSE that refers to JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
           The [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] recommendation defines a "bridge" between these and the [[[VC-DATA-MODEL-2.0]]],
           specifying the suitable header claims, media types, etc.
         </p>
@@ -673,7 +681,8 @@
         <p>
           In the case of JOSE, the Credential is the "payload" (to use the IETF terminology). 
           This is preceded by a suitable header whose details are specified by [[[VC-JOSE-COSE]]] for the usage of JWT.
-          These are encoded, concatenated, and signed, to be transferred in a compact form by one entity to an other (e.g., sent by the holder to the verifier).
+          These are encoded, concatenated, and signed, to be transferred in a compact form by one entity to another 
+          (e.g., sent by the holder to the verifier).
           All the intricate details on signatures, encryption keys, etc., are defined by the IETF specifications; see <a href="#base_example_jwt_unencoded"></a> for a specific case.
         </p>
 
@@ -686,7 +695,7 @@
         
         <p>
           The [[SD-JWT]] is a variant of JOSE, which allows for the selective disclosure of individual claims.
-          Claims can be selectively hidden or revealed to the verifier, but nevertheless all claims are cryptographically
+          Claims can be selectively hidden or revealed to the verifier, but all claims are cryptographically
           protected against modification.
           This approach is obviously more complicated than the JOSE case but, from the Credentials point of view, the structure
           is again similar.
@@ -696,28 +705,21 @@
 
         <section>
           <!--MARK: Core Example with JOSE -->
-          <h4>Example: the Core Example Secured with JOSE</h4>
+          <h4>Example: the Core Example Secured with JOSE and COSE</h4>
 
           <p>
-            The Credential example, shown in <a href="#base_example"></a>, and enriched with a reference to a JSON Schema in <a
-              href="#base_example_schema"></a>, can be secured via an enveloping proof as follows:
+            <a href="#base_example_jwt_unencoded"></a> shows the Credential example, shown in <a href="#base_example"></a> and
+            enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>. 
+            It is secured by two different enveloping proofs, namely JOSE and COSE.
           </p>
-          <pre id="base_example_jwt_unencoded" class="example nohighlight" title="A Simple Credential in JWT (unencoded)">
-            // Header
-            {
-              "iss": "did:example:2g55q912ec3476eba2l9812ecbfe",
-              "alg": "HS256",
-              "cty": "vc+ld+json",
-              "typ": "vc+ld+json+jwt"
-            }
 
-            ---
-            
-            // Payload
+          <pre id="base_example_jwt_unencoded" class="example nohighlight vc" title="A Simple Credential in JWT (unencoded)"
+              data-vc-vm="https://university.example/issuers/565049#key-1"
+              data-vc-tabs="jose cose">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://www.example.org/vocabs/alumni"
+                "https://www.w3.org/ns/credentials/examples/v2"
               ],
               "id": "https://university.example/Credential123",
               "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -736,16 +738,6 @@
                 "type": "JsonSchemaCredential"
               }
             }
-          </pre>
-
-          <p>
-            As a next step, the header and the payload is encoded, concatenated, and then signed using the methods defined by JWS [[RFC7515]]. 
-            The encoded and signed Credential could look like (using the string "VC Overview" as the signature's secret):
-          </p>
-
-          <pre  id="base_example_jwt_encoded" class="example nohighlight" title="A Simple Credential Enveloped using JOSE">
-
-            <span style="color:red">eyJpc3MiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwiYWxnIjoiSFMyNTYiLCJjdHkiOiJ2YytsZCtqc29uIiwidHlwIjoidmMrbGQranNvbitqd3QifQ.</span>eyJAY29udGV4dCI6WyJodHRwczovL3d3dy53My5vcmcvbnMvY3JlZGVudGlhbHMvdjIiLCJodHRwczovL3d3dy5leGFtcGxlLm9yZy92b2NhYnMvYWx1bW5pIl0sImlkIjoiaHR0cHM6Ly91bml2ZXJzaXR5LmV4YW1wbGUvQ3JlZGVudGlhbDEyMyIsInR5cGUiOlsiVmVyaWZpYWJsZUNyZWRlbnRpYWwiLCJFeGFtcGxlQWx1bW5pQ3JlZGVudGlhbCJdLCJpc3N1ZXIiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwidmFsaWRGcm9tIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJpZCI6Imh0dHBzOi8vd3d3LmV4YW1wbGUub3JnL3BlcnNvbnMvcGF0IiwibmFtZSI6IlBhdCIsImFsdW1uaU9mIjp7ImlkIjoiZGlkOmV4YW1wbGU6YzI3NmUxMmVjMjFlYmZlYjFmNzEyZWJjNmYxIiwibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSJ9fSwiY3JlZGVudGlhbFNjaGVtYSI6eyJpZCI6Imh0dHBzOi8vdW5pdmVyc2l0eS5leGFtcGxlL0NyZWRlbnRpYWwxMjMtc2NoZW1hLWNyZWRlbnRpYWwiLCJ0eXBlIjoiSnNvblNjaGVtYUNyZWRlbnRpYWwifX0.<span style="color:teal">Ic1SxIMuwAuTHVQ_2i3wzLvRTSP9EwIS6_G_nEAueVg</span>
           </pre>
         </section>
       </section>
@@ -812,7 +804,7 @@
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://www.example.org/vocabs/alumni"
+                "https://www.w3.org/ns/credentials/examples/v2"
               ],
               "id": "https://university.example/Credential123",
               "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -907,7 +899,7 @@
             <p>
               The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow the proof generation pipeline as described in <a href="#di-integrity-structure"></a>: the Credential is canonicalized (using either JCS or RDFC-1.0), the result is hashed (using the hash functions as defined by the signature key), and the proof is generated using that hash value. 
               There is, however, an extra twist: the same pipeline is also used on a set of claims called "proof options", i.e., all the claims of the proof graph <em>except</em> `proofValue`. 
-              This set of claims is therefore also canonicalized and hashed, following the same process as for the Credential, yielding a second hash value. 
+              This set of claims is also canonicalized and hashed, following the same process as for the Credential, yielding a second hash value. 
               <em>It is the concatenation of these two values</em> that is signed by EdDSA or ECDSA, respectively, producing a value for the `proofValue` property.
            </p>
 
@@ -938,17 +930,20 @@
 
         <section>
           <!--MARK: Core example with ECDSA -->
-          <h4>Example: the Core Example Secured with ECDSA</h4>
+          <h4>Example: the Core Example Secured with ECDSA and EdDSA</h4>
 
           <p>
-            The Credential example, shown in <a href="#base_example"></a>, and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>, can be secured via an embedded proof as follows:
+            <a href="#base_example_secured_di"></a> shows the Credential example, shown in <a href="#base_example"></a> and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>.
+            It is secured by two different embedded proofs, using the `ecdsa-rdfc-2019` and `eddsa-rdfc-2022` cryptosuites.
           </p>
 
-          <pre id="base_example_ecdsa" class="example nohighlight" title="An ECDSA proof added to a Credential">
+          <pre id="base_example_secured_di" class="example nohighlight vc" title="ECDSA and EdDSA proofs added to a Credential"
+            data-vc-vm="https://university.example/issuers/565049#key-1"
+            data-vc-tabs="ecdsa-rdfc-2019 eddsa-rdfc-2022">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
-                "https://www.example.org/vocabs/alumni"
+                "https://www.w3.org/ns/credentials/examples/v2"
               ],
               "id": "https://university.example/Credential123",
               "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -965,16 +960,7 @@
               "credentialSchema": {
                 "id": "https://university.example/Credential123-schema-credential",
                 "type": "JsonSchemaCredential"
-              },
-              <span class="highlight">"proof": {
-                "type": "DataIntegrityProof",
-                "cryptosuite": "ecdsa-rdfc-2019",
-                "created": "2010-01-01T00:00:00Z",
-                "expires": "2040-01-01T00:00:00Z",
-                "verificationMethod: "did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key"
-                "proofPurpose": "assertionMethod"
-                "proofValue": "zQeVb…Wx"
-              }</span>
+              }
             }
           </pre>
           
@@ -1035,14 +1021,14 @@
         The specification introduces the `credentialStatus` property, as well as some additional sub-properties, that should be used to add this additional information to a Verifiable Credential.
       </p>
       <p>
-        <a href="#base_example_status_list"></a> shows our example from <a href="#base_example_ecdsa"></a>, combined with the information on the credential status: the purpose of that status information, the reference to the bitstring, and the index into this bitstring for the enclosing credential: 
+        <a href="#base_example_status_list"></a> shows the example from <a href="#base_example_secured_di"></a>, combined with the information on the credential status: the purpose of that status information, the reference to the bitstring, and the index into this bitstring for the enclosing credential: 
       </p>
 
       <pre id="base_example_status_list" class="example nohighlight" title="Verifiable Credential with a Reference to a Status List">
         {
           "@context": [
             "https://www.w3.org/ns/credentials/v2",
-            "https://www.example.org/vocabs/alumni"
+            "https://www.w3.org/ns/credentials/examples/v2"
           ],
           "id": "https://university.example/Credential123",
           "type": ["VerifiableCredential", "ExampleAlumniCredential"],
@@ -1060,22 +1046,13 @@
             "id": "https://university.example/Credential123-schema-credential",
             "type": "JsonSchemaCredential"
           },
-          <span class="highlight">"credentialStatus": {
+          <span class="highlight2">"credentialStatus": {
             "id": "https://university.example/statuslist#123456",
             "type": "BitstringStatusListEntry",
             "statusPurpose": "revocation",
             "statusListIndex": "123456",
             "statusListCredential": "https://university.example/CredentialStatusList"
-          },</span>
-          "proof": {
-            "type": "DataIntegrityProof",
-            "cryptosuite": "ecdsa-rdfc-2019",
-            "created": "2010-01-01T00:00:00Z",
-            "expires": "2040-01-01T00:00:00Z",
-            "verificationMethod: "did:example:2g55q912ec3476eba2l9812ecbfe#ecdsa-public-key"
-            "proofPurpose": "assertionMethod"
-            "proofValue": "zQeVb…Wx"
-          }
+          }</span>
         }
       </pre>
 
@@ -1166,6 +1143,51 @@
             href="https://github.com/w3c/vc-controller-document/issues/18">issue in the respective repository</a>.
         </p>
       </section>
+    </section>
+
+    <section class="appendix">
+      <h2>The complete example</h2>
+
+      <p>
+        <a href="#complete_example"></a> shows the Credential example used throughout this document, enriched with a 
+        reference to a JSON Schema and to the status information. 
+        It is secured via different securing mechanisms defined for Verifiable Credentials.
+      </p>
+ 
+      <pre id="complete_example" class="example nohighlight vc"
+        data-vc-vm="https://example.edu/issuers/565049#key-1"
+        data-vc-tabs="ecdsa-rdfc-2019 eddsa-rdfc-2022 bbs-2023 jose sd-jwt cose"
+        title="Verifiable Credential with a Reference to a Credential Schema and to a Status List">
+            {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://www.w3.org/ns/credentials/examples/v2"
+              ],
+              "id": "https://university.example/Credential123",
+              "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+              "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
+              "validFrom": "2010-01-01T00:00:00Z",
+              "credentialSubject": {
+                "id": "https://www.example.org/persons/pat",
+                "name": "Pat",
+                "alumniOf": {
+                  "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+                  "name": "Example University"
+                }
+              },
+              <span class="highlight">"credentialSchema": {
+                "id": "https://university.example/Credential123-schema-credential",
+                "type": "JsonSchemaCredential"
+              },</span>
+              <span class="highlight2">"credentialStatus": {
+                "id": "https://university.example/statuslist#123456",
+                "type": "BitstringStatusListEntry",
+                "statusPurpose": "revocation",
+                "statusListIndex": "123456",
+                "statusListCredential": "https://university.example/CredentialStatusList"
+              }</span>
+            }
+      </pre>
     </section>
 
     <section class="appendix">
