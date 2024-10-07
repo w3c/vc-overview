@@ -263,7 +263,7 @@
       <p>
         This document provides a non-normative, high-level overview for W3C's Verifiable Credential specifications and serves as a roadmap for the documents that define, describe, and secure these credentials.
         It is not the goal of this document to be very precise, nor does this overview cover all the details. 
-        The intention is to provide users, implementers, or anyone interested in the subject, a general understanding of the concepts and how the various documents, published by the Verifiable Credentials Working Group, fit together.
+        The intention is to provide users, implementers, or anyone interested in the subject, a general understanding of the concepts and how the various specifications, published by the Verifiable Credentials Working Group, fit together.
       </p>
 
       <section>
@@ -287,7 +287,7 @@
 
         <p>
           Credentials can be secured using two different mechanisms: [=enveloping proofs=] or [=embedded proofs=].
-          In both cases, a proof cryptographically secures a Credential (for example, using digital signatures).
+          In both cases, a Credential is cryptographically secured by a proof (for example, using digital signatures).
           In the enveloping case, the proof wraps around the Credential, whereas embedded proofs are included in the serialization, alongside the Credential itself.
         </p>
 
@@ -303,7 +303,7 @@
         </p>
 
         <p>
-          The [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing status information, such as suspension or revocation of Verifiable Credentials, through the use of bitstrings.
+          The [[[VC-BITSTRING-STATUS-LIST]]] [[VC-BITSTRING-STATUS-LIST]] specification defines a privacy-preserving, space-efficient, and high-performance mechanism for publishing the status of a specific Verifiable Credential, such as its suspension or revocation, through the use of bitstrings.
         </p>
 
         <p>
@@ -332,8 +332,7 @@
       <dl>
         <dt>Issuer</dt>
         <dd>
-          An entity that <em>creates</em> a Credential, consisting of a series of statements related to the subject of a
-          Verifiable Credential.
+          An entity that <em>creates</em> a Verifiable Credential, consisting of a series of statements related to its subject.
           An example is a university that issues credentials for university degrees or certificates for alumni.
         </dd>
     
@@ -388,7 +387,7 @@
             Claims are expressed using "properties" referring to "values".
             Values may be literals, but may also be other entities referred to, usually, by a [[URL]]. 
             It that case, the entity may become the subject of another claim; these claims, together, form a "graph" of claims that represents a Credential.
-            (See <a href="#credential-example-claims"></a> for an example of such a graph, represented graphically. 
+            (See <a href="#credential-example-claims"></a> for an example of such a graph represented graphically. 
             For more complex examples, refer to the [[[VC-DATA-MODEL-2.0]]] specification itself.)
           </p>
 
@@ -671,16 +670,17 @@
         <h3>Enveloping Proofs</h3>
 
         <p>
-          Enveloping proofs of Credentials, defined by this Working Group, are based on JSON Object Signing and Encryption (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), 
-          CBOR Object Signing and Encryption (COSE) [[RFC9052]], or Selective Disclosure for JWTs [[SD-JWT]]. 
-          These are all IETF specifications, or groups of specifications like JOSE that refers to JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
+          Enveloping proofs of Credentials, defined by this Working Group, are based on JSON Object Signing and Encryption 
+          (<a href="https://datatracker.ietf.org/wg/jose/about/">JOSE</a>), CBOR Object Signing and Encryption (COSE) [[RFC9052]], or Selective Disclosure for JWTs [[SD-JWT]]. 
+          These are all IETF specifications, or groups of specifications (like JOSE, that refers to JWT [[RFC7519]], JWS [[RFC7515]], or JWK [[RFC7517]]).
           The [[[VC-JOSE-COSE]]] [[VC-JOSE-COSE]] recommendation defines a "bridge" between these and the [[[VC-DATA-MODEL-2.0]]],
           specifying the suitable header claims, media types, etc.
         </p>
 
         <p>
           In the case of JOSE, the Credential is the "payload" (to use the IETF terminology). 
-          This is preceded by a suitable header whose details are specified by [[[VC-JOSE-COSE]]] for the usage of JWT.
+          This is preceded by a suitable header whose details are specified by the relevant 
+          <a data-cite="VC-JOSE-COSE#with-jose">section</a> of the [[VC-JOSE-COSE]] specification.
           These are encoded, concatenated, and signed, to be transferred in a compact form by one entity to another 
           (e.g., sent by the holder to the verifier).
           All the intricate details on signatures, encryption keys, etc., are defined by the IETF specifications; see <a href="#base_example_jwt_unencoded"></a> for a specific case.
@@ -708,7 +708,7 @@
           <h4>Example: the Core Example Secured with JOSE and COSE</h4>
 
           <p>
-            <a href="#base_example_jwt_unencoded"></a> shows the Credential example, shown in <a href="#base_example"></a> and
+            <a href="#base_example_jwt_unencoded"></a> shows the Credential example shown in <a href="#base_example"></a>,
             enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>. 
             It is secured by two different enveloping proofs, namely JOSE and COSE.
           </p>
@@ -765,7 +765,7 @@
           <ol>
             <li>
               <em>Transformation</em> is a process described by a <em>transformation algorithm</em> that takes input data and prepares it for the hashing process.
-              In the case of data serialized in JSON this transformation includes the removal of all the artifacts that do not influence the semantics of the data like spaces, new lines, the order of JSON names, etc. (a step often referred to as <em>canonicalization</em>).
+              In the case of data serialized in JSON this transformation includes the removal of all the artifacts that do not influence the semantics of the data, such as spaces, new lines, the order of JSON names, etc. (a step often referred to as <em>canonicalization</em>).
               In some cases the transformation may be more involved.
             </li>
             <li>
@@ -776,13 +776,13 @@
             <li>
               <em>Proof Generation</em> is a process described by a <em>proof method</em> that calculates a value that protects the
               integrity of the input data from modification or otherwise proves a certain desired threshold of trust.
-              A typical example is the application of a cryptographic signature using asymmetric keys, yielding the signature of the data.
+              A typical example is the application of a cryptographic signature using asymmetric keys, generating the signature of the data.
             </li>
           </ol>
 
           <p>
-            <em>Verification</em> of a proof involves repeating the same steps on the verifier's side and, depending on the proof method, validating the newly calculated proof value with the one associated with the data. 
-            In the case of a digital signature, this test usually means comparing the calculated signature value with the one which is embedded in the data.
+            <em>Verification</em> of a proof involves repeating the same transformation and hashing steps on the verifier's side and, depending on the proof method, validating the newly calculated hash value with the proof associated with the data. 
+            In the case of a digital signature, this means verifying, using the cryptographic algorithms associated with the asymmetric keys, that the proof value indeed signs the newly calculated hash.
           </p>
         </section>
         <section id="s_di">
@@ -844,7 +844,7 @@
             The <a data-cite="VC-DATA-INTEGRITY#proofs">definition of `proof`</a> introduces a number of additional properties. 
             Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. 
             Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to cryptographic keys.
-            The exact format of the public keys, when used for Credentials, is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or a Multibase [[MULTIBASE]] encoding of the keys, called <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a>.
+            The exact format of the public keys, when used for Credentials, is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CONTROLLER-DOCUMENT#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CONTROLLER-DOCUMENT#multikey">Multikey</a>.
             Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
           </p>
 
@@ -855,7 +855,7 @@
 
           <p>
             A proof may also specify its "purpose" via the `proofPurpose` property: different proofs may be provided for authentication, for assertion, or for key agreement protocols.
-            These possible purposes are defined in the [[CONTROLLER-DOCUMENT]] specification.
+            These are defined in the [[CONTROLLER-DOCUMENT]] specification.
             The verifier is supposed to choose the right proof depending on the purpose of its own operations, which is yet another possible reasons why the holder or the issuer may provide several proofs for the same Credential.
           </p>
 
@@ -866,8 +866,8 @@
           <h4>Cryptosuites</h4>
 
           <p>
-            The Working Group publishes three cryptosuite documents: [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
-            As their name suggests, the documents rely on existing cryptographic signature schemes: the Elliptic Curve Digital Signature Algorithm (ECDSA) specification [[FIPS-186-5]], the Edwards-Curve Digital Signature Algorithm (EdDSA) specification [[RFC8032]], and the BBS Signature Scheme [[CFRG-BBS-SIGNATURE]], respectively.
+            The Working Group publishes three cryptosuite documents: [[[VC-DI-EDDSA]]] [[VC-DI-EDDSA]], [[[VC-DI-ECDSA]]] [[VC-DI-ECDSA]], and [[[VC-DI-BBS]]] [[VC-DI-BBS]]. 
+            As their name suggests, the documents rely on existing cryptographic signature schemes: the Edwards-Curve Digital Signature Algorithm (EdDSA) specification [[RFC8032]], the Elliptic Curve Digital Signature Algorithm (ECDSA) specification [[FIPS-186-5]], and the BBS Signature Scheme [[CFRG-BBS-SIGNATURE]], respectively.
           </p>
  
           <p>
@@ -888,18 +888,18 @@
 
 
           <p class="note">
-            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="VC-DATA-INTEGRITY#multikey">Multikey</a> encoding. 
-            The keys, whose exact formats are defined in the respective signature scheme specifications, also carry the choice of the hash functions to be used by the proof generation algorithm. 
-            This provides yet another differentiation axis among cryptosuites although, in practice, SHA-256 [[RFC6234]] is usually used.
+            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="CONTROLLER-DOCUMENT#multikey">Multikey</a> encoding. 
+            For the ECDSA case the keys may also carry the choice of the hash functions to be used by the proof generation algorithm. 
+            This provides yet another differentiation axis among cryptosuites.
           </p>
 
           <section>
             <h5>Full Disclosure Schemes</h5>
 
             <p>
-              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow the proof generation pipeline as described in <a href="#di-integrity-structure"></a>: the Credential is canonicalized (using either JCS or RDFC-1.0), the result is hashed (using the hash functions as defined by the signature key), and the proof is generated using that hash value. 
+              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow the proof generation pipeline as described in <a href="#di-integrity-structure"></a>: the Credential is canonicalized (using either JCS or RDFC-1.0), the result is hashed (using the hash functions as defined by the signature key), and the resulting hash value is used for the generation of the proof.
               There is, however, an extra twist: the same pipeline is also used on a set of claims called "proof options", i.e., all the claims of the proof graph <em>except</em> `proofValue`. 
-              This set of claims is also canonicalized and hashed, following the same process as for the Credential, yielding a second hash value. 
+              This set of claims is also canonicalized and hashed, following the same process as for the Credential, producing a second hash value. 
               <em>It is the concatenation of these two values</em> that is signed by EdDSA or ECDSA, respectively, producing a value for the `proofValue` property.
            </p>
 
@@ -930,16 +930,16 @@
 
         <section>
           <!--MARK: Core example with ECDSA -->
-          <h4>Example: the Core Example Secured with ECDSA and EdDSA</h4>
+          <h4>Example: the Core Example Secured with EdDSA and ECDSA</h4>
 
           <p>
             <a href="#base_example_secured_di"></a> shows the Credential example, shown in <a href="#base_example"></a> and enriched with a reference to a JSON Schema in <a href="#base_example_schema"></a>.
             It is secured by two different embedded proofs, using the `ecdsa-rdfc-2019` and `eddsa-rdfc-2022` cryptosuites.
           </p>
 
-          <pre id="base_example_secured_di" class="example nohighlight vc" title="ECDSA and EdDSA proofs added to a Credential"
+          <pre id="base_example_secured_di" class="example nohighlight vc" title="EdDSA and ECDSA proofs added to a Credential"
             data-vc-vm="https://university.example/issuers/565049#key-1"
-            data-vc-tabs="ecdsa-rdfc-2019 eddsa-rdfc-2022">
+            data-vc-tabs="eddsa-rdfc-2022 ecdsa-rdfc-2019">
             {
               "@context": [
                 "https://www.w3.org/ns/credentials/v2",
@@ -1103,9 +1103,10 @@
           <dt><a href="https://www.w3.org/TR/vc-imp-guide/">Verifiable Credentials Implementation Guidelines 1.0</a></dt>
           <dd>This document provides implementation guidance for Verifiable Credentials.</dd>
 
-          <dt><a href="https://www.w3.org/TR/vc-specs-dir/">VC Specifications Directory</a></dt>
+          <dt><a href="https://www.w3.org/TR/vc-extensions/">Verifiable Credential Extensions</a></dt>
           <dd>
-            This document serves as an unofficial directory for all known Verifiable Credential specifications, whether they are released by a global standards setting organization, a community group, an open source project, or an individual.
+            This document serves as an unofficial list of all known Verifiable Credential specifications whether they are released
+            by a global standards setting organization, a community group, an open source project, or an individual.
           </dd>
         </dl>
       </section>
@@ -1117,7 +1118,7 @@
           As explained in the introductory sections, the specifications define a number of standard <a href="#p_vocabularies">vocabularies</a>, i.e., standard sets of properties used as JSON names.
           These are used by Verifiable Credentials to ensure interoperability. 
           Although the formal specifications of these terms are provided by the respective specifications, the vocabularies are also published as separates documents.
-          This is done for an easier reference and overview, but these documents are also important if Credentials are used by applications based on RDF [[RDF11-CONCEPTS]].
+          This is done for an easier reference and overview, and these documents are also important if Credentials are used by applications based on RDF [[RDF11-CONCEPTS]].
           These vocabulary documents are:
         </p>
 
@@ -1129,19 +1130,15 @@
 
           <dt><a href="https://w3id.org/security">Security Vocabulary</a></dt>
           <dd>
-            Definition of property names defined by the <a href="#s_bsl">Bitstring Status List</a> specification.
+            Definition of property names defined by the <a href="#s_di">VC Data Integrity</a> specification or the Controller Document.
           </dd>
 
           <dt><a href="https://www.w3.org/ns/credentials/status/">Bitstring Status List Vocabulary</a></dt>
           <dd>
-            Definition of property names defined by the <a href="#s_di">VC Data Integrity</a> specification.
+            Definition of property names defined by the <a href="#s_bsl">Bitstring Status List</a> specification.
 
           </dd>
         </dl>
-        <p class="ednote">
-          Some vocabulary items may migrate to the Controller Document, which may affect the vocabulary files as well, see <a
-            href="https://github.com/w3c/vc-controller-document/issues/18">issue in the respective repository</a>.
-        </p>
       </section>
     </section>
 
@@ -1156,7 +1153,7 @@
  
       <pre id="complete_example" class="example nohighlight vc"
         data-vc-vm="https://example.edu/issuers/565049#key-1"
-        data-vc-tabs="ecdsa-rdfc-2019 eddsa-rdfc-2022 bbs-2023 jose sd-jwt cose"
+        data-vc-tabs="eddsa-rdfc-2022 ecdsa-rdfc-2019 bbs-2023 jose sd-jwt cose"
         title="Verifiable Credential with a Reference to a Credential Schema and to a Status List">
             {
               "@context": [
