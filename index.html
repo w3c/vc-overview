@@ -372,7 +372,7 @@
 
       <section>
         <!--MARK: Basic Structure -->
-        <h3>Basic Structure</h3>
+        <h3>Basic Concepts</h3>
         <section>
           <!--MARK: Claims, Properties -->
           <h4>Claims, Properties</h4>
@@ -748,16 +748,16 @@
 
         <section>
           <!--MARK: DI Generic Structures -->
-          <h4 id="di-integrity-structure">Generic Data Integrity Structure</h4>
+          <h4 id="proof-generation-steps">Creation of Proofs in Data Integrity</h4>
 
           <p>
             The operation of Data Integrity is conceptually simple. To create a cryptographic proof, the following steps are performed: 1) Transformation, 2) Hashing, and 3) Proof Generation.
           </p>
 
-          <figure id="di-integrity-structure-figure">
+          <figure id="proof-generation-steps-figure">
             <img style="margin: auto; display: block; width: 90%;" src="diagrams/di_crypto_proof.svg" alt="TBD">
             <figcaption style="text-align: center;">
-              Generic view of the proof generation steps.
+              View of the proof generation steps.
             </figcaption>
           </figure>
 
@@ -787,7 +787,7 @@
         </section>
         <section id="s_di">
           <!--MARK: VC DI -->
-          <h4>VC Data Integrity</h4>
+          <h4>Data Integrity of Credentials</h4>
 
           <p>
             The [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification relies on the general structure and defines a set of standard properties describing the details of the proof generation process.
@@ -872,7 +872,7 @@
  
           <p>
             <a href="#cryptosuites-diagram"></a> provides an overall view of the six cryptosuites defined by the three recommendations.
-            They all implement the general structure of proofs as described in <a href="#di-integrity-structure"></a>.
+            They all implement the general pipeline of proof generation as described in <a href="#proof-generation-steps">section 4.2.1</a>.
             As shown on the figure, one axes of differentiation is the data transformation function, i.e., the canonicalization of the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], the others use RDF Dataset Canonicalization (RDFC-1.0) [[RDF-CANON]].
             The other axis is whether the cryptosuite provides selective disclosure, which is the case for two of the six
             cryptosuites.
@@ -881,7 +881,7 @@
           <figure id="cryptosuites-diagram">
             <img style="margin: auto; display: block; width: 90%;" src="diagrams/cryptosuites.svg" alt="The image is a flowchart showing the categorization of various cryptographic suites and their respective canonicalization methods. The chart branches to three main cryptosuite documents: EdDSA (based on Edwards curves), ECDSA (based on ECDSA curves), and BBS (based on BBS schemes). The EdDSA suite further divides into two specific cryptosuites: eddsa-rdfc-2022 (using RDFC-1.0 for canonicalization) and eddsa-jcs-2022 (using JCS for canonicalization). The ECDSA suite branches into three specific cryptosuites: ecdsa-rdfc-2019 (using RDFC-1.0 or canonicalization), ecdsa-jcs-2019 (using JCS canonicalization), and ecdsa-sd-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes). The BBS suite splits into one method: bbs-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes).">
             <figcaption style="text-align: center;">
-              Generic view of the proof generation steps.
+              Overall view of cryptosuites.
             </figcaption>
           </figure>
 
@@ -896,7 +896,7 @@
             <h5>Full Disclosure Schemes</h5>
 
             <p>
-              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow a simple version of the proof generation pipeline as described in the <a href="#di-integrity-structure">general data integrity structure</a>: the Credential is canonicalized (using either JCS or RDFC-1.0) and the result is hashed (using the hash functions as defined by the signature key).
+              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow a simple version of the proof generation pipeline as described in <a href="#proof-generation-steps">section 4.2.1</a>: the Credential is canonicalized (using either JCS or RDFC-1.0) and the result is hashed (using the hash functions as defined by the signature key).
               The calculation of the hash values depend on the canonicalization method: in the JCS case the canonical JSON data is hashed directly, whereas
               in the RDFC-1.0 case the individual canonicalized claims are first sorted and then concatenated before being hashed. 
             </p>
@@ -920,7 +920,7 @@
 
             <p>
               To calculate the base proof, the Credential is supplemented with extra information that separates the <em>mandatory</em> and <em>non-mandatory</em> claims.
-              Using that information, the issuer's transformation step in the <a href="#di-integrity-structure">general data integrity structure</a> produces a
+              Using that information, the issuer's transformation step in <a href="#proof-generation-steps">section 4.2.1</a> produces a
               data structure containing the hash of the proof options (much like in the case of the full disclosure schemes) and of the set of mandatory claims, plus the identification of mandatory claims. 
               Some elements of this data structure are then signed, the resulting structure is converted into CBOR, and 
               encoded to provide as a Multikey formatted `proofValue`. 
