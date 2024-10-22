@@ -11,7 +11,7 @@
       out in the same tree and use relative links so that they'll work offline,
      -->
     <script src='https://www.w3.org/Tools/respec/respec-w3c' class='remove'></script>
-    <script class="remove" src="https://cdn.jsdelivr.net/gh/w3c/respec-vc@3.3.5/dist/main.js"></script>
+    <script class="remove" src="https://cdn.jsdelivr.net/gh/w3c/respec-vc@3.3.6/dist/main.js"></script>
     
     <script type="text/javascript" class="remove">
       var respecConfig = {
@@ -312,7 +312,7 @@
         </p>
 
         <figure id="overall">
-          <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg" alt="Diagram illustrating the structure of the Verifiable Credentials (VCs) specification, using boxes labeled with references to the specification. Arrows on the diagram connect some of the boxes to represent (normative) dependencies. The box labeled as the VC Data Model is at the center of the diagram. Additional component boxes, such as JSON Schema for structural checking, Bitstring Status List for publishing status information, and Controller Documents for verification methods and relationships, are related to the VC Data Model. Boxes for securing mechanisms represent separate groups of boxes, with further grouping for embedded proofs and enveloping proofs. The group for embedded proofs includes a box labeled as Data Integrity, which depends on the VC Data Model and the Controller Document; and the ECDSA, EdDSA, and BBS Cryptosuites for different elliptic curves and signature schemes, which all depend on Data Integrity. The enveloped proofs section includes a single box labeled as JOSE and COSE using JWS, SD-JWT, or CBOR, and is also dependent on the VC Data Model and the Controller Document.">
+          <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg" alt="Diagram illustrating the structure of the Verifiable Credentials (VCs) specification, using boxes labeled with references to the specification. Arrows on the diagram connect some of the boxes to represent (normative) dependencies. The box labeled as the VC Data Model is at the center of the diagram. Additional component boxes, such as JSON Schema for structural checking, Bitstring Status List for publishing status information, and Controller Documents for verification methods and relationships, are related to the VC Data Model. Boxes for securing mechanisms represent separate groups of boxes, with further grouping for embedded proofs and enveloping proofs. The group for embedded proofs includes a box labeled as Data Integrity, which depends on the VC Data Model and the Controller Document; and the ECDSA, EdDSA, and BBS Cryptosuites for different elliptic curves and signature schemes, which all depend on Data Integrity. Furthermore, BBS Cryptosuite also depends on ECDSA. The enveloped proofs section includes a single box labeled as JOSE and COSE using JWS, SD-JWT, or CBOR, and is also dependent on the VC Data Model and the Controller Document.">
           <figcaption style="text-align: center;">
             Verifiable Credentials Working Group Recommendations
           </figcaption>
@@ -372,7 +372,7 @@
 
       <section>
         <!--MARK: Basic Structure -->
-        <h3>Basic Structure</h3>
+        <h3>Basic Concepts</h3>
         <section>
           <!--MARK: Claims, Properties -->
           <h4>Claims, Properties</h4>
@@ -748,16 +748,16 @@
 
         <section>
           <!--MARK: DI Generic Structures -->
-          <h4 id="di-integrity-structure">Generic Data Integrity Structure</h4>
+          <h4 id="proof-generation-steps">Creation of Proofs in Data Integrity</h4>
 
           <p>
             The operation of Data Integrity is conceptually simple. To create a cryptographic proof, the following steps are performed: 1) Transformation, 2) Hashing, and 3) Proof Generation.
           </p>
 
-          <figure id="di-integrity-structure-figure">
+          <figure id="proof-generation-steps-figure">
             <img style="margin: auto; display: block; width: 90%;" src="diagrams/di_crypto_proof.svg" alt="TBD">
             <figcaption style="text-align: center;">
-              Generic view of the proof generation steps.
+              View of the proof generation steps.
             </figcaption>
           </figure>
 
@@ -787,7 +787,7 @@
         </section>
         <section id="s_di">
           <!--MARK: VC DI -->
-          <h4>VC Data Integrity</h4>
+          <h4>Data Integrity of Credentials</h4>
 
           <p>
             The [[[VC-DATA-INTEGRITY]]] [[VC-DATA-INTEGRITY]] specification relies on the general structure and defines a set of standard properties describing the details of the proof generation process.
@@ -871,9 +871,8 @@
           </p>
  
           <p>
-            <a href="#cryptosuites-diagram"></a> provides an overall view of the six cryptosuites defined by the three
-            recommendations.
-            They all implement the general structure of proofs as described in <a href="#di-integrity-structure"></a>.
+            <a href="#cryptosuites-diagram"></a> provides an overall view of the six cryptosuites defined by the three recommendations.
+            They all implement the general pipeline of proof generation as described in <a href="#proof-generation-steps">section 4.2.1</a>.
             As shown on the figure, one axes of differentiation is the data transformation function, i.e., the canonicalization of the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], the others use RDF Dataset Canonicalization (RDFC-1.0) [[RDF-CANON]].
             The other axis is whether the cryptosuite provides selective disclosure, which is the case for two of the six
             cryptosuites.
@@ -882,7 +881,7 @@
           <figure id="cryptosuites-diagram">
             <img style="margin: auto; display: block; width: 90%;" src="diagrams/cryptosuites.svg" alt="The image is a flowchart showing the categorization of various cryptographic suites and their respective canonicalization methods. The chart branches to three main cryptosuite documents: EdDSA (based on Edwards curves), ECDSA (based on ECDSA curves), and BBS (based on BBS schemes). The EdDSA suite further divides into two specific cryptosuites: eddsa-rdfc-2022 (using RDFC-1.0 for canonicalization) and eddsa-jcs-2022 (using JCS for canonicalization). The ECDSA suite branches into three specific cryptosuites: ecdsa-rdfc-2019 (using RDFC-1.0 or canonicalization), ecdsa-jcs-2019 (using JCS canonicalization), and ecdsa-sd-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes). The BBS suite splits into one method: bbs-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes).">
             <figcaption style="text-align: center;">
-              Generic view of the proof generation steps.
+              Overall view of cryptosuites.
             </figcaption>
           </figure>
 
@@ -897,10 +896,16 @@
             <h5>Full Disclosure Schemes</h5>
 
             <p>
-              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow the proof generation pipeline as described in <a href="#di-integrity-structure"></a>: the Credential is canonicalized (using either JCS or RDFC-1.0), the result is hashed (using the hash functions as defined by the signature key), and the resulting hash value is used for the generation of the proof.
-              There is, however, an extra twist: the same pipeline is also used on a set of claims called "proof options", i.e., all the claims of the proof graph <em>except</em> `proofValue`. 
-              This set of claims is also canonicalized and hashed, following the same process as for the Credential, producing a second hash value. 
-              <em>It is the concatenation of these two values</em> that is signed by EdDSA or ECDSA, respectively, producing a value for the `proofValue` property.
+              The two EdDSA cryptosuites, as well as `ecdsa-rdfc-2019` and `ecdsa-jcs-2019`, follow a simple version of the proof generation pipeline as described in <a href="#proof-generation-steps">section 4.2.1</a>: the Credential is canonicalized (using either JCS or RDFC-1.0) and the result is hashed (using the hash functions as defined by the signature key).
+              The calculation of the hash values depend on the canonicalization method: in the JCS case the canonical JSON data is hashed directly, whereas
+              in the RDFC-1.0 case the individual canonicalized claims are first sorted and then concatenated before being hashed. 
+            </p>
+            <p>
+              However, before signing the hash values, there is an extra twist: the same pipeline is also used on a set of claims called <em>proof options</em>, i.e., all the claims 
+              of the proof graph <em>except</em> `proofValue`. 
+              This set of claims is also canonicalized and hashed, following the same process as for the Credential itself, yielding a second hash value. 
+              <em>It is the concatenation of these two values</em> that is signed by EdDSA or ECDSA, respectively, producing the value for the `proofValue` property. 
+              By doing so, the various proof metadata, as well as the public key reference itself, are also signed and become verifiable.
            </p>
 
           </section>
@@ -910,20 +915,35 @@
 
             <p>
               The `ecdsa-sd-2023` and `bbs-2023` cryptosuites provide selective disclosures of individual claims. 
-              In both cases, the process separates the "Base Proof" (calculated by the issuer), and the "Derived Proof" (which is typically calculated by the holder when selectively presenting the credential claims to the verifier). 
-              The challenge is that the verifier should check that the holder can be trusted when verifying a partial value, without having access to the full original data.
+              In both cases, the process separates the <em>base proof</em> (calculated by the issuer for the holder), and the <em>derived proof</em> (which is typically calculated by the holder when selectively presenting credential claims to the verifier). 
             </p>
 
             <p>
-              To calculate the Base Proof, the Credential is supplemented with extra information that separates the "mandatory" and "non-mandatory" claims.
-              Using that extra information, the transformation step described in <a href="#di-integrity-structure"></a> does not only canonicalize the Credential, but also transforms it by explicitly separating these two types of claims into their own sets.
-              Furthermore, each non-mandatory claim must be signed individually, yielding a series of signatures.
-              The final Base Proof is, conceptually, the concatenation of all these signatures and related informations like the separation of mandatory and non-mandatory claims.
+              To calculate the base proof, the Credential is supplemented with extra information that separates the <em>mandatory</em> and <em>non-mandatory</em> claims.
+              Using that information, the issuer's transformation step in <a href="#proof-generation-steps">section 4.2.1</a> produces a
+              data structure containing the hash of the proof options (much like in the case of the full disclosure schemes) and of the set of mandatory claims, plus the identification of mandatory claims. 
+              Some elements of this data structure are then signed, the resulting structure is converted into CBOR, and 
+              encoded to provide as a multibase-encoded `proofValue`. 
             </p>
 
             <p>
-              The Derived Proof is generated by the holder, when presenting the (derived) Credential.
-              These data are combined with the kind of selective disclosure requests the holder is prepared to honor; it is the combination of all these data that are used for the creation of a Derived Proof that is forwarded to the verifier.
+              The derived proof is generated by the holder upon a request containing JSON pointers [[RFC6901]] identifying the claims to be disclosed. 
+              To answer the request the information in the `proofValue` is used to create a <em>reveal document</em>, i.e., a new Credential containing the mandatory claims and the requested non-mandatory claims. 
+              Finally, the holder generates a derived proof for this reveal document, which is sent to the verifier.
+            </p>
+
+            <p> 
+              The verifier should be in position to trust the proof of the reveal document without having access to the original data and its (base) proof.
+              In the `ecdsa-sd-2023` case, each non-mandatory claim is signed separately by the issuer using a common, ephemeral ECDSA secret key, whose public counterpart is part of the both the base and derived proof values. That can be used to check the disclosed non-mandatory claims.
+              The `bbs-2023` case relies on the cryptographic properties of the BBS scheme itself, which support the creation proofs for the verification of selectively disclosed data. 
+              This is based on the mathematical nature of the BBS scheme: the <em>BBS signature</em> of all the claims (generated by the issuer and part of the base proof) can be reused by the holder to generate a <em>BBS Proof</em> of the subset of the claims (which is part of the derived proof). The BBS specific verification step ensures the required trust.
+            </p>
+
+            <p>
+              It is worth noting that the `bbs-2023` cryptosuite also offers a number of additional, privacy preserving options; see the sections on
+              <a data-cite="VC-DI-BBS#pseudonyms-with-hidden-pid">anonymous holder biding</a>,
+              <a data-cite="VC-DI-BBS#pseudonyms-with-issuer-known-pid">pseudonyms with issuer-known id</a>, or
+              <a data-cite="VC-DI-BBS#pseudonyms-with-hidden-pid">pseudonyms with hidden id</a> in the [[[VC-DI-BBS]]] specification.
             </p>
           </section>
         </section>
