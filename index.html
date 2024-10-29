@@ -360,7 +360,7 @@
     
       <figure id="roles">
         <img style="margin: auto; display: block; width: 100%;" src="diagrams/ecosystem.svg" 
-        alt="diagram showing how credentials flow from issuer to holder and presentations flow from holder to verifier where all three parties can use information from a logical verifiable data registry">
+        alt="Diagram showing how credentials flow from issuer to holder, and presentations flow from holder to verifier, where all three parties can use information from a logical verifiable data registry.">
         <figcaption style="text-align: center;">
           The roles and information flows forming the basis for the VC Data Model.
         </figcaption>
@@ -393,7 +393,7 @@
           </p>
 
           <figure id="basic-structure">
-            <img style="margin: auto; display: block; width: 80%;" src="diagrams/claim.svg" alt="Subject has a property which has a value">
+            <img style="margin: auto; display: block; width: 80%;" src="diagrams/claim.svg" alt="Diagram showing an ellipse on the left labeled as \"Subject\", connected by an arrow from left to right labeled as \"Property\", to a box on the right labeled as \"Value\".">
             <figcaption style="text-align: center;">
               The basic structure of a claim with (in this case) a literal value.
             </figcaption>
@@ -421,7 +421,7 @@
 
           <figure id="basic-vc">
             <img style="margin: auto; display: block; width: 35%;" src="diagrams/vc.svg"
-             alt="A Verifiable Credential contains Credential Metadata, Claim(s), and Proof(s)">
+             alt="Diagram showing a lozenge labeled as \"Verifiable Credential\" containing three vertically stacked lozenges, labeled as \"Credential Metadata\", \"Claim(s)\", and \"Proof(s)\".">
             <figcaption style="text-align: center;">
               Basic components of a Verifiable Credential.
             </figcaption>
@@ -454,7 +454,7 @@
 
           <figure id="basic-vp">
             <img style="margin: auto; display: block; width: 35%;" src="diagrams/presentation.svg" 
-            alt="A Verifiable Presentation contains Presentation Metadata, Verifiable Credential(s), and Proof(s)">
+            alt="Diagram showing a lozenge labeled as \"Verifiable Presentation\" containing three vertically stacked lozenges, labeled as \"Presentation Metadata\", \"Verifiable Credential(s)\", and \"Proof(s)\".">
             <figcaption style="text-align: center;">
               Basic components of a verifiable presentation.
             </figcaption>
@@ -509,7 +509,7 @@
         </p>
 
         <figure id="credential-example-claims">
-          <img style="margin: auto; display: block; width: 100%;" src="diagrams/credential_example.svg" alt="A Verifiable Presentation contains Presentation Metadata, Verifiable Credential(s), and Proof(s)">
+          <img style="margin: auto; display: block; width: 100%;" src="diagrams/credential_example.svg" alt="Diagram showing an example of a Verifiable Credential. At top, there is an ellipse labeled \"https://university.example/Credential123 (Type: VerifiableCredential, ExampleAlumniCredential)\". This ellipse has two arrows going down. One arrow is nearer the right side of the ellipse, is labeled as \"validFrom\", angles to the right, and terminates at a box labeled as \"2010-01-01T00:00:00Z\"." The second arrow is at the middle of the ellipse, is labeled as \"credentialSubject\", and ends at an ellipse labeled as \"https://www.example.org/persons/pat\". This ellipse has two more arrows going down. One arrow is nearer the right side of the ellipse, is labeled as \"name\", and angles to the right, terminating at a box labeled as \"Pat\"." The second arrow is nearer the left side of the ellipse, labeled as \"alumniOf\", and ends at another ellipse labeled as \"did:example:c276e12ec21ebfeb1f712ebc6f1\". This ellipse has a final arrow going down, which is labeled as \"name\" and ends at a final box labeled as \"Example University\".">
           <figcaption style="text-align: center;">
             Credential in <a href="#base_example"></a> represented as a collection of claims.
           </figcaption>
@@ -756,7 +756,7 @@
           </p>
 
           <figure id="proof-generation-steps-figure">
-            <img style="margin: auto; display: block; width: 90%;" src="diagrams/di_crypto_proof.svg" alt="TBD">
+            <img style="margin: auto; display: block; width: 90%;" src="diagrams/di_crypto_proof.svg" alt="Simple flow diagram, with steps from left to right, labeled as \"Data\", \"Transform Data\", \"Hash Data\", \"Generate Proof\", and \"Data with Proof\".">
             <figcaption style="text-align: center;">
               View of the proof generation steps.
             </figcaption>
@@ -880,7 +880,7 @@
           </p>
 
           <figure id="cryptosuites-diagram">
-            <img style="margin: auto; display: block; width: 90%;" src="diagrams/cryptosuites.svg" alt="The image is a flowchart showing the categorization of various cryptographic suites and their respective canonicalization methods. The chart branches to three main cryptosuite documents: EdDSA (based on Edwards curves), ECDSA (based on ECDSA curves), and BBS (based on BBS schemes). The EdDSA suite further divides into two specific cryptosuites: eddsa-rdfc-2022 (using RDFC-1.0 for canonicalization) and eddsa-jcs-2022 (using JCS for canonicalization). The ECDSA suite branches into three specific cryptosuites: ecdsa-rdfc-2019 (using RDFC-1.0 or canonicalization), ecdsa-jcs-2019 (using JCS canonicalization), and ecdsa-sd-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes). The BBS suite splits into one method: bbs-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes).">
+            <img style="margin: auto; display: block; width: 90%;" src="diagrams/cryptosuites.svg" alt="The image is a flowchart showing the categorization of various cryptographic suites and their respective canonicalization methods. The chart branches from an initial box labeled \"Cryptosuites\", to three main cryptosuite documents: \"EdDSA (based on Edwards curves)\", \"ECDSA (based on ECDSA curves)\", and \"BBS (based on BBS schemes)\". The EdDSA suite further divides into two specific cryptosuites: \"eddsa-rdfc-2022 (using RDFC-1.0 for canonicalization)\" and \"eddsa-jcs-2022 (using JCS for canonicalization)\". The ECDSA suite branches into three specific cryptosuites: \"ecdsa-rdfc-2019 (using RDFC-1.0 or canonicalization)\", \"ecdsa-jcs-2019 (using JCS canonicalization)\", and \"ecdsa-sd-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes)\". The BBS suite splits into one method: \"bbs-2023 (using RDFC-1.0 for canonicalization and providing selective disclosure schemes)\". There is an additional dotted lozenge, labeled \"Selective disclosure schemes\", which contains the \"ecdsa-sd-2023\" and \"bbs-2023\" documents.">
             <figcaption style="text-align: center;">
               Overall view of cryptosuites.
             </figcaption>
@@ -1032,7 +1032,7 @@
       </p>
 
       <figure id="bitstring-statuslist-concept">
-        <img style="margin: auto; display: block; width: 65%;" src="diagrams/BitstringStatusListConcept.svg" alt="The diagram contains a horizontal series of adjacent boxes: on the left, there are 14 boxes, and on the right, 3 boxes, with these two groups connected by four dot characters. These groups of boxes are annotated on the right by the text '16KB'. All boxes are filled with a color (green) except for those in the 5th and 10th positions, that are filled with a different color (red). These two are labeled as 'Revoked Credentials'. All of these elements are annotated, underneath, by the remark 'ZLIB Compression' and '135 bytes', with a small icon representing computer data.">
+        <img style="margin: auto; display: block; width: 65%;" src="diagrams/BitstringStatusListConcept.svg" alt="This diagram shows a horizontal series of adjacent boxes: on the left, there are 14 boxes, and on the right, 3 boxes, with these two groups connected by four dot characters. The groups of boxes are annotated on the right by the text '16KB'. All boxes are filled with one color (green), except for those in the 5th and 10th positions, that are filled with a different color (red). These two red boxes are labeled as \"Revoked Credentials\". All of these elements are annotated, beneath, by the remark 'ZLIB Compression' and '135 bytes', with a small icon representing computer data.">
         <figcaption style="text-align: center;">
           A visual depiction of the concepts outlined in this section.
         </figcaption>
@@ -1218,13 +1218,14 @@
       </p>
     
       <figure id="life-cycle-details">
-        <img style="margin: auto; display: block; width: 85%;" src="diagrams/ecosystemdetail.svg" alt="diagram showing how
-              credentials flow from issuer to holder, and optionally
-              from one holder to another; and how
-              presentations flow from holder to verifier,
+        <img style="margin: auto; display: block; width: 85%;" src="diagrams/ecosystemdetail.svg" alt="Diagram showing
+              credentials flowing from issuer to holder, and optionally
+              from one holder to another; and
+              presentations flowing from holder to verifier, and
               optionally from one verifier to another through verification and validation.
-              All parties can use information from a logical
-              verifiable data registry. Holder may also delete credential.">
+              Verifiers can Check Status with Issuers or with a logical
+              verifiable data Registry.
+              Holders may also delete, and Issuers may also revoke, credentials.">
         <figcaption style="text-align: center;">
           Lifecycle of a single Verifiable Credential: the roles and information flows for this specification.
         </figcaption>
