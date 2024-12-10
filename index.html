@@ -37,11 +37,6 @@
         // editors, add as many as you like
         // only "name" is required
         editors: [
-          // {
-          //   name: "Manu Sporny", url: "https://www.linkedin.com/in/manusporny/",
-          //   company: "Digital Bazaar", companyURL: "https://digitalbazaar.com/",
-          //   w3cid: 41758
-          // },
           {
             name: "Ivan Herman", url: "https://www.w3.org/People/Ivan/",
             company: "W3C", companyURL: "https://www.w3.org",
@@ -56,10 +51,9 @@
           },
           {
             name: "Daniel C. Burnett", url: "https://www.linkedin.com/in/daburnett/",
-            company: "ConsenSys", companyURL: "https://consensys.net/",
+            company: "Invited Expert",
             w3cid: 37473
           },
-
           {
             name: "David Chadwick",
             url: "https://www.linkedin.com/in/davidwchadwick/",
@@ -69,7 +63,7 @@
           },
           {
             name: "Gabe Cohen", url: "https://github.com/decentralgabe",
-            company: "Block", companyURL: "https://block.xyz/",
+            company: "Invited Expert",
             w3cid: 116851
           },
           {
@@ -127,6 +121,16 @@
         alternateFormats: [ {uri: "diff-20111214.html", label: "diff to previous version"} ],
         */
         localBiblio: {
+          "CID-1.0": {
+            title: "Controlled Identifier Document 1.0",
+            href: "https://www.w3.org/TR/cid-1.0/",
+            authors: [
+              "Manu Sporny",
+              "Michael B. Jones"
+            ],
+            status: "W3C Working Draft",
+            publisher: "Verifiable Credentials Working Group"
+          },
           "MULTIBASE": {
             title: "The Multibase Data Format",
             date: "February 2023",
@@ -307,13 +311,13 @@
         </p>
 
         <p>
-          Finally, the [[[CONTROLLER-DOCUMENT]]] [[CONTROLLER-DOCUMENT]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/controller-document/#verification-relationships">relationships</a> and
-          <a href="https://www.w3.org/TR/controller-document/#dfn-verification-method">methods</a>) that are used not only by other Verifiable Credential specifications, but also other Recommendations such as [[[DID-CORE]]] [[DID-CORE]].
+          Finally, the Controlled Identifier Document [[CID-1.0]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/cid-1.0/#verification-relationships">relationships</a> and
+          <a href="https://www.w3.org/TR/cid-1.0/#dfn-verification-method">methods</a>) that are used not only by other Verifiable Credential specifications, but also other Recommendations such as [[[DID-CORE]]] [[DID-CORE]].
         </p>
 
         <figure id="overall">
           <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg"
-            alt="Diagram illustrating the structure of the Verifiable Credential (VC) specifications, using boxes labeled with references to the specification. Arrows on the diagram connect some of the boxes to represent (normative) dependencies. The box labeled as the VC Data Model is at the top-center of the diagram. Additional component boxes — such as JSON Schema for structural checking; Bitstring Status List for publishing status information; and Controller Documents for verification methods and relationships — are related to the VC Data Model. The box for securing mechanisms contain separate boxes for embedded proofs, on the left, and enveloping proofs, on the right. The box for embedded proofs contains a box labeled as Data Integrity, which depends both on the VC Data Model and on Controller Documents, as well as boxes for the ECDSA, EdDSA, and BBS Cryptosuites, supporting different elliptic curves and signature schemes; all of these depend on Data Integrity, and the BBS Cryptosuites also depend on ECDSA. The enveloping proofs box contains a single box labeled as 'JOSE and COSE ... using JWS, SD-JWT, or CBOR'; as with Data Integrity, this depends both on the VC Data Model and on Controller Documents.">
+            alt="Diagram illustrating the structure of the Verifiable Credential (VC) specifications, using boxes labeled with references to the specification. Arrows on the diagram connect some of the boxes to represent (normative) dependencies. The box labeled as the VC Data Model is at the top-center of the diagram. Additional component boxes — such as JSON Schema for structural checking; Bitstring Status List for publishing status information; and Controlled Identifier Documents for verification methods and relationships — are related to the VC Data Model. The box for securing mechanisms contain separate boxes for embedded proofs, on the left, and enveloping proofs, on the right. The box for embedded proofs contains a box labeled as Data Integrity, which depends both on the VC Data Model and on Controlled Identifier Document, as well as boxes for the ECDSA, EdDSA, and BBS Cryptosuites, supporting different elliptic curves and signature schemes; all of these depend on Data Integrity, and the BBS Cryptosuites also depend on ECDSA. The enveloping proofs box contains a single box labeled as 'JOSE and COSE ... using JWS, SD-JWT, or CBOR'; as with Data Integrity, this depends both on the VC Data Model and on Controlled Identifier Document.">
           <figcaption style="text-align: center;">
             Verifiable Credentials Working Group Recommendations
           </figcaption>
@@ -845,7 +849,7 @@
             The <a data-cite="VC-DATA-INTEGRITY#proofs">definition of `proof`</a> introduces a number of additional properties. 
             Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. 
             Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to cryptographic keys.
-            The exact format of the public keys, when used for Credentials, is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CONTROLLER-DOCUMENT#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CONTROLLER-DOCUMENT#multikey">Multikey</a>.
+            The exact format of the public keys, when used for Credentials, is defined in the [[CID-1.0]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CID-1.0#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CID-1.0#multikey">Multikey</a>.
             Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
           </p>
 
@@ -856,7 +860,7 @@
 
           <p>
             A proof may also specify its "purpose" via the `proofPurpose` property: different proofs may be provided for authentication, for assertion, or for key agreement protocols.
-            These are defined in the [[CONTROLLER-DOCUMENT]] specification.
+            These are defined in the [[CID-1.0]] specification.
             The verifier is supposed to choose the right proof depending on the purpose of its own operations, which is yet another possible reasons why the holder or the issuer may provide several proofs for the same Credential.
           </p>
 
@@ -888,7 +892,7 @@
 
 
           <p class="note">
-            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="CONTROLLER-DOCUMENT#multikey">Multikey</a> encoding. 
+            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="CID-1.0#multikey">Multikey</a> encoding. 
             For the ECDSA case the keys may also carry the choice of the hash functions to be used by the proof generation algorithm. 
             This provides yet another differentiation axis among cryptosuites.
           </p>
@@ -1151,7 +1155,7 @@
 
           <dt><a href="https://w3id.org/security">Security Vocabulary</a></dt>
           <dd>
-            Definition of property names defined by the <a href="#s_di">VC Data Integrity</a> specification or the Controller Document.
+            Definition of property names defined by the <a href="#s_di">VC Data Integrity</a> specification or the Controlled Identifier Document.
           </dd>
 
           <dt><a href="https://www.w3.org/ns/credentials/status/">Bitstring Status List Vocabulary</a></dt>
