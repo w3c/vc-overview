@@ -42,19 +42,14 @@ var vcwg = {
       status: "WD",
       publisher: "Verifiable Credentials Working Group"
     },
-    "VC-CONTROLLER-DOCUMENT": {
-      title: "Verifiable Credential Controller Document",
-      href: "https://w3c.github.io/vc-controller-document/",
+    "CID-1.0": {
+      title: "Controlled Identifier Document 1.0",
+      href: "https://www.w3.org/TR/cid-1.0/",
       authors: [
         "Manu Sporny",
-        "Dave Longley",
-        "Markus Sabadello",
-        "Drummond Reed",
-        "Orie Steele",
-        "Christopher Allen",
-        "Michael B. Jones"
+         "Michael B. Jones"
       ],
-      status: "ED",
+      status: "W3C Working Draft",
       publisher: "Verifiable Credentials Working Group"
     },
     'RDF-NORMALIZATION': {
