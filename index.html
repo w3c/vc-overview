@@ -311,8 +311,8 @@
         </p>
 
         <p>
-          Finally, the Controlled Identifier Document [[CID-1.0]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/cid-1.0/#verification-relationships">relationships</a> and
-          <a href="https://www.w3.org/TR/cid-1.0/#dfn-verification-method">methods</a>) that are used not only by other Verifiable Credential specifications, but also other Recommendations such as [[[DID-CORE]]] [[DID-CORE]].
+          Finally, the Controlled Identifier Document [[CONTROLLER-DOCUMENT]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/cid-1.0/#verification-relationships">relationships</a> and
+          <a href="https://www.w3.org/TR//controller-document/#dfn-verification-method">methods</a>) that are used not only by other Verifiable Credential specifications, but also other Recommendations such as [[[DID-CORE]]] [[DID-CORE]].
         </p>
 
         <figure id="overall">
@@ -849,7 +849,7 @@
             The <a data-cite="VC-DATA-INTEGRITY#proofs">definition of `proof`</a> introduces a number of additional properties. 
             Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. 
             Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to cryptographic keys.
-            The exact format of the public keys, when used for Credentials, is defined in the [[CID-1.0]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CID-1.0#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CID-1.0#multikey">Multikey</a>.
+            The exact format of the public keys, when used for Credentials, is defined in the [[CONTROLLER-DOCUMENT]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CONTROLLER-DOCUMENT#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CONTROLLER-DOCUMENT#multikey">Multikey</a>.
             Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
           </p>
 
@@ -860,7 +860,7 @@
 
           <p>
             A proof may also specify its "purpose" via the `proofPurpose` property: different proofs may be provided for authentication, for assertion, or for key agreement protocols.
-            These are defined in the [[CID-1.0]] specification.
+            These are defined in the [[CONTROLLER-DOCUMENT]] specification.
             The verifier is supposed to choose the right proof depending on the purpose of its own operations, which is yet another possible reasons why the holder or the issuer may provide several proofs for the same Credential.
           </p>
 
@@ -892,7 +892,7 @@
 
 
           <p class="note">
-            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="CID-1.0#multikey">Multikey</a> encoding. 
+            A common characteristics of all these cryptosuites is that keys must always be encoded using the <a data-cite="CONTROLLER-DOCUMENT#multikey">Multikey</a> encoding.
             For the ECDSA case the keys may also carry the choice of the hash functions to be used by the proof generation algorithm. 
             This provides yet another differentiation axis among cryptosuites.
           </p>
