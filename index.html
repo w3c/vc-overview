@@ -22,7 +22,7 @@
         // the specification's short name, as in http://www.w3.org/TR/short-name/
         shortName: "vc-overview",
 
-        // if you wish the publication date to be other than today, set this
+        // if you wish the publication date to be other than today, set this...
         //publishDate:  "2023-11-07",
 
         // if there is a publicly available Editor's Draft, this is the link
@@ -122,7 +122,7 @@
         */
         localBiblio: {
           "CID-1.0": {
-            title: "Controlled Identifier Document 1.0",
+            title: "Controlled Identifiers 1.0",
             href: "https://www.w3.org/TR/cid-1.0/",
             authors: [
               "Manu Sporny",
@@ -311,13 +311,13 @@
         </p>
 
         <p>
-          Finally, the Controlled Identifier Document [[CONTROLLER-DOCUMENT]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/cid-1.0/#verification-relationships">relationships</a> and
+          Finally, the Controlled Identifiers [[CONTROLLER-DOCUMENT]] specification defines some common terms (e.g., verification <a href="https://www.w3.org/TR/cid-1.0/#verification-relationships">relationships</a> and
           <a href="https://www.w3.org/TR//controller-document/#dfn-verification-method">methods</a>) that are used not only by other Verifiable Credential specifications, but also other Recommendations such as [[[DID-CORE]]] [[DID-CORE]].
         </p>
 
         <figure id="overall">
           <img style="margin: auto; display: block; width: 100%;" src="diagrams/VCWG_specifications.svg"
-            alt="Diagram illustrating the structure of the Verifiable Credential (VC) specifications, using boxes labeled with references to the specification. Arrows on the diagram connect some of the boxes to represent (normative) dependencies. The box labeled as the VC Data Model is at the top-center of the diagram. Additional component boxes — such as JSON Schema for structural checking; Bitstring Status List for publishing status information; and Controlled Identifier Documents for verification methods and relationships — are related to the VC Data Model. The box for securing mechanisms contain separate boxes for embedded proofs, on the left, and enveloping proofs, on the right. The box for embedded proofs contains a box labeled as Data Integrity, which depends both on the VC Data Model and on Controlled Identifier Document, as well as boxes for the ECDSA, EdDSA, and BBS Cryptosuites, supporting different elliptic curves and signature schemes; all of these depend on Data Integrity, and the BBS Cryptosuites also depend on ECDSA. The enveloping proofs box contains a single box labeled as 'JOSE and COSE ... using JWS, SD-JWT, or CBOR'; as with Data Integrity, this depends both on the VC Data Model and on Controlled Identifier Document.">
+            alt="Diagram illustrating the structure of the Verifiable Credential (VC) specifications, using boxes labeled with references to the specification. Arrows on the diagram connect some of the boxes to represent (normative) dependencies. The box labeled as the VC Data Model is at the top-center of the diagram. Additional component boxes — such as JSON Schema for structural checking; Bitstring Status List for publishing status information; and Controlled Identifiers for verification methods and relationships — are related to the VC Data Model. The box for securing mechanisms contain separate boxes for embedded proofs, on the left, and enveloping proofs, on the right. The box for embedded proofs contains a box labeled as Data Integrity, which depends both on the VC Data Model and on Controlled Identifiers, as well as boxes for the ECDSA, EdDSA, and BBS Cryptosuites, supporting different elliptic curves and signature schemes; all of these depend on Data Integrity, and the BBS Cryptosuites also depend on ECDSA. The enveloping proofs box contains a single box labeled as 'JOSE and COSE ... using JWS, SD-JWT, or CBOR'; as with Data Integrity, this depends both on the VC Data Model and on Controlled Identifiers.">
           <figcaption style="text-align: center;">
             Verifiable Credentials Working Group Recommendations
           </figcaption>
@@ -1155,7 +1155,7 @@
 
           <dt><a href="https://w3id.org/security">Security Vocabulary</a></dt>
           <dd>
-              Property name definitions in the <a href="#s_di">VC Data Integrity</a> specification or the Controlled Identifier Document.
+              Property name definitions in the <a href="#s_di">VC Data Integrity</a> specification or for the Controlled Identifiers.
           </dd>
 
           <dt><a href="https://www.w3.org/ns/credentials/status/">Bitstring Status List Vocabulary</a></dt>
