@@ -284,9 +284,9 @@
         <div class="note">
           <p>
             As of May 2025, all but two of these documents have been published as W3C "Recommendations", which is the W3C terminology for Web Standards.
-            The two exceptions are the [[[VC-JSON-SCHEMA]]] and the [[[VC-DI-BBS]]] specifications: though technically complete, they are still "Candidate" Recommendations. 
+            The two exceptions are the [[[VC-JSON-SCHEMA]]] and the [[[VC-DI-BBS]]] specifications; though technically complete, they are still "Candidate" Recommendations. 
             The reasons are different. The former has not yet been implemented by at least two mutually independent implementations (which is the requirement to be published as standards) whereas the latter has to wait until the underlying cryptographic technique (i.e., [[[CFRG-BBS-SIGNATURE]]]) is finalized by the IETF. 
-            It is to be expected that these two documents will be published as Web Standards soon.
+            It is expected that these two documents will be published as Web Standards soon.
           </p>
 
         </div>
@@ -663,7 +663,7 @@
           The usage of COSE [[RFC9052]] is similar to JOSE, except that all structures are represented in CBOR [[RFC8949]].
           From the Credentials point of view, however, the structure is similar insofar as the Credential (or the Presentation)
           is again the payload for COSE.
-          The usage of CBOR means that the final representation of the Verifiable Credential (or Presentation) may have a significantly reduced footprint which can be, for example, shown in a QR Code.
+          The use of CBOR means that the final representation of the Verifiable Credential (or Presentation) can have a significantly reduced footprint which can be, for example, shown in a QR Code.
         </p>
         
         <p>
@@ -846,8 +846,8 @@
           <p>
             <a href="#cryptosuites-diagram"></a> provides an overall view of the six cryptosuites defined by the three recommendations.
             They all implement the general pipeline of proof generation as described in <a href="#proof-generation-steps">section 4.2.1</a>.
-            As shown on the figure, one axes of differentiation is the data transformation function, i.e., the canonicalization of the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], the other four use RDF Dataset Canonicalization (RDFC-1.0) [[RDF-CANON]].
-            The other axis is whether the cryptosuite provides selective disclosure, which is the case for two out of the six
+            As shown on the figure, one axis of differentiation is the data transformation function, i.e., the canonicalization of the JSON serialization: two cryptosuites use JSON Canonicalization (JCS) [[RFC8785]], while the other four use RDF Dataset Canonicalization (RDFC-1.0) [[RDF-CANON]].
+            The other axis is whether the cryptosuite provides selective disclosure, which is the case for two of the six
             cryptosuites.
           </p>
 
@@ -866,7 +866,7 @@
           </p>
 
           <p class="note">
-            Applications may define their own cryptosuites by using similar patterns using a different transformation or cryptographic signature scheme. 
+            Applications may define their own cryptosuites by applying different transformation and/or cryptographic signature schemes in similar patterns.
             For example, it would be possible to define a cryptosuite using the SM2 algorithm [[RFC9563]] instead of, say, EdDSA.
           </p>
 
@@ -911,9 +911,9 @@
             </p>
 
             <p> 
-              The verifier should be in position to trust the proof of the reveal document without having access to the original data and its (base) proof.
-              In the `ecdsa-sd-2023` case, each non-mandatory claim is signed separately by the issuer using a common, ephemeral ECDSA secret key, whose public counterpart is part of the both the base and derived proof values. That can be used to check the disclosed non-mandatory claims.
-              The `bbs-2023` case relies on the cryptographic properties of the BBS scheme itself, which support the creation of proofs for the verification of selectively disclosed data. 
+              The verifier should able to test the proof of the reveal document without having access to the original data and its (base) proof.
+              With `ecdsa-sd-2023`, each non-mandatory claim is signed separately by the issuer using a common, ephemeral ECDSA secret key, whose public counterpart is part of the both the base and derived proof values. That can be used to check the disclosed non-mandatory claims.
+              The `bbs-2023` cryptosuite relies on the cryptographic properties of the BBS scheme itself, which support the creation of proofs for the verification of selectively disclosed data.
               This is based on the mathematical nature of the BBS scheme: the <em>BBS signature</em> of all the claims (generated by the issuer and part of the base proof) can be reused by the holder to generate a <em>BBS Proof</em> of the subset of the claims (which is part of the derived proof). The BBS specific verification step ensures the required trust.
             </p>
 
@@ -963,7 +963,7 @@
           </pre>
           
           <p>
-            When dereferenced, the URL value of the `verificationMethod` property should return a public key in Multikey format, for example:
+            When dereferenced, the URL value of the `verificationMethod` property should return a public key in Multikey format. For example:
           </p>
           
           <pre class="example nohighlight" title="An ECDSA public key">
