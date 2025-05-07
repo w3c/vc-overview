@@ -1,6 +1,6 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.15 Chrome/134.0.6998.205 Electron/35.2.1 Safari/537.36" version="26.2.15">
   <diagram name="Page-1" id="6gULVhWcurzz5zKnDaAR">
-    <mxGraphModel dx="1735" dy="1025" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="#FFFFFF" math="0" shadow="0">
+    <mxGraphModel dx="1667" dy="1058" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -25,9 +25,6 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="r7VOtmBWi9sTdI5Oyx6i-45" value="&lt;i style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;Securing mechanisms of VCs&lt;/i&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;align=center;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
-          <mxGeometry x="435.005" y="702" width="220" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="r7VOtmBWi9sTdI5Oyx6i-34" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=none;dashed=1;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="565.005" y="340" width="310" height="340" as="geometry" />
         </mxCell>
@@ -36,9 +33,6 @@
             <mxGeometry x="605.005" y="360" width="237.5" height="50" as="geometry" />
           </mxCell>
         </UserObject>
-        <mxCell id="r7VOtmBWi9sTdI5Oyx6i-47" value="&lt;i style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;Enveloping proofs&lt;/i&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;align=center;rounded=1;labelBackgroundColor=none;strokeColor=none;" parent="1" vertex="1">
-          <mxGeometry x="613.755" y="650" width="220" height="40" as="geometry" />
-        </mxCell>
         <mxCell id="r7VOtmBWi9sTdI5Oyx6i-33" value="" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;fillColor=none;dashed=1;labelBackgroundColor=none;" parent="1" vertex="1">
           <mxGeometry x="215.005" y="340" width="310" height="340" as="geometry" />
         </mxCell>
@@ -88,9 +82,6 @@
               <mxPoint x="245.005" y="490" />
             </Array>
           </mxGeometry>
-        </mxCell>
-        <mxCell id="r7VOtmBWi9sTdI5Oyx6i-46" value="&lt;i style=&quot;border-color: var(--border-color); color: rgb(0, 0, 0); font-family: Helvetica; font-size: 16px; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;&quot;&gt;Embedded proofs&lt;/i&gt;" style="text;whiteSpace=wrap;html=1;fontSize=16;align=center;rounded=1;labelBackgroundColor=none;" parent="1" vertex="1">
-          <mxGeometry x="266.505" y="650" width="220" height="40" as="geometry" />
         </mxCell>
         <mxCell id="Xbw9OttzSYU2m0TrLEde-5" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;startArrow=classic;startFill=1;endArrow=none;endFill=0;" parent="1" source="Xbw9OttzSYU2m0TrLEde-2" target="r7VOtmBWi9sTdI5Oyx6i-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -156,6 +147,15 @@
             <mxPoint x="630" y="680" as="sourcePoint" />
             <mxPoint x="680" y="630" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+        <mxCell id="7Y__Ef_JBj4FKFU6f0si-1" value="&lt;i&gt;Enveloping Proofs&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="657.01" y="650" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7Y__Ef_JBj4FKFU6f0si-2" value="&lt;i&gt;Embedded proofs&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="301.51" y="650" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="7Y__Ef_JBj4FKFU6f0si-3" value="&lt;i&gt;Securing mechanisms of VCs&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="1">
+          <mxGeometry x="430" y="700" width="230" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
