@@ -18,7 +18,7 @@
                         <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:236px;height:1px;padding-top:341px;margin-left:551px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
                                 <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    <font>
+                                    
                                         <span style="font-size:20px">
                                             JOSE and COSE
                                             <br/>
@@ -29,7 +29,7 @@
                                             </i>
                                         </span>
                                         <br/>
-                                    </font>
+                                    
                                 </div>
                             </div>
                         </div>
