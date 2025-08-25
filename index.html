@@ -507,12 +507,16 @@
             "type": "VerifiablePresentation",
             "id": "urn:uuid:313801ba-24b7-11ee-be02-ff560265cf9b",
             "holder": "did:example:12345678",
-            "validUntil": "2020-12-31T00:00:00Z"
             <span class="highlight">"verifiableCredential": {
+              "@context": [
+                "https://www.w3.org/ns/credentials/v2",
+                "https://www.w3.org/ns/credentials/examples/v2"
+              ],
               "id": "https://university.example/Credential123",
               "type": ["VerifiableCredential", "ExampleAlumniCredential"],
               "issuer": "did:example:2g55q912ec3476eba2l9812ecbfe",
               "validFrom": "2010-01-01T00:00:00Z",
+              "validUntil": "2020-12-31T00:00:00Z",
               "credentialSubject": {
                 "id": "https://www.example.org/persons/pat",
                 "name": "Pat",
