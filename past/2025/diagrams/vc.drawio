@@ -1,0 +1,25 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.2.15 Chrome/134.0.6998.205 Electron/35.2.1 Safari/537.36" version="26.2.15">
+  <diagram name="Page-1" id="ZRe_wIOORr0k_d4isBBX">
+    <mxGraphModel dx="2411" dy="1771" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NV7x72Zd9u3rbeVEopfi-3" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=3;arcSize=12;" parent="1" vertex="1">
+          <mxGeometry x="-1044" y="-780" width="916.3600000000001" height="750" as="geometry" />
+        </mxCell>
+        <mxCell id="NV7x72Zd9u3rbeVEopfi-5" value="&lt;i&gt;&lt;b&gt;&lt;font style=&quot;font-size: 60px;&quot;&gt;Verifiable Credential&lt;/font&gt;&lt;/b&gt;&lt;/i&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=16;" parent="1" vertex="1">
+          <mxGeometry x="-935.1284210526316" y="-741.2903225806451" width="698.6168421052632" height="72.58064516129032" as="geometry" />
+        </mxCell>
+        <mxCell id="CqYlGcgU1QHX9f7NfkNa-2" value="&lt;div&gt;&lt;font size=&quot;1&quot; style=&quot;&quot;&gt;&lt;i style=&quot;font-size: 60px;&quot;&gt;Credential Metadata&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=3;strokeColor=#D21414;" parent="1" vertex="1">
+          <mxGeometry x="-935.1284210526316" y="-634.8387096774194" width="698.6168421052632" height="145.16129032258067" as="geometry" />
+        </mxCell>
+        <mxCell id="NV7x72Zd9u3rbeVEopfi-1" value="&lt;div&gt;&lt;font size=&quot;1&quot; style=&quot;&quot;&gt;&lt;i style=&quot;font-size: 60px;&quot;&gt;Claim(s)&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=3;strokeColor=#1b17d3;" parent="1" vertex="1">
+          <mxGeometry x="-935.1284210526316" y="-429.1935483870968" width="698.6168421052632" height="145.16129032258067" as="geometry" />
+        </mxCell>
+        <mxCell id="NV7x72Zd9u3rbeVEopfi-2" value="&lt;div&gt;&lt;font size=&quot;1&quot; style=&quot;&quot;&gt;&lt;i style=&quot;font-size: 60px;&quot;&gt;Proof(s)&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeWidth=3;strokeColor=#146121;" parent="1" vertex="1">
+          <mxGeometry x="-935.1284210526316" y="-223.5483870967742" width="698.6168421052632" height="145.16129032258067" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
