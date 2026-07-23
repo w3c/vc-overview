@@ -8,10 +8,12 @@ issues and Pull Requests in the GitHub repository, discussions also occur on the
 [public-vc-wg](http://lists.w3.org/Archives/Public/public-vc-wg/) mailing list.
 
 ## Verifiable Credentials Working Group
-* Group page: [https://www.w3.org/2017/vc/WG/](https://www.w3.org/2017/vc/WG/)
-* Charter: [https://www.w3.org/2022/06/verifiable-credentials-wg-charter.html](https://www.w3.org/2022/06/verifiable-credentials-wg-charter.html)
+* Group page: https://www.w3.org/groups/wg/vc/
+* Charter: https://www.w3.org/2026/03/vc-wg-charter.html
+
 * Chairs
   * Brent Zundel - @brentzundel
+  * Phil Archer - @philarcher
 * W3C Staff Contact
   * Ivan Herman - @iherman
 
@@ -19,7 +21,5 @@ issues and Pull Requests in the GitHub repository, discussions also occur on the
 1. Anyone can open a PR on the repository.
 2. Once a PR is opened, it will be reviewed by the Editors and other WG
    Members.
-3. The W3C CCG is automatically notified of PRs as they are raised and
-   discussed.
-4. PRs are usually merged in 7 days if there is adequate review and consensus,
+3. PRs are usually merged in 7 days if there is adequate review and consensus,
    as determined by the Chairs and Editors.

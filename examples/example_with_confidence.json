@@ -1,0 +1,22 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://www.w3.org/ns/credentials/examples/v2"
+  ],
+  "id": "https://university.example/Credential123",
+  "type": ["VerifiableCredential", "ExampleAlumniCredential"],
+  "issuer": "did:example:university.example:CSSchool",
+  "validFrom": "2010-01-01T00:00:00Z",
+  "credentialSubject": {
+    "id": "https://www.example.org/persons/pat",
+    "name": "Pat",
+    "alumniOf": {
+      "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
+      "name": "Example University"
+    },
+    <span class="highlight">"confidenceMethod": {
+      "type": "Multikey",
+      "publicKeyMultibase": "z6Mkf5rGMoatrSj1f4CyvuHBeXJELe9RPdzo2PKGNCKVtZxP"
+    }</span>
+  }
+}

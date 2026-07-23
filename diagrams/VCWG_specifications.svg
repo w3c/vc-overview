@@ -1,50 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background:0 0;background-color:transparent;color-scheme:light" viewBox="-0.5 -0.5 1061 707">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="background:#fff;background-color:#fff;color-scheme:light" viewBox="0 0 1157 1137">
+    <rect width="100%" height="100%" fill="#fff" style="fill:#fff"/>
     <g data-cell-id="0">
         <g data-cell-id="1">
-            <rect width="720" height="410" x="129.76" y="276" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-44" pointer-events="all" rx="61.5" ry="61.5" style="stroke:#000"/>
+            <rect width="330" height="594" x="20" y="20" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="N7mbl7mFPHtfplwaVIX_-8" pointer-events="all" rx="49.5" ry="49.5" style="stroke:#000" transform="translate(.5 .5)"/>
+            <rect width="330" height="594" x="806" y="20" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="N7mbl7mFPHtfplwaVIX_-6" pointer-events="all" rx="49.5" ry="49.5" style="stroke:#000" transform="translate(.5 .5)"/>
+            <rect width="720" height="480" x="206" y="636" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-44" pointer-events="all" rx="72" ry="72" style="stroke:#000" transform="translate(.5 .5)"/>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-20">
-                <path fill="none" d="M321.51 316V90q0-10 10-10h10.38" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m348.64 80-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M408.75 676V380q0-10 10-10H491q10 0 10-8.07v-8.06" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m501 347.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-21">
-                <path fill="none" d="M668.76 316V90q0-10-10-10h-21.14" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m630.87 80 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M745 676V380q0-10-10-10h-74q-10 0-10-8.07v-8.06" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m651 347.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
-            <rect width="310" height="340" x="510.01" y="296" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-34" pointer-events="all" rx="46.5" ry="46.5" style="stroke:#000"/>
+            <rect width="310" height="420" x="586.25" y="656" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-34" pointer-events="all" rx="46.5" ry="46.5" style="stroke:#000" transform="translate(.5 .5)"/>
             <a xlink:href="https://www.w3.org/TR/vc-jose-cose/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-6" target="_blank">
-                <rect width="237.5" height="50" x="550.01" y="316" fill="none" stroke="#000" pointer-events="all" rx="7.5" ry="7.5" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="237.5" height="64" x="626.25" y="676" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:236px;height:1px;padding-top:341px;margin-left:551px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:236px;height:1px;padding-top:708px;margin-left:627px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span>
                                         <span style="font-size:20px">
                                             JOSE and COSE
                                             <br/>
                                         </span>
-                                        <span style="font-size:10px">
-                                            <i>
+                                        <i>
+                                            <span style="font-size:13px">
                                                 Enveloping proofs using JWS, SD-JWT, or CBOR
-                                            </i>
-                                        </span>
+                                            </span>
+                                        </i>
                                         <br/>
-                                    
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="669" y="346" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">JOSE and COSE...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="745" y="713" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">JOSE and COSE...</text>
                 </switch>
             </a>
-            <rect width="310" height="340" x="160.01" y="296" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-33" pointer-events="all" rx="46.5" ry="46.5" style="stroke:#000"/>
+            <rect width="310" height="420" x="236.25" y="656" fill="none" stroke="#000" stroke-dasharray="3 3" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-33" pointer-events="all" rx="46.5" ry="46.5" style="stroke:#000" transform="translate(.5 .5)"/>
             <a xlink:href="https://www.w3.org/TR/vc-di-eddsa/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-3" target="_blank">
-                <rect width="215" height="50" x="240.01" y="393" fill="none" stroke="#000" pointer-events="all" rx="7.5" ry="7.5" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="215" height="64" x="316.24" y="753" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:418px;margin-left:241px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:785px;margin-left:317px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
                                     <span style="font-size:20px">
                                         Ed
                                     </span>
@@ -52,229 +55,197 @@
                                         DSA Cryptosuites
                                     </span>
                                     <div>
-                                        <font style="font-size:10px">
+                                        <span style="font-size:13px">
                                             <i>
                                                 Data Integrity with Edwards elliptic curves
                                             </i>
-                                        </font>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="348" y="423" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">EdDSA Cryptosuites...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="424" y="790" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">EdDSA Cryptosuites...</text>
                 </switch>
             </a>
             <a xlink:href="https://www.w3.org/TR/vc-di-ecdsa/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-4" target="_blank">
-                <rect width="215" height="50" x="240.01" y="466" fill="none" stroke="#000" pointer-events="all" rx="7.5" ry="7.5" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="215" height="64" x="316.24" y="827" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:491px;margin-left:241px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:859px;margin-left:317px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
                                     <span style="font-size:20px">
                                         ECDSA Cryptosuites
                                     </span>
                                     <br/>
-                                    <font style="font-size:10px">
+                                    <span style="font-size:13px">
                                         <i>
                                             Data Integrity with NIST elliptic curves
                                         </i>
-                                    </font>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="348" y="496" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">ECDSA Cryptosuites...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="424" y="864" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">ECDSA Cryptosuites...</text>
                 </switch>
             </a>
             <a xlink:href="https://www.w3.org/TR/vc-di-bbs/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-5" target="_blank">
-                <rect width="215" height="50" x="240.01" y="539" fill="none" stroke="#000" pointer-events="all" rx="7.5" ry="7.5" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="215" height="64" x="316.24" y="902" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:564px;margin-left:241px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:934px;margin-left:317px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
                                     <span style="font-size:20px">
                                         BBS Cryptosuites
                                     </span>
                                     <br/>
-                                    <font style="font-size:10px">
+                                    <span style="font-size:13px">
                                         <i>
                                             Data Integrity with BBS selective disclosures
                                         </i>
-                                    </font>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="348" y="569" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">BBS Cryptosuites...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="424" y="939" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">BBS Cryptosuites...</text>
                 </switch>
             </a>
             <a xlink:href="https://www.w3.org/TR/vc-data-integrity/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-2" target="_blank">
-                <rect width="215" height="50" x="214.01" y="316" fill="none" stroke="#000" pointer-events="all" rx="7.5" ry="7.5" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="237" height="64" x="290.25" y="676" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:341px;margin-left:215px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:235px;height:1px;padding-top:708px;margin-left:291px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    <font style="font-size:20px">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span style="font-size:20px">
                                         Data Integrity
-                                    </font>
+                                    </span>
                                     <br/>
-                                    <font style="font-size:10px">
+                                    <span style="font-size:13px">
                                         <i>
                                             General structure of embedded proofs
                                         </i>
-                                    </font>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="322" y="346" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">Data Integrity...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="409" y="713" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Data Integrity...</text>
                 </switch>
             </a>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-37">
-                <path fill="none" d="M240.01 418h-40q-10 0-10-10v-57q0-10 8.06-10h8.07" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m212.89 341-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M316.24 785h-40q-10 0-10-10v-57q0-10 8.07-10h8.07" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m289.13 708-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-38">
-                <path fill="none" d="M240.01 491h-40q-10 0-10-10V351q0-10 8.06-10h8.07" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m212.89 341-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M316.24 859h-40q-10 0-10-10V718q0-10 8.07-10h8.07" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m289.13 708-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-39">
-                <path fill="none" d="M240.01 564h-40q-10 0-10-10V351q0-10 8.06-10h8.07" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m212.89 341-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M316.24 934h-40q-10 0-10-10V718q0-10 8.07-10h8.07" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m289.13 708-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="Xbw9OttzSYU2m0TrLEde-5">
-                <path fill="none" d="m489.96 143.13-.2-43.13" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m489.99 149.88-4.54-8.98 4.51 2.23 4.49-2.27Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M576.92 432.13 576 346" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m576.99 438.88-4.6-8.95 4.53 2.2 4.47-2.3Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <a xlink:href="https://www.w3.org/TR/cid-1.0/" data-cell-id="Xbw9OttzSYU2m0TrLEde-2" target="_blank">
-                <rect width="290" height="70" x="345" y="151" fill="none" stroke="#000" pointer-events="all" rx="10.5" ry="10.5" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="290" height="80" x="432" y="440" fill="none" stroke="#000" pointer-events="all" rx="12" ry="12" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:288px;height:1px;padding-top:186px;margin-left:346px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:288px;height:1px;padding-top:480px;margin-left:433px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    <font>
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span>
                                         <span style="font-size:20px">
                                             Controlled Identifiers
                                         </span>
-                                    </font>
+                                    </span>
                                     <div>
-                                        <font>
-                                            <i style="font-size:10px">
-                                                Common definitions for verification methods and relationships, and key representations
+                                        <span>
+                                            <i>
+                                                <span style="font-size:13px">
+                                                    Common definitions for verification methods and relationships, and key representations
+                                                </span>
                                             </i>
                                             <br/>
-                                        </font>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="490" y="191" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">Controlled Identifiers...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="577" y="485" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Controlled Identifiers...</text>
                 </switch>
             </a>
-            <a xlink:href="https://www.w3.org/TR/vc-data-model-2.0/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-1" target="_blank">
-                <rect width="280" height="80" x="349.76" y="20" fill="none" stroke="#000" pointer-events="all" rx="12" ry="12" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+            <a xlink:href="https://www.w3.org/TR/vc-data-model/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-1" target="_blank">
+                <rect width="300" height="80" x="426" y="266" fill="none" stroke="#000" stroke-width="3" pointer-events="all" rx="12" ry="12" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:60px;margin-left:351px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:298px;height:1px;padding-top:306px;margin-left:427px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    <font style="font-size:20px">
-                                        VC Data Model
-                                    </font>
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span style="font-size:20px">
+                                        Data Model
+                                    </span>
                                     <br/>
-                                    <font style="font-size:10px">
+                                    <span style="font-size:13px">
                                         <i>
-                                            Graph based model of verifiable claims in JSON for Issuer-Holder-Verifier relationships
+                                            Graph based model of verifiable claims for Issuer-Holder-Verifier relationships
                                         </i>
-                                    </font>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="490" y="65" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">VC Data Model...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="576" y="311" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Data Model...</text>
                 </switch>
             </a>
             <a xlink:href="https://www.w3.org/TR/vc-json-schema/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-7" target="_blank">
-                <rect width="240" height="60" x="20.01" y="98" fill="none" stroke="#000" pointer-events="all" rx="9" ry="9" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="280" height="64" x="41.01" y="124" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:238px;height:1px;padding-top:128px;margin-left:21px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:156px;margin-left:42px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    <font>
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span>
                                         <span style="font-size:20px">
                                             JSON Schema
                                             <br/>
                                         </span>
-                                        <i style="font-size:10px">
-                                            JSON Schemas for the structural checking of VCs
+                                        <i>
+                                            <span style="font-size:13px">
+                                                JSON Schemas for the structural checking of VCs
+                                            </span>
                                         </i>
                                         <br/>
-                                    </font>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="140" y="133" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">JSON Schema...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="181" y="161" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">JSON Schema...</text>
                 </switch>
             </a>
-            <a xlink:href="https://www.w3.org/TR/vc-bitstring-status-list/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-8" target="_blank">
-                <rect width="287.5" height="60" x="752.01" y="98" fill="none" stroke="#000" pointer-events="all" rx="9" ry="9" style="stroke:#000"/>
-                <switch transform="translate(-.5 -.5)">
-                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:286px;height:1px;padding-top:128px;margin-left:753px">
-                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
-                                    <font>
-                                        <span style="font-size:20px">
-                                            Bitstring Status List
-                                            <br/>
-                                        </span>
-                                        <i style="font-size:10px">
-                                            Publishing status information for VCs using bitstrings
-                                        </i>
-                                        <br/>
-                                    </font>
-                                </div>
-                            </div>
-                        </div>
-                    </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="896" y="133" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">Bitstring Status List...</text>
-                </switch>
-            </a>
-            <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-23">
-                <path fill="none" d="M140.01 98V70q0-10 10-10h191.88" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m348.64 60-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
-            </g>
-            <g stroke="#000" stroke-miterlimit="10" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-24">
-                <path fill="none" d="m895.76 98 .18-28q.07-10-9.93-10H637.62" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m630.87 60 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000"/>
-            </g>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="Xbw9OttzSYU2m0TrLEde-3">
-                <path fill="none" d="M609.38 316v-50q0-10-10-10H572.5q-10 0-10-10v-17.13" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m562.5 222.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M685.63 676V570q0-10-10-10H659.5q-10 0-10-10v-22.13" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m649.5 521.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <g stroke="#000" stroke-miterlimit="10" data-cell-id="Xbw9OttzSYU2m0TrLEde-4">
-                <path fill="none" d="M375.26 316v-50q0-10 10-10h22.24q10 0 10-10v-17.13" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m417.5 222.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000"/>
-            </g>
-            <g stroke="#000" stroke-miterlimit="10" data-cell-id="o33hrdEk1rEdeaYNmZue-1">
-                <path fill="none" d="M347.51 539v-15.13" pointer-events="stroke" style="stroke:#000"/>
-                <path d="m347.51 517.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000"/>
+                <path fill="none" d="M468 676V570q0-10 10-10h16.5q10 0 10-10v-22.13" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m504.5 521.12 4.5 9-4.5-2.25-4.5 2.25Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
             </g>
             <g data-cell-id="7Y__Ef_JBj4FKFU6f0si-1">
-                <rect width="150" height="30" x="602.01" y="606" fill="none" pointer-events="all"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="150" height="30" x="669.99" y="1046" fill="none" pointer-events="all" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:621px;margin-left:677px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:1061px;margin-left:745px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
                                     <i>
                                         Enveloping Proofs
                                     </i>
@@ -282,16 +253,16 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="677" y="626" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">Enveloping Proofs</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="745" y="1066" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Enveloping Proofs</text>
                 </switch>
             </g>
             <g data-cell-id="7Y__Ef_JBj4FKFU6f0si-2">
-                <rect width="150" height="30" x="246.51" y="606" fill="none" pointer-events="all"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="150" height="30" x="316.25" y="1046" fill="none" pointer-events="all" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:621px;margin-left:322px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:1061px;margin-left:391px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
                                     <i>
                                         Embedded proofs
                                     </i>
@@ -299,24 +270,313 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="322" y="626" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">Embedded proofs</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="391" y="1066" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Embedded proofs</text>
                 </switch>
             </g>
             <g data-cell-id="7Y__Ef_JBj4FKFU6f0si-3">
-                <rect width="230" height="30" x="375" y="656" fill="none" pointer-events="all"/>
-                <switch transform="translate(-.5 -.5)">
+                <rect width="180" height="30" x="476" y="1086" fill="none" pointer-events="all" transform="translate(.5 .5)"/>
+                <switch>
                     <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
-                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:671px;margin-left:490px">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:1101px;margin-left:566px">
                             <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
-                                <div style="display:inline-block;font-size:16px;font-family:&quot;Helvetica&quot;;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
                                     <i>
-                                        Securing mechanisms of VCs
+                                        Securing mechanisms
                                     </i>
                                 </div>
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="490" y="676" fill="light-dark(#000000, #ffffff)" font-family="&quot;Helvetica&quot;" font-size="16" text-anchor="middle">Securing mechanisms of VCs</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="566" y="1106" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Securing mechanisms</text>
+                </switch>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vc-di-quantum-resistant/" data-cell-id="whtBakF46aN5u3JqghIY-1" target="_blank">
+                <rect width="215" height="64" x="316.25" y="976" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:213px;height:1px;padding-top:1008px;margin-left:317px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span style="font-size:20px">
+                                        Quantum-Resistant Cryptosuites
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="424" y="1013" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Quantum-Resistant Cryptosui...</text>
+                </switch>
+            </a>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="whtBakF46aN5u3JqghIY-2">
+                <path fill="none" d="M316.25 1008h-40q-10 0-10-10V718q0-10 8.07-10h8.06" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m289.13 708-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vc-render-method/" data-cell-id="PZ3OvfCmlgFGKLccNGj_-1" target="_blank">
+                <rect width="280" height="64" x="41.01" y="424" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:456px;margin-left:42px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span>
+                                        <span style="font-size:20px">
+                                            Rendering Method
+                                        </span>
+                                    </span>
+                                    <div>
+                                        <span>
+                                            <i>
+                                                <span style="font-size:13px">
+                                                    Specify preferred ways to express a VC for the end user
+                                                </span>
+                                            </i>
+                                            <br/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="181" y="461" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Rendering Method...</text>
+                </switch>
+            </a>
+            <a xlink:href="https://www.w3.org/TR/vc-confidence-method/" data-cell-id="PZ3OvfCmlgFGKLccNGj_-2" target="_blank">
+                <rect width="280" height="64" x="39.99" y="274" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:306px;margin-left:41px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span>
+                                        <span style="font-size:20px">
+                                            Confidence Method
+                                        </span>
+                                    </span>
+                                    <div>
+                                        <span>
+                                            <i>
+                                                <span style="font-size:13px">
+                                                    Specify ways to increase confidence for a verifier in a VC
+                                                </span>
+                                            </i>
+                                            <br/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="180" y="311" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Confidence Method...</text>
+                </switch>
+            </a>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="PZ3OvfCmlgFGKLccNGj_-19">
+                <path fill="none" d="M418.13 306h-98.14" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m424.88 306-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="Cm7iUSekO8F5OKahWOh--12">
+                <path fill="none" d="M418.13 286H383.5q-10 0-10-10V166q0-10-10-10h-42.49" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m424.88 286-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="Cm7iUSekO8F5OKahWOh--13">
+                <path fill="none" d="M418.13 326H383.5q-10 0-10 10v110q0 10-10 10h-42.49" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m424.88 326-9 4.5 2.25-4.5-2.25-4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="N7mbl7mFPHtfplwaVIX_-1">
+                <path fill="none" d="M733.87 306h96.88" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m727.12 306 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vc-barcodes-1.0/" data-cell-id="PZ3OvfCmlgFGKLccNGj_-6" target="_blank">
+                <rect width="280" height="64" x="830.75" y="274" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:306px;margin-left:832px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <div>
+                                        <span>
+                                            <span style="font-size:20px">
+                                                Barcodes
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <i>
+                                                <span style="font-size:13px">
+                                                    Express a VC in the form of a barcode
+                                                </span>
+                                            </i>
+                                            <br/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="971" y="311" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Barcodes...</text>
+                </switch>
+            </a>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="9VuJFdZP9M_Xq7lnsRWh-3">
+                <path fill="none" d="M830.74 422H788.4q-10 0-10-10v-76q0-10-10-10h-34.53" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m727.12 326 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vc-bitstring-status-list/" data-cell-id="r7VOtmBWi9sTdI5Oyx6i-8" target="_blank">
+                <rect width="280" height="64" x="830.74" y="390" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:422px;margin-left:832px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <span>
+                                        <span style="font-size:20px">
+                                            Bitstring Status List
+                                            <br/>
+                                        </span>
+                                        <i>
+                                            <span style="font-size:13px">
+                                                Publishing VC status information using bitstrings
+                                            </span>
+                                        </i>
+                                        <br/>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="971" y="427" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Bitstring Status List...</text>
+                </switch>
+            </a>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="9VuJFdZP9M_Xq7lnsRWh-4">
+                <path fill="none" d="M830.74 538H788.4q-10 0-10-10V336q0-10-10-10h-34.53" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m727.12 326 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vc-forgery-defense/" data-cell-id="PZ3OvfCmlgFGKLccNGj_-5" target="_blank">
+                <rect width="280" height="64" x="830.74" y="506" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:538px;margin-left:832px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <div>
+                                        <span>
+                                            <span style="font-size:20px">
+                                                Forgery Defense
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span>
+                                            <i>
+                                                <span style="font-size:13px">
+                                                    Publishing and indexed list of compact fingerprints
+                                                </span>
+                                            </i>
+                                            <br/>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="971" y="543" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Forgery Defense...</text>
+                </switch>
+            </a>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="9VuJFdZP9M_Xq7lnsRWh-6">
+                <path fill="none" d="M830.74 72H788.4q-10 0-10 10v194q0 10-10 10h-34.53" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m727.12 286 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vc-recognized-entities/" data-cell-id="Cm7iUSekO8F5OKahWOh--1" target="_blank">
+                <rect width="280" height="60" x="830.74" y="42" fill="none" stroke="#000" pointer-events="all" rx="9" ry="9" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:72px;margin-left:832px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <div>
+                                        <span>
+                                            <span style="font-size:20px">
+                                                Recognized Entities
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size:13px">
+                                            <i>
+                                                Secure that issuers are part of a specific ecosystem
+                                            </i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="971" y="77" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Recognized Entities...</text>
+                </switch>
+            </a>
+            <g stroke="#000" stroke-miterlimit="10" data-cell-id="9VuJFdZP9M_Xq7lnsRWh-5">
+                <path fill="none" d="M830.74 190H788.4q-10 0-10 10v76q0 10-10 10h-34.53" pointer-events="stroke" style="stroke:#000" transform="translate(.5 .5)"/>
+                <path d="m727.12 286 9-4.5-2.25 4.5 2.25 4.5Z" pointer-events="all" style="fill:#000;stroke:#000" transform="translate(.5 .5)"/>
+            </g>
+            <a xlink:href="https://www.w3.org/TR/vcalm/" data-cell-id="Cm7iUSekO8F5OKahWOh--2" target="_blank">
+                <rect width="280" height="64" x="830.74" y="158" fill="none" stroke="#000" pointer-events="all" rx="9.6" ry="9.6" style="stroke:#000" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:278px;height:1px;padding-top:190px;margin-left:832px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:normal;word-wrap:normal">
+                                    <div>
+                                        <span>
+                                            <span style="font-size:20px">
+                                                VCALM
+                                            </span>
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <span style="font-size:13px">
+                                            <i>
+                                                APIs for VC Lifecycle Management
+                                            </i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="971" y="195" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">VCALM...</text>
+                </switch>
+            </a>
+            <g data-cell-id="N7mbl7mFPHtfplwaVIX_-7">
+                <rect width="110" height="30" x="916" y="584" fill="none" pointer-events="all" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:599px;margin-left:971px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
+                                    <i>
+                                        Deployment
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="971" y="604" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Deployment</text>
+                </switch>
+            </g>
+            <g data-cell-id="N7mbl7mFPHtfplwaVIX_-10">
+                <rect width="160" height="30" x="105" y="584" fill="none" pointer-events="all" transform="translate(.5 .5)"/>
+                <switch>
+                    <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+                        <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:1px;height:1px;padding-top:599px;margin-left:185px">
+                            <div style="box-sizing:border-box;font-size:0;text-align:center;color:#000">
+                                <div style="display:inline-block;font-size:16px;font-family:Helvetica;color:#000;line-height:1.2;pointer-events:all;white-space:nowrap">
+                                    <i>
+                                        Extensions to core
+                                    </i>
+                                </div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                    <text xmlns="http://www.w3.org/2000/svg" x="185" y="604" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Extensions to core</text>
                 </switch>
             </g>
         </g>
