@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en-us" suppresshydrationwarning="true" data-lt-installed="true"><head>
+<!DOCTYPE html><html lang="en-us" data-lt-installed="true"><head>
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <meta name="generator" content="ReSpec 37.1.0">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,13 +43,13 @@ dfn{cursor:pointer}
 .dfn-panel li{margin-left:1em}
 .dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
 </style>
-    
+
 <title>Verifiable Credentials Overview v1.0</title>
-    
-    
+
+
 <meta name="color-scheme" content="light dark">
-    
-    
+
+
 <style id="respec-mainstyle">
 @keyframes pop{
 0%{transform:scale(1,1)}
@@ -100,10 +100,10 @@ dd{margin-left:0}
 body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
 body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
 </style>
-    
 
-    
-    
+
+
+
 <style>
 
       pre {
@@ -162,9 +162,9 @@ body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
       body.darkmode img {
         background: hsl(52, 32%, 91%) ;
       }
-    
+
 </style>
-  
+
 <meta name="description" content="Credentials are a part of our daily lives; driver's licenses are used to assert that we are capable of operating a motor vehicle, university degrees can be used to assert our level of education, and government-issued passports enable us to travel between countries.
           The family of W3C Recommendations for Verifiable Credentials, described in this overview document, provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy respecting, and machine-verifiable.">
 <link rel="canonical" href="https://www.w3.org/TR/vc-overview-1.0/">
@@ -525,7 +525,7 @@ li.sd-jwt-tab {
   <body class="h-entry informative darkmode"><div class="head">
     <p class="logos"><a class="logo" href="https://www.w3.org/"><img crossorigin="" alt="W3C" height="48" src="https://www.w3.org/StyleSheets/TR/2021/logos/W3C" width="72">
   </a></p>
-    <h1 id="title" class="title">Verifiable Credentials Overview v1.0</h1> 
+    <h1 id="title" class="title">Verifiable Credentials Overview v1.0</h1>
     <p id="w3c-state"><a href="https://www.w3.org/standards/types#NOTE">W3C Group Note</a> <time class="dt-published" datetime="2026-08-04">04 August 2026</time></p>
     <details open="">
       <summary>More details about this document</summary>
@@ -542,11 +542,11 @@ li.sd-jwt-tab {
                   </dd><dd>
                     <a href="https://github.com/w3c/vc-overview/commits/">Commit history</a>
                   </dd>
-        
-        
-        
-        
-        
+
+
+
+
+
         <dt>
                 Editor:
               </dt><dd class="editor p-author h-card vcard" data-editor-id="7382">
@@ -556,13 +556,13 @@ li.sd-jwt-tab {
       .st1 {
         fill: #fff;
       }
-    
+
 </style>
     <path d="M256 128c0 70.7-57.3 128-128 128S0 198.7 0 128 57.3 0 128 0s128 57.3 128 128z" fill="#a6ce39"></path>
     <path class="st1" d="M86.3 186.2H70.9V79.1h15.4v107.1zM108.9 79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.6-56.8 53.6h-41.8V79.1zm15.4 93.3h24.5c34.9 0 42.9-26.5 42.9-39.7C191.7 111.2 178 93 148 93h-23.7v79.4zM88.7 56.8c0 5.5-4.5 10.1-10.1 10.1s-10.1-4.6-10.1-10.1c0-5.6 4.5-10.1 10.1-10.1s10.1 4.6 10.1 10.1z"></path>
   </svg></a> (<a class="p-org org h-org" href="https://www.w3.org">W3C</a>)
   </dd>
-        
+
         <dt>
                 Authors:
               </dt><dd class="editor p-author h-card vcard" data-editor-id="140479">
@@ -592,17 +592,17 @@ li.sd-jwt-tab {
         <a href="https://github.com/w3c/vc-overview/issues/new/choose">new issue</a>,
         <a href="https://github.com/w3c/vc-overview/issues/">open issues</a>)
       </dd><dd><a href="mailto:public-vc-wg@w3.org?subject=%5Bvc-overview-1.0%5D%20YOUR%20TOPIC%20HERE">public-vc-wg@w3.org</a> with subject line <kbd>[vc-overview-1.0] <em>… message topic …</em></kbd> (<a rel="discussion" href="https://lists.w3.org/Archives/Public/public-vc-wg">archives</a>)</dd>
-        
-        
+
+
       </dl>
     </details>
-    
-    
+
+
     <p class="copyright">
     <a href="https://www.w3.org/policies/#copyright">Copyright</a>
     ©
     2026
-    
+
     <a href="https://www.w3.org/">World Wide Web Consortium</a>.
     <abbr title="World Wide Web Consortium">W3C</abbr><sup>®</sup>
     <a href="https://www.w3.org/policies/#Legal_Disclaimer">liability</a>,
@@ -628,27 +628,27 @@ li.sd-jwt-tab {
     This document was published by the <a href="https://www.w3.org/groups/wg/vc">Verifiable Credentials Working Group</a> as
     a Group Note using the
         <a href="https://www.w3.org/policies/process/20250818/#recs-and-notes">Note
-          track</a>. 
+          track</a>.
   </p><p>This Group Note is endorsed by
         the <a href="https://www.w3.org/groups/wg/vc">Verifiable Credentials Working Group</a>, but is not endorsed by
         <abbr title="World Wide Web Consortium">W3C</abbr> itself nor its
         Members. </p><p data-deliverer="98922">
-    
+
         The
         <a href="https://www.w3.org/policies/patent-policy/"><abbr title="World Wide Web Consortium">W3C</abbr> Patent
           Policy</a>
         does not carry any licensing requirements or commitments on this
         document.
-      
-    
+
+
   </p><p>
                       This document is governed by the
                       <a id="w3c_process_revision" href="https://www.w3.org/policies/process/20250818/">18 August 2025 <abbr title="World Wide Web Consortium">W3C</abbr> Process Document</a>.
                     </p></section><nav id="toc"><h2 class="introductory" id="table-of-contents">Table of Contents</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Abstract</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status of This Document</a></li><li class="tocline"><a class="tocxref" href="#introduction"><bdi class="secno">1. </bdi>Introduction</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#high-level-view-of-the-specifications"><bdi class="secno">1.1 </bdi>High Level View of the Specifications</a></li></ol></li><li class="tocline"><a class="tocxref" href="#ecosystem-overview"><bdi class="secno">2. </bdi>Ecosystem Overview</a></li><li class="tocline"><a class="tocxref" href="#s_vcdm"><bdi class="secno">3. </bdi>Verifiable Credentials Data Model</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#basic-concepts"><bdi class="secno">3.1 </bdi>Basic Concepts</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#claims-properties"><bdi class="secno">3.1.1 </bdi>Claims, Properties</a></li><li class="tocline"><a class="tocxref" href="#verifiable-credentials"><bdi class="secno">3.1.2 </bdi>Verifiable Credentials</a></li><li class="tocline"><a class="tocxref" href="#verifiable-presentations"><bdi class="secno">3.1.3 </bdi>Verifiable Presentations</a></li></ol></li><li class="tocline"><a class="tocxref" href="#serialization-in-json"><bdi class="secno">3.2 </bdi>Serialization in JSON</a></li><li class="tocline"><a class="tocxref" href="#s_js_schema"><bdi class="secno">3.3 </bdi>Checking Structure with JSON Schemas</a></li></ol></li><li class="tocline"><a class="tocxref" href="#securing-credentials"><bdi class="secno">4. </bdi>Securing Credentials</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#enveloping-proofs"><bdi class="secno">4.1 </bdi>Enveloping Proofs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#example-the-core-example-secured-with-jose-and-cose"><bdi class="secno">4.1.1 </bdi>Example: the Core Example Secured with JOSE and COSE</a></li></ol></li><li class="tocline"><a class="tocxref" href="#embedded-proofs"><bdi class="secno">4.2 </bdi>Embedded Proofs</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#proof-generation-steps"><bdi class="secno">4.2.1 </bdi>Creation of Proofs in Data Integrity</a></li><li class="tocline"><a class="tocxref" href="#s_di"><bdi class="secno">4.2.2 </bdi>Data Integrity of Credentials</a></li><li class="tocline"><a class="tocxref" href="#cryptosuites"><bdi class="secno">4.2.3 </bdi>Cryptosuites</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#full-disclosure-schemes"><bdi class="secno">4.2.3.1 </bdi>Full Disclosure Schemes</a></li><li class="tocline"><a class="tocxref" href="#selective-disclosure-schemes"><bdi class="secno">4.2.3.2 </bdi>Selective Disclosure Schemes</a></li></ol></li><li class="tocline"><a class="tocxref" href="#example-the-core-example-secured-with-eddsa-and-ecdsa"><bdi class="secno">4.2.4 </bdi>Example: the Core Example Secured with EdDSA and ECDSA</a></li></ol></li></ol></li><li class="tocline"><a class="tocxref" href="#s_bsl"><bdi class="secno">5. </bdi>Bitstring Status List</a></li><li class="tocline"><a class="tocxref" href="#additional-publications"><bdi class="secno">6. </bdi>Additional Publications</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#working-group-notes"><bdi class="secno">6.1 </bdi>Working Group Notes</a></li><li class="tocline"><a class="tocxref" href="#standard-vocabularies"><bdi class="secno">6.2 </bdi>Standard Vocabularies</a></li></ol></li><li class="tocline"><a class="tocxref" href="#the-complete-example"><bdi class="secno">A. </bdi>The complete example</a></li><li class="tocline"><a class="tocxref" href="#lifecycle-details"><bdi class="secno">B. </bdi>Lifecycle Details</a></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">C. </bdi>References</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#informative-references"><bdi class="secno">C.1 </bdi>Informative references</a></li></ol></li></ol></nav>
 
     <section id="introduction"><div class="header-wrapper"><h2 id="x1-introduction"><bdi class="secno">1. </bdi>Introduction</h2><a class="self-link" href="#introduction" aria-label="Permalink for Section 1."></a></div>
-      
-      
+
+
       <p>
         This document provides a non-normative, high-level overview for <abbr title="World Wide Web Consortium">W3C</abbr>'s Verifiable Credential specifications and serves as a roadmap for the documents that define, describe, and secure these credentials.
         It is not the goal of this document to be very precise, nor does this overview cover all the details.
@@ -656,8 +656,8 @@ li.sd-jwt-tab {
       </p>
 
       <section id="high-level-view-of-the-specifications"><div class="header-wrapper"><h3 id="x1-1-high-level-view-of-the-specifications"><bdi class="secno">1.1 </bdi>High Level View of the Specifications</h3><a class="self-link" href="#high-level-view-of-the-specifications" aria-label="Permalink for Section 1.1"></a></div>
-        
-        
+
+
         <p>
           <a href="#overall" class="fig-ref" title="Verifiable Credentials Working Group Recommendations">Figure <bdi class="">1</bdi></a> provides an overview of the main building blocks for Verifiable Credentials, including their (normative) dependencies.
           For more details, see the subsequent sections in this document.
@@ -720,9 +720,9 @@ li.sd-jwt-tab {
     </section>
 
     <section id="ecosystem-overview"><div class="header-wrapper"><h2 id="x2-ecosystem-overview"><bdi class="secno">2. </bdi>Ecosystem Overview</h2><a class="self-link" href="#ecosystem-overview" aria-label="Permalink for Section 2."></a></div>
-      
 
-      
+
+
       <p>
         The Verifiable Credential specifications rely on an ecosystem consisting of entities playing different "roles".
         The main roles are:
@@ -764,15 +764,15 @@ li.sd-jwt-tab {
     </section>
 
     <section id="s_vcdm"><div class="header-wrapper"><h2 id="x3-verifiable-credentials-data-model"><bdi class="secno">3. </bdi>Verifiable Credentials Data Model</h2><a class="self-link" href="#s_vcdm" aria-label="Permalink for Section 3."></a></div>
-      
-      
+
+
 
       <section id="basic-concepts"><div class="header-wrapper"><h3 id="x3-1-basic-concepts"><bdi class="secno">3.1 </bdi>Basic Concepts</h3><a class="self-link" href="#basic-concepts" aria-label="Permalink for Section 3.1"></a></div>
-        
-        
+
+
         <section id="claims-properties"><div class="header-wrapper"><h4 id="x3-1-1-claims-properties"><bdi class="secno">3.1.1 </bdi>Claims, Properties</h4><a class="self-link" href="#claims-properties" aria-label="Permalink for Section 3.1.1"></a></div>
-          
-          
+
+
           <p>
             A core concept is "claims": statements made about various entities, referred to as "subjects".
             Subjects may be a holder, an issuer, or a verifier as listed above, but may also any be another person (e.g., the person holding a university degree), an animal, an abstract concept, etc.
@@ -802,8 +802,8 @@ li.sd-jwt-tab {
         </section>
 
         <section id="verifiable-credentials"><div class="header-wrapper"><h4 id="x3-1-2-verifiable-credentials"><bdi class="secno">3.1.2 </bdi>Verifiable Credentials</h4><a class="self-link" href="#verifiable-credentials" aria-label="Permalink for Section 3.1.2"></a></div>
-          
-          
+
+
 
           <p>
             A <em>Credential</em> is a set of one or more claims made by the same entity.
@@ -824,8 +824,8 @@ li.sd-jwt-tab {
         </section>
 
         <section id="verifiable-presentations"><div class="header-wrapper"><h4 id="x3-1-3-verifiable-presentations"><bdi class="secno">3.1.3 </bdi>Verifiable Presentations</h4><a class="self-link" href="#verifiable-presentations" aria-label="Permalink for Section 3.1.3"></a></div>
-          
-          
+
+
           <p>
             Enhancing privacy is a key design feature of Verifiable Credentials.
             Therefore, it is important, for entities using this technology, to be able to express only the portions of their persona that are appropriate for a given situation.
@@ -856,8 +856,8 @@ li.sd-jwt-tab {
         </section>
       </section>
       <section id="serialization-in-json"><div class="header-wrapper"><h3 id="x3-2-serialization-in-json"><bdi class="secno">3.2 </bdi>Serialization in JSON</h3><a class="self-link" href="#serialization-in-json" aria-label="Permalink for Section 3.2"></a></div>
-        
-        
+
+
 
         <p>
           In the [<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-model-2-0" title="Verifiable Credentials Data Model v2.0">VC-DATA-MODEL-2.0</a></cite>] specification, as in the other documents, Verifiable Credentials and Presentations are mostly expressed in JSON&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-rfc7519" title="JSON Web Token (JWT)">RFC7519</a></cite>], more specifically [<cite><a class="bibref" data-link-type="biblio" href="#bib-json-ld11" title="JSON-LD 1.1">JSON-LD11</a></cite>].
@@ -958,8 +958,8 @@ li.sd-jwt-tab {
 
       </section>
       <section id="s_js_schema"><div class="header-wrapper"><h3 id="x3-3-checking-structure-with-json-schemas"><bdi class="secno">3.3 </bdi>Checking Structure with JSON Schemas</h3><a class="self-link" href="#s_js_schema" aria-label="Permalink for Section 3.3"></a></div>
-        
-        
+
+
 
         <p>
           A significant part of the integrity of a Verifiable Credential comes from the ability to structure its contents so that all three parties&nbsp;—&nbsp;issuer, holder, verifier&nbsp;—&nbsp;may have a consistent mechanism of trust in interpreting the data that they are provided with.
@@ -1071,12 +1071,12 @@ li.sd-jwt-tab {
     </section>
 
     <section id="securing-credentials"><div class="header-wrapper"><h2 id="x4-securing-credentials"><bdi class="secno">4. </bdi>Securing Credentials</h2><a class="self-link" href="#securing-credentials" aria-label="Permalink for Section 4."></a></div>
-      
-      
+
+
 
       <section id="enveloping-proofs"><div class="header-wrapper"><h3 id="x4-1-enveloping-proofs"><bdi class="secno">4.1 </bdi>Enveloping Proofs</h3><a class="self-link" href="#enveloping-proofs" aria-label="Permalink for Section 4.1"></a></div>
-        
-        
+
+
 
         <p>
           Enveloping proofs of Credentials, defined by this Working Group, are based on JSON Object Signing and Encryption
@@ -1113,8 +1113,8 @@ li.sd-jwt-tab {
         </p>
 
         <section id="example-the-core-example-secured-with-jose-and-cose"><div class="header-wrapper"><h4 id="x4-1-1-example-the-core-example-secured-with-jose-and-cose"><bdi class="secno">4.1.1 </bdi>Example: the Core Example Secured with JOSE and COSE</h4><a class="self-link" href="#example-the-core-example-secured-with-jose-and-cose" aria-label="Permalink for Section 4.1.1"></a></div>
-          
-          
+
+
 
           <p>
             <a href="#base_example_jwt_unencoded" class="box-ref">Example<bdi> 6</bdi></a> shows the Credential example shown in <a href="#base_example" class="box-ref">Example<bdi> 1</bdi></a>,
@@ -1125,7 +1125,7 @@ li.sd-jwt-tab {
           <div class="example" id="base_example_jwt_unencoded">
         <div class="marker">
     <a class="self-link" href="#base_example_jwt_unencoded">Example<bdi> 6</bdi></a><span class="example-title">: A Simple Credential in JWT (unencoded)</span>
-  </div> 
+  </div>
       <div class="vc-tabbed"><input type="radio" id="vc-tab1unsigned" name="vc-tabs1" checked=""><input type="radio" id="vc-tab1jose" name="vc-tabs1"><input type="radio" id="vc-tab1cose" name="vc-tabs1"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab1unsigned"><abbr title="Unsecured credential">Credential</abbr></label></li><li class="vc-tab"><label for="vc-tab1jose"><abbr title="Secured with JOSE">jose</abbr></label></li><li class="vc-tab"><label for="vc-tab1cose"><abbr title="Secured with COSE">cose</abbr></label></li></ul><div class="vc-tab-content" style="min-height: 462px;"><pre class="nohighlight vc" data-vc-vm="https://university.example/issuers/565049#key-1" data-vc-tabs="jose cose">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -1244,12 +1244,12 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
       </section>
 
       <section id="embedded-proofs"><div class="header-wrapper"><h3 id="x4-2-embedded-proofs"><bdi class="secno">4.2 </bdi>Embedded Proofs</h3><a class="self-link" href="#embedded-proofs" aria-label="Permalink for Section 4.2"></a></div>
-        
-        
+
+
 
         <section id="creation-of-proofs-in-data-integrity"><div class="header-wrapper"><h4 id="proof-generation-steps"><bdi class="secno">4.2.1 </bdi>Creation of Proofs in Data Integrity</h4><a class="self-link" href="#proof-generation-steps" aria-label="Permalink for Section 4.2.1"></a></div>
-          
-          
+
+
 
           <p>
             The operation of Data Integrity is conceptually simple. To create a cryptographic proof, the following steps are performed: 1) Transformation, 2) Hashing, and 3) Proof Generation.
@@ -1287,8 +1287,8 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
           </p>
         </section>
         <section id="s_di"><div class="header-wrapper"><h4 id="x4-2-2-data-integrity-of-credentials"><bdi class="secno">4.2.2 </bdi>Data Integrity of Credentials</h4><a class="self-link" href="#s_di" aria-label="Permalink for Section 4.2.2"></a></div>
-          
-          
+
+
 
           <p>
             The <cite><a data-matched-text="[[[VC-DATA-INTEGRITY]]]" href="https://www.w3.org/TR/vc-data-integrity/">Verifiable Credential Data Integrity 1.0</a></cite>&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-data-integrity" title="Verifiable Credential Data Integrity 1.0">VC-DATA-INTEGRITY</a></cite>] specification starts with the general structure and defines a set of standard properties describing the details of the proof generation process.
@@ -1365,8 +1365,8 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
         </section>
 
         <section id="cryptosuites"><div class="header-wrapper"><h4 id="x4-2-3-cryptosuites"><bdi class="secno">4.2.3 </bdi>Cryptosuites</h4><a class="self-link" href="#cryptosuites" aria-label="Permalink for Section 4.2.3"></a></div>
-          
-          
+
+
 
           <p>
             The Working Group has published three cryptosuite documents: <cite><a data-matched-text="[[[VC-DI-EDDSA]]]" href="https://www.w3.org/TR/vc-di-eddsa/">Data Integrity EdDSA Cryptosuites v1.0</a></cite>&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-eddsa" title="Data Integrity EdDSA Cryptosuites v1.0">VC-DI-EDDSA</a></cite>], <cite><a data-matched-text="[[[VC-DI-ECDSA]]]" href="https://www.w3.org/TR/vc-di-ecdsa/">Data Integrity ECDSA Cryptosuites v1.0</a></cite>&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-ecdsa" title="Data Integrity ECDSA Cryptosuites v1.0">VC-DI-ECDSA</a></cite>], and <cite><a data-matched-text="[[[VC-DI-BBS]]]" href="https://www.w3.org/TR/vc-di-bbs/">Data Integrity BBS Cryptosuites v1.0</a></cite>&nbsp;[<cite><a class="bibref" data-link-type="biblio" href="#bib-vc-di-bbs" title="Data Integrity BBS Cryptosuites v1.0">VC-DI-BBS</a></cite>].
@@ -1401,7 +1401,7 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
           </p></div>
 
           <section id="full-disclosure-schemes"><div class="header-wrapper"><h5 id="x4-2-3-1-full-disclosure-schemes"><bdi class="secno">4.2.3.1 </bdi>Full Disclosure Schemes</h5><a class="self-link" href="#full-disclosure-schemes" aria-label="Permalink for Section 4.2.3.1"></a></div>
-            
+
 
             <p>
               The two EdDSA cryptosuites, as well as <code>ecdsa-rdfc-2019</code> and <code>ecdsa-jcs-2019</code>, follow a simple version of the proof generation pipeline as described in <a href="#proof-generation-steps">section 4.2.1</a>: the Credential is canonicalized (using either JCS or RDFC-1.0) and the result is hashed (using the hash functions as defined by the signature key).
@@ -1419,7 +1419,7 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
           </section>
 
           <section id="selective-disclosure-schemes"><div class="header-wrapper"><h5 id="x4-2-3-2-selective-disclosure-schemes"><bdi class="secno">4.2.3.2 </bdi>Selective Disclosure Schemes</h5><a class="self-link" href="#selective-disclosure-schemes" aria-label="Permalink for Section 4.2.3.2"></a></div>
-            
+
 
             <p>
               The <code>ecdsa-sd-2023</code> and <code>bbs-2023</code> cryptosuites provide selective disclosures of individual claims.
@@ -1457,8 +1457,8 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
         </section>
 
         <section id="example-the-core-example-secured-with-eddsa-and-ecdsa"><div class="header-wrapper"><h4 id="x4-2-4-example-the-core-example-secured-with-eddsa-and-ecdsa"><bdi class="secno">4.2.4 </bdi>Example: the Core Example Secured with EdDSA and ECDSA</h4><a class="self-link" href="#example-the-core-example-secured-with-eddsa-and-ecdsa" aria-label="Permalink for Section 4.2.4"></a></div>
-          
-          
+
+
 
           <p>
             <a href="#base_example_secured_di" class="box-ref">Example<bdi> 8</bdi></a> shows the Credential example, shown in <a href="#base_example" class="box-ref">Example<bdi> 1</bdi></a> and enriched with a reference to a JSON Schema in <a href="#base_example_schema" class="box-ref">Example<bdi> 3</bdi></a>.
@@ -1468,7 +1468,7 @@ d28444a1013822a05902417b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
           <div class="example" id="base_example_secured_di">
         <div class="marker">
     <a class="self-link" href="#base_example_secured_di">Example<bdi> 8</bdi></a><span class="example-title">: EdDSA and ECDSA proofs added to a Credential</span>
-  </div> 
+  </div>
       <div class="vc-tabbed"><input type="radio" id="vc-tab2unsigned" name="vc-tabs2" checked=""><input type="radio" id="vc-tab2ecdsa-rdfc-2019" name="vc-tabs2"><input type="radio" id="vc-tab2eddsa-rdfc-2022" name="vc-tabs2"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab2unsigned"><abbr title="Unsecured credential">Credential</abbr></label></li><li class="vc-tab"><label for="vc-tab2ecdsa-rdfc-2019"><abbr title="Secured with Data Integrity - ecdsa-rdfc-2019">ecdsa</abbr></label></li><li class="vc-tab"><label for="vc-tab2eddsa-rdfc-2022"><abbr title="Secured with Data Integrity - eddsa-rdfc-2022">eddsa</abbr></label></li></ul><div class="vc-tab-content" style="min-height: 462px;"><pre class="nohighlight vc" data-vc-vm="https://university.example/issuers/565049#key-1" data-vc-tabs="eddsa-rdfc-2022 ecdsa-rdfc-2019">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -1590,8 +1590,8 @@ cjDeZhrh1ZnqSx9HpYKekC2cYaNCMkxMo"
     </section>
 
     <section id="s_bsl"><div class="header-wrapper"><h2 id="x5-bitstring-status-list"><bdi class="secno">5. </bdi>Bitstring Status List</h2><a class="self-link" href="#s_bsl" aria-label="Permalink for Section 5."></a></div>
-      
-      
+
+
       <p>
         It is often useful for an issuer of Verifiable Credentials to link to a location where a verifier can check whether a credential has been suspended or revoked.
         This additional resource is referred to as a "status list".
@@ -1689,10 +1689,10 @@ cjDeZhrh1ZnqSx9HpYKekC2cYaNCMkxMo"
     </section>
 
     <section id="additional-publications"><div class="header-wrapper"><h2 id="x6-additional-publications"><bdi class="secno">6. </bdi>Additional Publications</h2><a class="self-link" href="#additional-publications" aria-label="Permalink for Section 6."></a></div>
-      
-      
+
+
       <section id="working-group-notes"><div class="header-wrapper"><h3 id="x6-1-working-group-notes"><bdi class="secno">6.1 </bdi>Working Group Notes</h3><a class="self-link" href="#working-group-notes" aria-label="Permalink for Section 6.1"></a></div>
-        
+
         <p>
           The VC Working Group has also published, and maintains, a few additional documents in the form of Working Group Notes. Although these are not formal standards, they represent consensus among the Working Group Participants.
           These documents are:
@@ -1716,7 +1716,7 @@ cjDeZhrh1ZnqSx9HpYKekC2cYaNCMkxMo"
       </section>
 
       <section id="standard-vocabularies"><div class="header-wrapper"><h3 id="x6-2-standard-vocabularies"><bdi class="secno">6.2 </bdi>Standard Vocabularies</h3><a class="self-link" href="#standard-vocabularies" aria-label="Permalink for Section 6.2"></a></div>
-        
+
 
         <p>
           As explained in the introductory sections, the specifications define a number of standard <a href="#p_vocabularies">vocabularies</a>, i.e., standard sets of properties used as JSON names.
@@ -1746,7 +1746,7 @@ cjDeZhrh1ZnqSx9HpYKekC2cYaNCMkxMo"
     </section>
 
     <section class="appendix" id="the-complete-example"><div class="header-wrapper"><h2 id="a-the-complete-example"><bdi class="secno">A. </bdi>The complete example</h2><a class="self-link" href="#the-complete-example" aria-label="Permalink for Appendix A."></a></div>
-      
+
 
       <p>
         <a href="#complete_example" class="box-ref">Example<bdi> 12</bdi></a> shows the Credential example used throughout this document, enriched with a
@@ -1757,7 +1757,7 @@ cjDeZhrh1ZnqSx9HpYKekC2cYaNCMkxMo"
       <div class="example" id="complete_example">
         <div class="marker">
     <a class="self-link" href="#complete_example">Example<bdi> 12</bdi></a><span class="example-title">: Verifiable Credential with a Reference to a Credential Schema and to a Status List</span>
-  </div> 
+  </div>
       <div class="vc-tabbed"><input type="radio" id="vc-tab3unsigned" name="vc-tabs3" checked=""><input type="radio" id="vc-tab3ecdsa-rdfc-2019" name="vc-tabs3"><input type="radio" id="vc-tab3eddsa-rdfc-2022" name="vc-tabs3"><input type="radio" id="vc-tab3bbs-2023" name="vc-tabs3"><input type="radio" id="vc-tab3jose" name="vc-tabs3"><input type="radio" id="vc-tab3cose" name="vc-tabs3"><input type="radio" id="vc-tab3sd-jwt" name="vc-tabs3"><ul class="vc-tabs"><li class="vc-tab"><label for="vc-tab3unsigned"><abbr title="Unsecured credential">Credential</abbr></label></li><li class="vc-tab"><label for="vc-tab3ecdsa-rdfc-2019"><abbr title="Secured with Data Integrity - ecdsa-rdfc-2019">ecdsa</abbr></label></li><li class="vc-tab"><label for="vc-tab3eddsa-rdfc-2022"><abbr title="Secured with Data Integrity - eddsa-rdfc-2022">eddsa</abbr></label></li><li class="vc-tab"><label for="vc-tab3bbs-2023"><abbr title="Secured with Data Integrity - bbs-2023">bbs</abbr></label></li><li class="vc-tab"><label for="vc-tab3jose"><abbr title="Secured with JOSE">jose</abbr></label></li><li class="vc-tab"><label for="vc-tab3cose"><abbr title="Secured with COSE">cose</abbr></label></li><li class="vc-tab"><label for="vc-tab3sd-jwt"><abbr title="Secured with SD-JWT">sd-jwt</abbr></label></li></ul><div class="vc-tab-content" style="min-height: 609px;"><pre class="nohighlight vc" data-vc-vm="https://example.edu/issuers/565049#key-1" data-vc-tabs="eddsa-rdfc-2022 ecdsa-rdfc-2019 bbs-2023 jose sd-jwt cose">{
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
@@ -2043,7 +2043,7 @@ d28444a1013822a059032d7b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
       </li>
     </ul>
     <div class="sd-jwt-tab-content" id="sd-jwt-3-2dqzyq1-content-encoded">
-      
+
 <div class="sd-jwt-compact">
 <span class="sd-jwt-header">eyJraWQiOiJFeEhrQk1XOWZtYmt2VjI2Nm1ScHVQMnNVWV9OX0VXSU4xbGFwVXpPOHJvIiwiYWxnIjoiRVMyNTYifQ</span>
 .<span class="sd-jwt-payload">eyJfc2RfYWxnIjoic2hhLTI1NiIsIkBjb250ZXh0IjpbImh0dHBzOi8vd3d3LnczLm9yZy9ucy9jcmVkZW50aWFscy92MiIsImh0dHBzOi8vd3d3LnczLm9yZy9ucy9jcmVkZW50aWFscy9leGFtcGxlcy92MiJdLCJpc3N1ZXIiOiJkaWQ6ZXhhbXBsZToyZzU1cTkxMmVjMzQ3NmViYTJsOTgxMmVjYmZlIiwidmFsaWRGcm9tIjoiMjAxMC0wMS0wMVQwMDowMDowMFoiLCJjcmVkZW50aWFsU3ViamVjdCI6eyJuYW1lIjoiUGF0IiwiYWx1bW5pT2YiOnsibmFtZSI6IkV4YW1wbGUgVW5pdmVyc2l0eSIsIl9zZCI6WyJVX0pMZ0FvMEd1RVpERVl2NVZ5QXRRTEVqYU5RQm9GNmtvdk5YTUh4aE5nIl19LCJfc2QiOlsiY1FsSDNxcFVMSjQxdTA4M1BrbEY4b3c5dlFSX1I3T0x6OTFuenZzdVNxTSJdfSwiY3JlZGVudGlhbFNjaGVtYSI6eyJfc2QiOlsiTXdkZktRblpKOXp1OC13SHdXY3VqdDI5VGVaUWZQdHAtaHdQTjAwWXhoMCIsIlRJaV9tM0hGOFRPcW8wZVdzNlFRZUhuWG8zYVpGRVowY0F3TXdyTUx2MDAiXX0sImNyZWRlbnRpYWxTdGF0dXMiOnsic3RhdHVzUHVycG9zZSI6InJldm9jYXRpb24iLCJzdGF0dXNMaXN0SW5kZXgiOiIxMjM0NTYiLCJzdGF0dXNMaXN0Q3JlZGVudGlhbCI6Imh0dHBzOi8vdW5pdmVyc2l0eS5leGFtcGxlL0NyZWRlbnRpYWxTdGF0dXNMaXN0IiwiX3NkIjpbIk04UGhqTTUzekFDMmYwYTM5WWNnNDlMeTdaV1hXTHFuTEk2eExDMXVrYW8iLCJzMm1iRDU4a00tUHh3YU54djM3a1kzd1RTN1YxOGFvOUVFQjVaSE5JZ3FBIl19LCJfc2QiOlsiYkc5RlJaekJTVGZmbHJKeW5WSTAtQkc1LUdaQTFRTzh1ZHRUUFVVcW5pVSIsImwyelZyUkw4WERiWUZVMFhyRXpUSVNhTk9PM0Q2aTB1dFFrTkppR2NONWsiXX0</span>
@@ -2127,8 +2127,8 @@ d28444a1013822a059032d7b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
     </section>
 
     <section class="appendix" id="lifecycle-details"><div class="header-wrapper"><h2 id="b-lifecycle-details"><bdi class="secno">B. </bdi>Lifecycle Details</h2><a class="self-link" href="#lifecycle-details" aria-label="Permalink for Appendix B."></a></div>
-      
-      
+
+
 
       <p>
         The previous sections provided an overview of the Verifiable Credential ecosystem.
@@ -2233,11 +2233,11 @@ d28444a1013822a059032d7b2240636f6e74657874223a5b2268747470733a2f2f7777772e77332e
       </ul>
     </section>
 
-  
+
 
 
 <section id="references" class="appendix"><div class="header-wrapper"><h2 id="c-references"><bdi class="secno">C. </bdi>References</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix C."></a></div><section id="informative-references"><div class="header-wrapper"><h3 id="c-1-informative-references"><bdi class="secno">C.1 </bdi>Informative references</h3><a class="self-link" href="#informative-references" aria-label="Permalink for Appendix C.1"></a></div>
-    
+
     <dl class="bibliography"><dt id="bib-cfrg-bbs-signature">[CFRG-BBS-SIGNATURE]</dt><dd>
       <a href="https://www.ietf.org/archive/id/draft-irtf-cfrg-bbs-signatures-05.html"><cite>The BBS Signature Scheme</cite></a>. Tobias Looker; Vasilis Kalos; Andrew Whitehead; Mike Lodder.  IETF. I-D. URL: <a href="https://www.ietf.org/archive/id/draft-irtf-cfrg-bbs-signatures-05.html">https://www.ietf.org/archive/id/draft-irtf-cfrg-bbs-signatures-05.html</a>
     </dd><dt id="bib-cid-1-0">[CID-1.0]</dt><dd>
