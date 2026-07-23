@@ -69,7 +69,6 @@
             },
             {
             "name": "Gabe Cohen",
-            "url": "https://github.com/decentralgabe",
             "company": "Block",
             "companyURL": "https://block.xyz/",
             "w3cid": 116851
@@ -830,7 +829,7 @@
             The <a data-cite="VC-DATA-INTEGRITY#proofs">definition of `proof`</a> introduces a number of additional properties.
             Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`.
             Others provide the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or `verificationMethod` that usually refers to cryptographic keys.
-            The exact format of the public keys, when used for Credentials, is defined in the [[CID-1.0]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CID-1.0#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CID-1.0#multikey">Multikey</a>.
+            The exact format of the public keys, when used for Credentials, is defined in the [[CID-1.0]] specification, and is based on either the JWK [[RFC7517]] format or a <a data-cite="CID-1.0#multibase-0">Multibase</a> encoding of the keys, called <a data-cite="CID-1.0#Multikey">Multikey</a>.
             Details of the key values are defined by other communities (IETF, cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
           </p>
 
@@ -873,7 +872,7 @@
 
 
           <p class="note">
-            A common characteristic of all these cryptosuites is that keys must always be encoded using the <a data-cite="CID-1.0#multikey">Multikey</a> encoding.
+            A common characteristic of all these cryptosuites is that keys must always be encoded using the <a data-cite="CID-1.0#Multikey">Multikey</a> encoding.
             For the ECDSA case the keys may also carry the choice of the hash functions to be used by the proof generation algorithm.
             This provides yet another differentiation axis among cryptosuites.
           </p>
@@ -932,9 +931,8 @@
 
             <p>
               It is worth noting that the `bbs-2023` cryptosuite also offers a number of additional, privacy preserving options; see the sections on
-              <a data-cite="VC-DI-BBS#pseudonyms-with-hidden-pid">anonymous holder biding</a>,
-              <a data-cite="VC-DI-BBS#pseudonyms-with-issuer-known-pid">pseudonyms with issuer-known id</a>, or
-              <a data-cite="VC-DI-BBS#pseudonyms-with-hidden-pid">pseudonyms with hidden id</a> in the [[[VC-DI-BBS]]] specification.
+              <a data-cite="VC-DI-BBS#anonymous-holder-binding">anonymous holder binding</a> or
+              <a data-cite="VC-DI-BBS#credential-bound-pseudonyms">credential-bound pseudonyms</a> in the [[[VC-DI-BBS]]] specification.
             </p>
           </section>
         </section>
@@ -1287,6 +1285,7 @@
       <p>
         In particular, sections <a data-cite="VC-DATA-MODEL-2.0#terms-of-use">Terms of Use</a> in the Data Model specification, and the <a href="https://w3c.github.io/vc-imp-guide/#subject-holder-relationships">Subject-Holder Relationships</a> section in the Verifiable Credentials Implementation Guide [[VC-IMP-GUIDE]] specify how a verifier can determine:
       </p>
+
 
       <ul>
         <li>
