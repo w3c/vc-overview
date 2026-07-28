@@ -716,6 +716,20 @@
                         title="The Alumnus Credential extended by a confidence method, relying on a public EdDSA key of the subject."
                         data-include="examples/example_with_confidence.json"
                     ></pre>
+
+                    <p>
+                        The diagram below shows the confidence setting steps for our simple university alumnus case.
+                    </p>
+
+                    <figure id="confidence_chart">
+                        <img style="margin: auto; display: block; width: 100%;" src="diagrams/confidence_chart.svg"
+                            alt="The diagram has a number of labelled boxes: 'school of computer science' connected to a box labelled to a box labelled as 'Pat\'s' alumnus credential'. The directional connection is labelled as 'issues'. The second box is connected to a box labelled as 'Verifier': one directional connection from the Verifier, labelled as '(1) verifies' and the connection to the Verifier labelled as '(2) subject…publicKeyMultibase'. There is a separate box labelled as 'Holder', connected to the alumnus credential with a connection labelles as 'holds'. Finally, the Verifier is also connected to the Holder with a connection label '(3) cryptographic challenge'."
+                            />
+                        <figcaption>The flow of holder check by the verifier: the <code>subject.confidenceMethod.publicKeyMultibase</code> is
+                            retrieved by the verifier, and is used for an extra cryptographic challenge to the holder. The confidence in the credential
+                            is increased if that challenge is passed.</figcaption>
+                    </figure>
+
                 </section>
 
                 <section id="s_render_method">
@@ -830,6 +844,21 @@
                         <a data-cite="vc-json-schema#jsonschemacredential">example</a>
                         in the [[[vc-json-schema]]] specification for an example and for further details.
                     </p>
+
+                    <p>
+                        The diagram below shows the JSON Schema related steps for our simple university alumnus case.
+                    </p>
+
+                    <figure id="jsonschema_chart">
+                        <img style="margin: auto; display: block; width: 100%;" src="diagrams/jsonschema_chart.svg"
+                            alt="The diagram has a number of labelled boxes: 'school of computer science' connected to a box labelled to a box labelled as 'Pat\'s' alumnus credential'. The directional connection is labelled as 'issues'. The second box is connected to a box labelled as 'Verifier': one directional connection from the Verifier, labelled as '(1) verifies' and the connection to the Verifier labelled as '(2) credentialSchema'. There is a separate box labelled as 'JSON Schema Credential', also connected to the Verifier with two connections. One labelled as '(3) Verifies' and the second labelled as '(4) subject'. The JSON Schema Credential box is connected to yet another labelled box, labelled as 'JSON Schema'. This box is also connected to the Verifier via a connection labelled as '(5) validates credential'." />
+                        <figcaption>The flow of JSON Schema verification steps by the verifier: after the verification of the original credential, the
+                        <code>id</code> for the <code>credentialSchema</code> is retrieved, which points at another verifiable credential. After
+                        verification, the subject of that credential is retrieved; it is the JSON Schema that is supposed to be used to validate
+                        the alumnus credential.</figcaption>
+                    </figure>
+
+
                 </section>
             </section>
             <section>
@@ -1019,7 +1048,7 @@
                     <h4>Cryptosuites</h4>
 
                     <aside class="ednote">
-                        There are plans for a significant editorial re-write of the DI and the cryptosuite specifications, factoring out
+                        A significant editorial re-write of the DI and the cryptosuite specifications is happening, factoring out
                         the common parts and make the specification of a single cryptosuite simpler. This may affect some details of this
                         section, e.g., the <a href="#cryptosuites-table"></a>.
                     </aside>
@@ -1340,7 +1369,7 @@
         </section>
 
         <section>
-            <h2>[=verifiable credential=] Deployment</h2>
+            <h2>Verifiable Credential Deployment</h2>
 
             <section id="s_barcodes">
                 <h2>Barcodes</h2>
@@ -1589,7 +1618,7 @@
                      data-include="examples/example_with_recognizedin.json"></pre>
 
                 <p>
-                    The diagram below shows the “flow” of trust for our simple university alumni case. See the Appendix of the
+                    The diagram below shows the “flow” of trust for our simple university alumnus case. See the Appendix of the
                     [[[vc-recognized-entities]]] specification for more elaborate examples.
                 </p>
 
@@ -1597,9 +1626,9 @@
                     <img
                         style="margin: auto; display: block; width: 100%;"
                         src="diagrams/recognition_chart.svg"
-                        alt="Diagram showing how credentials flow from issuer to holder, and presentations flow from holder to verifier, where all three parties can use information from a logical verifiable data registry."
+                        alt="The diagram has a number of labelled boxes. A box labelled as 'University Administration (Issuer; root of trust)' is connected to a single box: 'Recognition Credential'. This box is connected to two boxes: one label is 'School of Computer Science (Issuer)' and the other is School of Philosophy(Issuer) via connections labelled as 'recognizes'. The 'school of computer science' is connected to a box labelled to a box labelled as 'Pat\'s' alumnus credential'. The directional connection is labelled as 'issues'. There is another box labelled as 'Verifier'. The alumnus credential is connected from the Verifier via a connectionn labelled as '(1) verifies' and is also connect to the Verfier with a connection labeled as '(2) issuer.recognizedIn'. Finally, the Verifier is connecte to the Recognition Credential via a link labelled as '(3) verifies'."
                     />
-                    <figcaption>The flow of trust for the Alumnus Credential</figcaption>
+                    <figcaption>The flow of trust for the Alumnus Credential: the verifier extracts the <code>issuer.recognizedIn</code> value that points to a recognition credential. This credential can be verified separately.</figcaption>
                 </figure>
 
                 <p>

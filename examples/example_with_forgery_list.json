@@ -29,7 +29,7 @@
     }
   },
   "credentialSchema": {
-    "id": "https://university.example/Credential123-schema-credential",
+    "id": "https://university.example/Credential-schema-credential",
     "type": "JsonSchemaCredential"
   },
   "credentialStatus": [{
