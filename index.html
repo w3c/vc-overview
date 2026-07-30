@@ -787,6 +787,8 @@
                         title="The Alumnus Credential, to be preferably rendered with an HTML based render method."
                         data-include="examples/example_with_render.json"
                     ></pre>
+
+                    <aside class="issue" data-number="29"></aside>
                 </section>
 
                 <section id="s_js_schema">
@@ -857,7 +859,7 @@
                         verification, the subject of that credential is retrieved; it is the JSON Schema that is supposed to be used to validate
                         the alumnus credential.</figcaption>
                     </figure>
-
+                    <aside class="issue" data-number="30"></aside>
 
                 </section>
             </section>
@@ -913,12 +915,7 @@
                     to use SD-JWT when presenting the credential to a verifier using selective disclosure.
                 </p>
 
-                <aside class="issue">
-                    The sections 5.2.3.1 through 5.2.3.3 discuss selective disclosure and quantum resistance as they apply to embedded
-                    securing mechanisms. We should have an equivalent treatment of the selective disclosure and quantum resistance of
-                    enveloping securing mechanisms. Either equivalent sections should be added, or those sections be generalized to be
-                    valid for both cases.
-                </aside>
+                <aside class="issue" data-number="31"></aside>
 
                 <section>
                     <h4>Example: the Alumnus Credential Secured with JOSE and COSE</h4>
@@ -1299,10 +1296,7 @@
                             </p>
                         </aside>
 
-                        <aside class="issue">
-                            Thorough review is requested on SD in general, and also check that the general description is valid for QR
-                            schemes as well. There are lots of hand-weaving here…
-                        </aside>
+                        <aside class="issue" data-number="32"></aside>
                     </section>
                     <section id="s_qr">
                         <h4>Quantum resistance</h4>
@@ -1454,9 +1448,7 @@
                     </figcaption>
                 </figure>
 
-                <aside class="issue">
-                    This section needs thorough review. Ideally, we should construct the example for the alumnus credential itself, but the tab in <a href="#example_verifiable_credential"></a> did not work.…
-                </aside>
+                <aside class="issue" data-number="33"></aside>
             </section>
 
             <section id="s_bsl">
@@ -1717,17 +1709,7 @@
                         released by a global standards setting organization, a community group, an open source project, or an individual.
                     </dd> -->
                 </dl>
-                <div class="issue">
-                    <p>
-                        Version 1.0 included a reference to
-                        <a href="https://www.w3.org/TR/vc-extensions/">Verifiable Credential Extensions</a>. Some of those entries have been
-                        incorporated into the spec (e.g., Multi*) and the document does not seem to be actively maintained.
-                    </p>
-                    <p>
-                        Actually, I wonder whether the list above is maintained at all. A more radical approach may be to remove this
-                        section altogether…
-                    </p>
-                </div>
+                <aside class="issue" data-number="35"></aside>
             </section>
 
             <section>
@@ -1794,10 +1776,7 @@
             ></pre>
         </section>
 
-        <aside class="issue">
-            Version 1.0 of the overview included an appendix for a lifecycle details, originally from the UCR document. I think the section
-            (and the specification on VCALM) has made it obsolete in its current form (if kept, it should be reformulated in VCALM form...)
-        </aside>
+        <aside class="issue" data-number="34"></aside>
         <!-- <section class="appendix">
             <h3>Lifecycle Details</h3>
 
@@ -1891,5 +1870,6 @@
                 <li>Any restrictions using the Verifiable Credentials by the holder or verifier.</li>
             </ul>
         </section> -->
+        <section id="issue-summary"></section>
     </body>
 </html>
