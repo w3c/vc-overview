@@ -1,7 +1,6 @@
 {
   "@context": [
     "https://www.w3.org/ns/credentials/v2",
-    <span class="highlight">"https://www.w3.org/ns/credentials/recognized-entities/v1"</span>,
     "https://www.w3.org/ns/credentials/examples/v2"
   ],
   "id": "https://university.example/Credential123",
