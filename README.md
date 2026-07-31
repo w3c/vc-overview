@@ -1,6 +1,6 @@
 ## VC Overview Document
 
-This Note provides an overview of Verifiable Credentials Recommendations as published by the Verifiable Credentials Working Group at the W3D.
+This Note provides an overview of Verifiable Credentials Recommendations as published by the Verifiable Credentials Working Group at the W3C.
 
 We encourage contributions meeting the
 [Contribution Guidelines](CONTRIBUTING.md). While we prefer the creation of
@@ -17,7 +17,7 @@ issues and Pull Requests in the GitHub repository, discussions also occur on the
 * W3C Staff Contact
   * Ivan Herman - @iherman
 
-# Process Overview for VC Data Model Pull Requests
+# Process Overview for Pull Requests
 1. Anyone can open a PR on the repository.
 2. Once a PR is opened, it will be reviewed by the Editors and other WG
    Members.
