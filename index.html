@@ -778,7 +778,7 @@
                     <p>
                         <a href="#example_with_render"></a> adds an HTML-based render method to our alumnus example. The snippet file itself can
                         be retrieved using the university’s dedicated URL. Note the usage of the <code>digestMultibase</code> property which
-                        adds an extra security to the choice of the HTML template: it refers to the encoded hash value of the snippet file.
+                        adds an extra security factor to the choice of the HTML template: it refers to the encoded hash value of the snippet file.
                     </p>
                     <pre
                         id="example_with_render"
@@ -788,7 +788,7 @@
                     ></pre>
 
                     <aside class="note">
-                        The usage of <code>digestMultibase</code> is not specific to the HTML-based rendering method; this pattern can be used
+                        Use of <code>digestMultibase</code> is not specific to the HTML-based rendering method; this pattern can be used
                         in any object that includes an <code>id</code> property. Adding the encoded hash value of the target of a URL makes it possible to
                         check the integrity of that resource, i.e., that it has not changed since the credential was secured.
                     </aside>
