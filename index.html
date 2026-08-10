@@ -564,6 +564,17 @@
                         />
                         <figcaption style="text-align: center">Basic components of a [=verifiable credential=].</figcaption>
                     </figure>
+
+                    <aside class="note">
+                        The obvious examples that come to mind when talking about (verifiable) credentials are digital versions of
+                        real-world credentials like national identity cards, driving licenses, or various loyalty cards. But the use of
+                        credentials is much wider than that: they can also hold digital product data, business registers, or copyright
+                        information for digital assets. In fact, a verifiable credential can hold any digitizable data whose use requires integrity
+                        protection. Also, as shown in some of the examples in this document, the process of verifying one credential often
+                        requires verifying <em>other</em> credentials that hold auxiliary data, like a <a href="#example_with_schema_ref">JSON
+                            Schema</a> or a <a href="#example_with_forgery_list">witness list</a>.
+                    </aside>
+
                 </section>
 
                 <section>
@@ -841,7 +852,7 @@
                     <pre
                         id="example_with_schema_ref"
                         class="example nohighlight"
-                        title="A Alumnus Credential with a JSON schema credential"
+                        title="Alumnus Credential with a JSON schema credential"
                         data-include="examples/example_with_schema_ref.json"
                     ></pre>
 
