@@ -9,22 +9,22 @@
             <mxGeometry height="60" width="115" x="84.01" y="240" as="geometry" />
           </mxCell>
         </UserObject>
-        <UserObject label="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Data with proof&lt;/span&gt;&lt;br&gt;&lt;/font&gt;" linkTarget="_blank" id="93ff02_V0kyTorA4kfXp-1">
+        <UserObject label="&lt;font style=&quot;&quot;&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;Data with base proof&lt;/span&gt;&lt;br&gt;&lt;/font&gt;" linkTarget="_blank" id="93ff02_V0kyTorA4kfXp-1">
           <mxCell parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;labelBackgroundColor=none;fillColor=none;" vertex="1">
-            <mxGeometry height="60" width="115" x="936" y="240" as="geometry" />
+            <mxGeometry height="60" width="115" x="933" y="240" as="geometry" />
           </mxCell>
         </UserObject>
         <mxCell id="93ff02_V0kyTorA4kfXp-2" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=30;fillColor=none;" value="&lt;font style=&quot;font-size: 20px;&quot;&gt;Transform&lt;/font&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;data&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="170" x="255" y="240" as="geometry" />
+          <mxGeometry height="60" width="170" x="254" y="240" as="geometry" />
         </mxCell>
         <mxCell id="93ff02_V0kyTorA4kfXp-3" edge="1" parent="1" source="93ff02_V0kyTorA4kfXp-2" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;fontSize=12;startSize=8;endSize=8;" target="93ff02_V0kyTorA4kfXp-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="93ff02_V0kyTorA4kfXp-4" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=30;fillColor=none;" value="&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;Hash&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;data&lt;/font&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="170" x="475" y="240" as="geometry" />
+          <mxGeometry height="60" width="170" x="467" y="240" as="geometry" />
         </mxCell>
-        <mxCell id="93ff02_V0kyTorA4kfXp-5" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=30;fillColor=none;" value="&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Generate&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;proof&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
-          <mxGeometry height="60" width="170" x="689" y="240" as="geometry" />
+        <mxCell id="93ff02_V0kyTorA4kfXp-5" parent="1" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=30;fillColor=none;" value="&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;Generate&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;font-size: 20px;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;base proof&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="170" x="690" y="240" as="geometry" />
         </mxCell>
         <mxCell id="93ff02_V0kyTorA4kfXp-6" edge="1" parent="1" source="r7VOtmBWi9sTdI5Oyx6i-7" style="endArrow=none;html=1;rounded=0;fontSize=12;startSize=8;endSize=8;curved=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="93ff02_V0kyTorA4kfXp-2" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -50,6 +50,14 @@
             <mxPoint x="949" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="beFbxWG3w3ApDZt-pu9r-2" edge="1" parent="1" source="beFbxWG3w3ApDZt-pu9r-1" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=12;startSize=8;endSize=8;endArrow=none;endFill=0;" target="93ff02_V0kyTorA4kfXp-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <UserObject label="&lt;font style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 17px;&quot;&gt;Mandatory disclosure constraints&lt;/font&gt;&lt;br&gt;&lt;/font&gt;" linkTarget="_blank" id="beFbxWG3w3ApDZt-pu9r-1">
+          <mxCell parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=16;labelBackgroundColor=none;fillColor=none;" vertex="1">
+            <mxGeometry height="70" width="119" x="278.5" y="350" as="geometry" />
+          </mxCell>
+        </UserObject>
       </root>
     </mxGraphModel>
   </diagram>
