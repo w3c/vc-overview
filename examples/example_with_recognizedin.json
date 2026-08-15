@@ -4,7 +4,7 @@
     "https://www.w3.org/ns/credentials/examples/v2"
   ],
   "id": "https://university.example/Credential123",
-  "type": ["VerifiableCredential", "ExampleAlumnusCredential"],
+  "type": ["VerifiableCredential", "ExampleAlumniCredential"],
   <span class="highlight">"issuer": {
     "id" : "did:example:university.example:CSSchool",
     "recognizedIn": "did:example:university.example:Admin#recognitionCredential"
@@ -22,7 +22,7 @@
   "credentialSubject": {
     "id": "https://www.example.org/persons/pat",
     "name": "Pat",
-    "alumnusOf": {
+    "alumniOf": {
       "id": "did:example:c276e12ec21ebfeb1f712ebc6f1",
       "name": "Example University"
     },
