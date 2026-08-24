@@ -1159,6 +1159,36 @@
                         algorithm [[rfc9563]] similarly to EdDSA.
                     </p>
 
+                    <section id="s_qr">
+                        <h4>Quantum resistance</h4>
+
+                        <p>
+                            Publication of quantum-resistant cryptosuites is especially timely, in view of some
+                            <a
+                                href="https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/">recent
+                                research results on quantum vulnerabilities</a>. That study led experts to consider that there exists a
+                            small but meaningful probability that elliptic curve
+                            keys could be broken by the early 2030s. As a result, organizations have already started to convert their
+                            authentication services to use, eventually, quantum resistant cryptographic algorithms, with deadlines as early
+                            as 2029.
+                        </p>
+                        <p>
+                            For [=verifiable credentials=] this means that ECDSA or EdDSA based signatures may become vulnerable. The
+                            collection
+                            of quantum resistant cryptosuites provide alternative digital signature schemes, using the best stable
+                            algorithms known today.
+                        </p>
+                        <aside class="note">
+                            The final list of quantum resistant cryptosuites may still change, depending on the stability and
+                            acceptance of the underlying cryptographic algorithms.
+                        </aside>
+                    </section>
+                </section>
+
+                <section id="s_cryptosuites_list">
+                    <h4>Comprehensive list of cryptosuites</h4>
+
+
                     <p>
                         <a href="#cryptosuites-table"></a> provides an overall view of the cryptosuites defined by the Recommendations. They all
                         implement the general pipeline of proof generation as described in <a href="#s_proof-generation-steps"></a>. One axis of
@@ -1174,7 +1204,7 @@
 
                     <table id="cryptosuites-table" class="data numbered">
                         <caption>
-                            Data integrity cryptosuites.
+                            Data integrity cryptosuites for embedded proofs.
                         </caption>
                         <thead>
                             <tr>
@@ -1317,32 +1347,7 @@
                             href="#s_full-disclosure-proofs"></a>) and RDFC is based on converting data serialized in JSON-LD into individual
                         claims before the specific canonicalization steps.
                     </p>
-
-                     <section id="s_qr">
-                        <h4>Quantum resistance</h4>
-
-                        <p>
-                            Publication of quantum-resistant cryptosuites is especially timely, in view of some
-                            <a
-                                href="https://research.google/blog/safeguarding-cryptocurrency-by-disclosing-quantum-vulnerabilities-responsibly/"
-                                >recent research results on quantum vulnerabilities</a
-                            >. That study led experts to consider that there exists a small but meaningful probability that elliptic curve
-                            keys could be broken by the early 2030s. As a result, organizations have already started to convert their
-                            authentication services to use, eventually, quantum resistant cryptographic algorithms, with deadlines as early
-                            as 2029.
-                        </p>
-                        <p>
-                            For [=verifiable credentials=] this means that ECDSA or EdDSA based signatures may become vulnerable. The collection
-                            of quantum resistant cryptosuites provide alternative digital signature schemes, using the best stable
-                            algorithms known today.
-                        </p>
-                        <aside class="note">
-                            The final list of quantum resistant cryptosuites may still change, depending on the stability and
-                            acceptance of the underlying cryptographic algorithms.
-                        </aside>
-                    </section>
                 </section>
-
                 <section>
                     <h4>Example: the Alumni Credential secured with EdDSA and ECDSA</h4>
 
