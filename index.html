@@ -315,7 +315,7 @@
             <p>
                 Credentials are a part of our daily lives; driver’s licenses are used to assert that we are capable of operating a motor
                 vehicle, university degrees can be used to assert our level of education, government-issued passports enable us to
-                travel between countries, and trade authorities issue certificates containing various informations on a product.
+                travel between countries, and trade authorities issue certificates containing various pieces of information concerning products and shipments.
                 The family of W3C Recommendations for [=verifiable credentials=], described in this overview document,
                 provides a mechanism to express these sorts of credentials on the Web in a way that is cryptographically secure, privacy
                 respecting, and machine-verifiable.
@@ -633,18 +633,18 @@
 
                 <p>
                     The following JSON-LD code is an example for a simple credential. It states that the person named “Pat”, identified by
-                    <code>https://www.example.org/persons/pat</code>, is an alumnus of the Example University (identified by
+                    <code>https://www.example.org/persons/pat</code>, is an alumni of the Example University (identified by
                     <code>did:example:c276e12ec21ebfeb1f712ebc6f1</code>). The credential is valid from the 1st of January 2010, and is
                     issued by an entity identified by <code>did:example:university.example:CSSchool</code>. Most of the properties in the
                     credential are from the standard [=verifiable credentials=] vocabulary (identified by
-                    <code>https://www.w3.org/ns/credentials/v2</code>), but some terms (like `alumnusOf` or `AlumnusCredential`) are added by
+                    <code>https://www.w3.org/ns/credentials/v2</code>), but some terms (like `alumniOf` or `AlumniCredential`) are added by
                     the application-specific vocabulary referred to by <code>https://www.w3.org/ns/credentials/examples/v2</code>.
                 </p>
 
                 <pre
                     id="base_example"
                     class="example nohighlight"
-                    title="A simple Alumnus Credential"
+                    title="A simple Alumni Credential"
                     data-include="examples/base_example.json"
                 ></pre>
 
@@ -657,7 +657,7 @@
                     <img
                         style="margin: auto; display: block; width: 100%"
                         src="diagrams/credential_example.svg"
-                        alt="Diagram showing an example of a Verifiable Credential. At top, there is an ellipse labeled 'https://university.example/Credential123 (Type: VerifiableCredential, ExampleAlumnusCredential)'. This ellipse has two arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'validFrom', angles to the right, and terminates at a box labeled as '2010-01-01T00:00:00Z'. The second arrow is at the middle of the ellipse, is labeled as 'credentialSubject', and ends at an ellipse labeled as 'https://www.example.org/persons/pat'. This ellipse has two more arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'name', and angles to the right, terminating at a box labeled as 'Pat'. The second arrow is nearer the left side of the ellipse, labeled as 'alumnusOf', and ends at another ellipse labeled as 'did:example:c276e12ec21ebfeb1f712ebc6f1'. This ellipse has a final arrow going down, which is labeled as 'name' and ends at a final box labeled as 'Example University'."
+                        alt="Diagram showing an example of a Verifiable Credential. At top, there is an ellipse labeled 'https://university.example/Credential123 (Type: VerifiableCredential, ExampleAlumniCredential)'. This ellipse has two arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'validFrom', angles to the right, and terminates at a box labeled as '2010-01-01T00:00:00Z'. The second arrow is at the middle of the ellipse, is labeled as 'credentialSubject', and ends at an ellipse labeled as 'https://www.example.org/persons/pat'. This ellipse has two more arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'name', and angles to the right, terminating at a box labeled as 'Pat'. The second arrow is nearer the left side of the ellipse, labeled as 'alumniOf', and ends at another ellipse labeled as 'did:example:c276e12ec21ebfeb1f712ebc6f1'. This ellipse has a final arrow going down, which is labeled as 'name' and ends at a final box labeled as 'Example University'."
                     />
                     <figcaption style="text-align: center">
                         The credential in <a href="#base_example"></a> represented as a collection of claims.
@@ -665,7 +665,7 @@
                 </figure>
 
                 <p class="note">
-                    The Alumnus Credential in <a href="#base_example"></a> is used as a starting point throughout this document to
+                    The Alumni Credential in <a href="#base_example"></a> is used as a starting point throughout this document to
                     show how to apply additional features defined by the various specifications.
                 </p>
 
@@ -724,17 +724,17 @@
                     <pre
                         id="example_with_confidence"
                         class="example nohighlight"
-                        title="The Alumnus Credential extended by a confidence method, relying on a public EdDSA key of the subject."
+                        title="The Alumni Credential extended by a confidence method, relying on a public EdDSA key of the subject."
                         data-include="examples/example_with_confidence.json"
                     ></pre>
 
                     <p>
-                        The diagram below shows the confidence setting steps for our simple university alumnus case.
+                        The diagram below shows the confidence setting steps for our simple university alumni case.
                     </p>
 
                     <figure id="confidence_chart">
                         <img style="margin: auto; display: block; width: 100%;" src="diagrams/confidence_chart.svg"
-                            alt="The diagram has a number of labelled boxes: 'school of computer science' connected to a box labelled to a box labelled as 'Pat\'s' alumnus credential'. The directional connection is labelled as 'issues'. The second box is connected to a box labelled as 'Verifier': one directional connection from the Verifier, labelled as '(1) verifies' and the connection to the Verifier labelled as '(2) subject…publicKeyMultibase'. There is a separate box labelled as 'Holder', connected to the alumnus credential with a connection labelles as 'holds'. Finally, the Verifier is also connected to the Holder with a connection label '(3) cryptographic challenge'."
+                            alt="The diagram has a number of labelled boxes: 'school of computer science' connected to a box labelled to a box labelled as 'Pat\'s' alumni credential'. The directional connection is labelled as 'issues'. The second box is connected to a box labelled as 'Verifier': one directional connection from the Verifier, labelled as '(1) verifies' and the connection to the Verifier labelled as '(2) subject…publicKeyMultibase'. There is a separate box labelled as 'Holder', connected to the alumni credential with a connection labelles as 'holds'. Finally, the Verifier is also connected to the Holder with a connection label '(3) cryptographic challenge'."
                             />
                         <figcaption>The flow of holder check by the verifier: the <code>subject.confidenceMethod.publicKeyMultibase</code> is
                             retrieved by the verifier, and is used for an extra cryptographic challenge to the holder. The confidence in the credential
@@ -748,8 +748,8 @@
 
                     <p>
                         The issuer of a credential may have preferred ways to express a verifiable credential to an observer. For example, an
-                        issuer of the university alumnus badge might want to include rich imagery of their university logo and specific placement
-                        of the alumnus information in specific areas of the badge. The [[[vc-render-method]]] [[vc-render-method]] specification
+                        issuer of the university alumni badge might want to include rich imagery of their university logo and specific placement
+                        of the alumni information in specific areas of the badge. The [[[vc-render-method]]] [[vc-render-method]] specification
                         defines an extensible mechanism that issuers may use to provide these preferred mechanisms for the presentation of a
                         credential. These presentations may use images, simple cards for a digital wallet, complex visual presentations, or HTML, CSS, and JavaScript in a secure execution environment.
                     </p>
@@ -787,7 +787,7 @@
                     </aside>
 
                     <p>
-                        <a href="#example_with_render"></a> adds an HTML-based render method to our alumnus example. The snippet file itself can
+                        <a href="#example_with_render"></a> adds an HTML-based render method to our alumni example. The snippet file itself can
                         be retrieved using the university’s dedicated URL. Note that the use of the <code>digestMultibase</code> property
                         adds an extra security factor to the choice of the HTML template: it refers to the encoded hash value of the snippet file.
 
@@ -795,7 +795,7 @@
                     <pre
                         id="example_with_render"
                         class="example nohighlight"
-                        title="The Alumnus Credential, to be preferably rendered with an HTML based render method."
+                        title="The Alumni Credential, to be preferably rendered with an HTML based render method."
                         data-include="examples/example_with_render.json"
                     ></pre>
 
@@ -824,7 +824,7 @@
                     <pre
                         id="example_with_schema"
                         class="example nohighlight"
-                        title="The Alumnus Credential with a reference to a JSON schema"
+                        title="The Alumni Credential with a reference to a JSON schema"
                         data-include="examples/example_with_schema.json"
                     ></pre>
 
@@ -836,7 +836,7 @@
                     <pre
                         id="example_schema"
                         class="example nohighlight"
-                        title="Skeleton of a JSON schema for the Alumnus Credential"
+                        title="Skeleton of a JSON schema for the Alumni Credential"
                         data-include="examples/example_schema.json"
                     ></pre>
 
@@ -852,7 +852,7 @@
                     <pre
                         id="example_with_schema_ref"
                         class="example nohighlight"
-                        title="Alumnus Credential with a JSON schema credential"
+                        title="Alumni Credential with a JSON schema credential"
                         data-include="examples/example_with_schema_ref.json"
                     ></pre>
 
@@ -865,28 +865,28 @@
                     </p>
 
                     <p>
-                        The diagram below shows the JSON Schema related steps for our simple university alumnus case.
+                        The diagram below shows the JSON Schema related steps for our simple university alumni case.
                     </p>
 
                     <figure id="jsonschema_chart">
                         <img style="margin: auto; display: block; width: 100%;" src="diagrams/jsonschema_chart.svg"
-                            alt="The diagram has a number of labelled boxes: 'school of computer science' connected to a box labelled to a box labelled as 'Pat\'s' alumnus credential'. The directional connection is labelled as 'issues'. The second box is connected to a box labelled as 'Verifier': one directional connection from the Verifier, labelled as '(1) verifies' and the connection to the Verifier labelled as '(2) credentialSchema'. There is a separate box labelled as 'JSON Schema Credential', also connected to the Verifier with two connections. One labelled as '(3) Verifies' and the second labelled as '(4) subject'. The JSON Schema Credential box is connected to yet another labelled box, labelled as 'JSON Schema'. This box is also connected to the Verifier via a connection labelled as '(5) validates credential'." />
+                            alt="The diagram has a number of labelled boxes: 'school of computer science' connected to a box labelled to a box labelled as 'Pat\'s' alumni credential'. The directional connection is labelled as 'issues'. The second box is connected to a box labelled as 'Verifier': one directional connection from the Verifier, labelled as '(1) verifies' and the connection to the Verifier labelled as '(2) credentialSchema'. There is a separate box labelled as 'JSON Schema Credential', also connected to the Verifier with two connections. One labelled as '(3) Verifies' and the second labelled as '(4) subject'. The JSON Schema Credential box is connected to yet another labelled box, labelled as 'JSON Schema'. This box is also connected to the Verifier via a connection labelled as '(5) validates credential'." />
                         <figcaption>The flow of JSON Schema verification steps by the verifier: after the verification of the original credential, the
                         <code>id</code> for the <code>credentialSchema</code> is retrieved, which points at another verifiable credential. After
                         verification, the subject of that credential is retrieved; it is the JSON Schema that is supposed to be used to validate
-                        the alumnus credential.</figcaption>
+                        the alumni credential.</figcaption>
                     </figure>
                 </section>
             </section>
             <section>
-                <h2>Example: the Alumnus Credential</h2>
+                <h2>Example: the Alumni Credential</h2>
 
-                <p>For reference, <a href="#example_credential"></a> represents the full Alumnus Credential, as constructed so far.</p>
+                <p>For reference, <a href="#example_credential"></a> represents the full Alumni Credential, as constructed so far.</p>
 
                 <pre
                     id="example_credential"
                     class="example nohighlight"
-                    title="A simple alumnus credential with a JSON schema"
+                    title="A simple alumni credential with a JSON schema"
                     data-include="examples/example_credential.json"
                 ></pre>
             </section>
@@ -933,7 +933,7 @@
                 <aside class="issue" data-number="31"></aside>
 
                 <section>
-                    <h4>Example: the Alumnus Credential Secured with JOSE and COSE</h4>
+                    <h4>Example: the Alumni Credential Secured with JOSE and COSE</h4>
 
                     <p>
                         <a href="#secured_example_jwt"></a> shows the credential example shown in <a href="#base_example"></a>, enriched
@@ -944,7 +944,7 @@
                     <pre
                         id="secured_example_jwt"
                         class="example nohighlight vc"
-                        title="The Alumnus Credential in JOSE and COSE"
+                        title="The Alumni Credential in JOSE and COSE"
                         data-include="examples/example_credential.json"
                         data-vc-vm="https://university.example/issuers/565049#key-1"
                         data-vc-tabs="jose cose"
@@ -1347,10 +1347,10 @@
                 </section>
 
                 <section>
-                    <h4>Example: the Alumnus Credential secured with EdDSA and ECDSA</h4>
+                    <h4>Example: the Alumni Credential secured with EdDSA and ECDSA</h4>
 
                     <p>
-                        <a href="#base_example_secured_di"></a> shows the Alumnus Credential example, shown in
+                        <a href="#base_example_secured_di"></a> shows the Alumni Credential example, shown in
                         <a href="#base_example"></a> and enriched with reference to JSON Schema, and Rendering/Confidence Methods. It is
                         secured by two different embedded proofs, using the `ecdsa-rdfc-2019` and `eddsa-rdfc-2022` cryptosuites
                         respectively.
@@ -1359,7 +1359,7 @@
                     <pre
                         id="base_example_secured_di"
                         class="example nohighlight vc"
-                        title="Embedded EdDSA and ECDSA proofs added to the Alumnus Credential"
+                        title="Embedded EdDSA and ECDSA proofs added to the Alumni Credential"
                         data-include="examples/example_credential.json"
                         data-vc-vm="https://university.example/issuers/565049#key-1"
                         data-vc-tabs="eddsa-rdfc-2022 ecdsa-rdfc-2019"
@@ -1522,7 +1522,7 @@
                 <pre
                     id="example_with_status_list"
                     class="example nohighlight"
-                    title="The Alumnus Credential with a reference to a status list"
+                    title="The Alumni Credential with a reference to a status list"
                     data-include="examples/base_example_status_list.json"
                 ></pre>
 
@@ -1579,7 +1579,7 @@
                 <pre
                     id="example_with_forgery_list"
                     class="example nohighlight"
-                    title="The Alumnus Credential with a reference to a forgery witness list"
+                    title="The Alumni Credential with a reference to a forgery witness list"
                     data-include="examples/example_with_forgery_list.json"
                 ></pre>
             </section>
@@ -1610,7 +1610,7 @@
                 <p>
                     <a href="#recognized_entities_credential"></a> shows the skeleton of a [=verifiable credential=], issued by the
                     administration of Example University, which attests that the administrations of the School of Computer Science,
-                    respectively of Philosophy, can issue credentials. (Note that the Alumnus Credential in our example was
+                    respectively of Philosophy, can issue credentials. (Note that the Alumni Credential in our example was
                     issued by the Schoold of Computer Science.)
                 </p>
 
@@ -1621,7 +1621,7 @@
                     data-include="examples/recognized_entities_credential.json"
                 ></pre>
 
-                <p>We can also extend the Alumnus Credential with the possibility for the verifier to trace back the Web of Recognition to a
+                <p>We can also extend the Alumni Credential with the possibility for the verifier to trace back the Web of Recognition to a
                     possible “root”. In <a href="#example_with_recognizedin"></a> the data about the issuer contains the <code>recognizedIn</code>
                     claim, the refers back to the credential in <a href="#recognized_entities_credential"></a>.
                 </p>
@@ -1632,7 +1632,7 @@
                      data-include="examples/example_with_recognizedin.json"></pre>
 
                 <p>
-                    The diagram below shows the “flow” of trust for our simple university alumnus case. See the Appendix of the
+                    The diagram below shows the “flow” of trust for our simple university alumni case. See the Appendix of the
                     [[[vc-recognized-entities]]] specification for more elaborate examples.
                 </p>
 
@@ -1640,9 +1640,9 @@
                     <img
                         style="margin: auto; display: block; width: 100%;"
                         src="diagrams/recognition_chart.svg"
-                        alt="The diagram has a number of labelled boxes. A box labelled as 'University Administration (Issuer; root of trust)' is connected to a single box: 'Recognition Credential'. This box is connected to two boxes: one label is 'School of Computer Science (Issuer)' and the other is School of Philosophy(Issuer) via connections labelled as 'recognizes'. The 'school of computer science' is connected to a box labelled to a box labelled as 'Pat\'s' alumnus credential'. The directional connection is labelled as 'issues'. There is another box labelled as 'Verifier'. The alumnus credential is connected from the Verifier via a connectionn labelled as '(1) verifies' and is also connect to the Verfier with a connection labeled as '(2) issuer.recognizedIn'. Finally, the Verifier is connecte to the Recognition Credential via a link labelled as '(3) verifies'."
+                        alt="The diagram has a number of labelled boxes. A box labelled as 'University Administration (Issuer; root of trust)' is connected to a single box: 'Recognition Credential'. This box is connected to two boxes: one label is 'School of Computer Science (Issuer)' and the other is School of Philosophy(Issuer) via connections labelled as 'recognizes'. The 'school of computer science' is connected to a box labelled to a box labelled as 'Pat\'s' alumni credential'. The directional connection is labelled as 'issues'. There is another box labelled as 'Verifier'. The alumni credential is connected from the Verifier via a connectionn labelled as '(1) verifies' and is also connect to the Verfier with a connection labeled as '(2) issuer.recognizedIn'. Finally, the Verifier is connecte to the Recognition Credential via a link labelled as '(3) verifies'."
                     />
-                    <figcaption>The flow of trust for the Alumnus Credential: the verifier extracts the <code>issuer.recognizedIn</code> value that points to a recognition credential. This credential can be verified separately.</figcaption>
+                    <figcaption>The flow of trust for the Alumni Credential: the verifier extracts the <code>issuer.recognizedIn</code> value that points to a recognition credential. This credential can be verified separately.</figcaption>
                 </figure>
 
                 <p>
@@ -1780,10 +1780,10 @@
         </section>
 
         <section class="appendix">
-            <h2>The Alumnus Credential</h2>
+            <h2>The Alumni Credential</h2>
 
             <p>
-                <a href="#example_verifiable_credential"></a> shows the Alumnus Credential example used throughout this document, with all
+                <a href="#example_verifiable_credential"></a> shows the Alumni Credential example used throughout this document, with all
                 the constituents added. It is secured via different mechanisms defined for [=verifiable credentials=]. The issuer itself has
                 been recognized by the administration of the University (see <a href="#recognized_entities_credential"></a>), which is an
                 extra information for the verifier of this credential.
@@ -1795,7 +1795,7 @@
                 data-include="examples/example_verifiable_credential.json"
                 data-vc-vm="https://example.edu/issuers/565049#key-1"
                 data-vc-tabs="eddsa-rdfc-2022 ecdsa-rdfc-2019 bbs-2023 jose sd-jwt cose"
-                title="A Verifiable Credential for alumnus, with a reference to render and confidence methods, credential JSON schema, status and forgery lists."
+                title="A Verifiable Credential for alumni, with a reference to render and confidence methods, credential JSON schema, status and forgery lists."
             ></pre>
         </section>
 
