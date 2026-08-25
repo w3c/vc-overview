@@ -900,8 +900,7 @@
                 <p>
                     A verifiable credential is a set of one or more claims made by the same issuer. A particular holder can have verifiable
                     credentials from many issuers. When presenting to a verifier, a holder can choose just one or a subset from their
-                    existing verifiable credentials to form a verifiable presentation. By minimizing the subset of credentials in a
-                    verifiable presentation presented to a given verifier, privacy is enhanced.
+                    existing verifiable credentials to form a verifiable presentation.
                 </p>
                 <p>
                     In the simplest deployment, only entire verifiable credentials can be shared through verifiable presentations. In other
@@ -910,7 +909,7 @@
                 </p>
 
                 <p>
-                    Full disclosure has obvious and significant implications for the privacy of both subjects and holders. To further
+                    However, full disclosure has obvious and significant implications for the privacy of both subjects and holders. To further
                     enhance the privacy of a holder, an issuer can create a verifiable credential that supports <em>selective
                     disclosure</em>. This is a technique that enables a holder to selectively reveal only a subset of claims from the
                     original credential in a derived credential that will be presented to a verifier. This is achieved with assurances from
@@ -924,13 +923,12 @@
                 <h3>Enveloping proofs</h3>
 
                 <p>
-                    Enveloping proofs of credentials, defined by this Working Group, are based on JSON Object Signing and Encryption (<a
-                        href="https://datatracker.ietf.org/wg/jose/about/"
-                        >JOSE</a
-                    >), CBOR Object Signing and Encryption (COSE) [[rfc9052]], or Selective Disclosure for JWTs [[rfc9901]]. These are all
-                    IETF specifications, or groups of specifications (like JOSE, that refers to JWT [[rfc7519]], JWS [[rfc7515]], or
-                    JWK [[rfc7517]]). The [[[vc-jose-cose]]] [[vc-jose-cose]] Recommendation defines a “bridge” between these and the
-                    [[[vc-data-model]]], specifying the suitable header claims, media types, etc.
+                    Enveloping proofs of credentials, defined by this Working Group, are based on (<a
+                        href="https://datatracker.ietf.org/wg/jose/about/">JSON Object Signing and Encryption (JOSE)</a>) and <a
+                        data-cite="rfc9338#">CBOR Object Signing and Encryption (COSE)</a> [[rfc9338]]. These are IETF specifications, or
+                    groups of specifications (JOSE refers to JWT [[rfc7519]], JWS [[rfc7515]], or JWK [[rfc7517]]). W3C's
+                    [[[vc-jose-cose]]] [[vc-jose-cose]] Recommendation defines the “bridge” between these and the [[[vc-data-model]]],
+                    specifying the suitable header claims, media types, etc.
                 </p>
 
                 <p>
@@ -943,28 +941,27 @@
 
                 <p>
                     The usage of COSE [[rfc9052]] is similar to JOSE, except that all structures are represented in CBOR [[rfc8949]]. From
-                    the credentials point of view, however, the structure is similar insofar as the credential (or the Presentation) is
+                    the credentials point of view the structure is similar insofar as the credential (or the presentation) is
                     again the payload for COSE. The use of CBOR means that the final representation of the [=verifiable credential=] (or
-                    Presentation) can have a reduced footprint which can be, for example, shown in a QR Code.
+                    presentation) can have a reduced footprint which can be, for example, shown in a QR Code.
                 </p>
 
                 <p>
-                    The [[rfc9901]] specification is a variant of JOSE, which allows for the selective disclosure of individual claims.
-                    Claims can be selectively hidden or revealed to the verifier, but all claims are cryptographically protected against
-                    modification. This approach is obviously more complicated than the JOSE case but, from the credentials point of view,
-                    the structure is again similar. The original credential is the payload for SD-JWT; and it is the holder’s responsibility
-                    to use SD-JWT when presenting the credential to a verifier using selective disclosure.
+                    Both JOSE and COSE are full disclosure schemes. The framework for selective disclosure is provided by a separate IETF specification,
+                    namely [[[rfc9901]]] [[rfc9901]]. This approach is obviously more complicated than the JOSE case but, from the
+                    credentials point of view, the structure is similar. The original credential is the payload for SD-JWT, and the
+                    [[vc-jose-cose]] specification contains the <a data-cite="vc-jose-cose#with-sd-jwt">definition</a> of the necessary
+                    header claims and media types.
                 </p>
 
-                <aside class="issue" data-number="31"></aside>
+                <!-- <aside class="issue" data-number="31"></aside> -->
 
                 <section>
                     <h4>Example: the Alumni Credential Secured with JOSE and COSE</h4>
 
                     <p>
-                        <a href="#secured_example_jwt"></a> shows the credential example shown in <a href="#base_example"></a>, enriched
-                        with a reference to a JSON Schema in <a href="#example_with_schema"></a>. It is secured by two different enveloping
-                        proofs, namely JOSE and COSE.
+                        <a href="#secured_example_jwt"></a> shows the credential example, shown in <a href="#example_credential"></a>,
+                        secured by JOSE and COSE, respectively.
                     </p>
 
                     <pre
@@ -981,6 +978,20 @@
             <section id="s_proof_di">
                 <h3>Embedded proofs</h3>
 
+                <p>
+                    In the case of embedded proofs, the data structure containing the credential is <em>extended</em> to include one or
+                    several proofs for the claims in the credential. The result is a <em>verifiable</em> credential, i.e., a JSON object
+                    that can be transferred, stored, and retrieved as a verifiable unit.
+                </p>
+
+                <p>
+                    The core specification for embedded proofs is [[[vc-data-integrity]]] [[vc-data-integrity]]. That document defines all
+                    the details of generating and embedding proofs, and it includes the proof generation algorithms. Adaptation of these
+                    general algorithms to specific cryptographic schemes is done in a series <a
+                        data-cite="vc-data-integrity#cryptographic-suites">Cryptographic suites</a> (or cryptosuites, for short) in the form
+                    of separate specifications. See the <a href="#s_crs">separate section</a> below.
+                </p>
+
                 <section id="s_proof-generation-steps">
                     <h4>Creation of Proofs in Data Integrity</h4>
 
@@ -989,37 +1000,35 @@
 
                         <p>
                             The operation of Data Integrity with full disclosure is conceptually simple. To create a
-                            cryptographic proof, the following steps are performed: 1) Transformation, 2) Hashing, and 3) Proof Generation.
+                            cryptographic proof, the following steps are performed: (1) Transformation, (2) Hashing, and (3) Proof Generation.
                         </p>
 
                         <figure id="di_crypto_proof-figure">
                             <img
                                 style="margin: auto; display: block; width: 90%"
                                 src="diagrams/di_crypto_proof.svg"
-                                alt="Simple flow diagram, with steps from left to right, labeled as 'Data', 'Transform Data', 'Hash Data', 'Generate Proof', and 'Data with Proof'."
+                                alt="Simple flow diagram, with steps from left to right, labeled as 'Data', 'Transform data', 'Hash data', 'Generate proof', and 'Data with proof'."
                             />
                             <figcaption style="text-align: center">View of the proof generation steps.</figcaption>
                         </figure>
 
                         <ol>
                             <li>
-                                <em>Transformation</em> is a process described by a <em>transformation algorithm</em> that takes input data and
-                                prepares it for the hashing process. In the case of data serialized in JSON this transformation includes the
-                                removal of all the artifacts that do not influence the semantics of the data, such as spaces, new lines, the
-                                order of JSON names, etc. (a step usually referred to as <em>canonicalization</em>). In some cases the
-                                transformation may be more involved.
+                                <em>Transformation</em> is a process that takes input data and prepares it for the hashing process. In the case of data
+                                serialized in JSON this transformation includes the removal of all the artifacts that do not influence the semantics of
+                                the data, such as spaces, new lines, the order of JSON names, etc. (a step usually referred to as
+                                <em>canonicalization</em>). In some cases the transformation may be more involved.
                             </li>
                             <li>
-                                <em>Hashing</em> is a process described by a <em>hashing algorithm</em> that calculates an numerical identifier for the
-                                transformed data using a <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">cryptographic hash
-                                    function</a>. Typically, the size of the resulting hash is smaller than the data, and it is suitable
-                                for complex cryptographic functions like digital signatures.
+                                <em>Hashing</em> is a process that calculates a numerical identifier for the transformed data using a <a
+                                    href="https://en.wikipedia.org/wiki/Cryptographic_hash_function">cryptographic hash function</a>. Typically, the
+                                size of the resulting hash is smaller than the data, and it is suitable for complex cryptographic functions like digital
+                                signatures.
                             </li>
                             <li>
-                                <em>Proof Generation</em> is a process described by a <em>proof method</em> that calculates a value that
-                                protects the integrity of the input data from modification or otherwise proves a certain desired threshold of
-                                trust. A typical example is the application of a cryptographic signature using asymmetric keys, generating the
-                                signature of the data using a private key.
+                                <em>Proof Generation</em> is a process that calculates a value that protects the integrity of the input data from
+                                modification or otherwise proves a certain desired threshold of trust. A typical example is the application of a
+                                cryptographic signature using asymmetric keys to generate the signature of the data (using the private key).
                             </li>
                         </ol>
 
@@ -1035,12 +1044,12 @@
                         <h5>Selective disclosure proofs</h5>
 
                         <p>
-                            In contrast to full disclosure proofs (see <a href="#s_full-disclosure-proofs"></a>) selective disclosure involves three
-                            processes rather than two: 1) the issuer creates a <em>base proof</em>, 2) the holder creates a <em>derived
-                                proof</em>from the base proof, and 3) the verifier verifies the derived proof. The reason for this extra step is
+                            In contrast to full disclosure proofs (see <a href="#s_full-disclosure-proofs"></a>), selective disclosure involves three
+                            processes rather than two: (1) the issuer creates a <em>base proof</em>, (2) the holder creates a <em>derived
+                                proof</em> from the base proof, and (3) the verifier verifies the derived proof. The reason for this extra step is
                             that methods for creating a derived proof are much more efficient when used in combination with a base proof that is
                             created in a particular manner. Holders are expected never to reveal base proofs when presenting, as some of the
-                            information in the base proofs might be intended only for the holder's use, for example, to create privacy-preserving derived proofs.
+                            information in the base proofs might be intended only for the holder's use to create, for example, privacy-preserving derived proofs.
                         </p>
 
                         <p>
@@ -1052,7 +1061,7 @@
 
                         <figure id="di_crypto_sd_base-figure">
                             <img style="margin: auto; display: block; width: 90%" src="diagrams/di_crypto_sd_base.svg"
-                                alt="Simple flow diagram, with steps from left to right, labeled as 'Data', 'Transform Data', 'Hash Data', 'Generate Proof', and 'Data with Proof'. (TBD)" />
+                                alt="Simple flow diagram, with steps from left to right, labeled as 'Data', 'Transform data', 'Hash data', 'Generate base proof', and 'Data with base proof'. Additionally, the 'Transform data' step is also linked to a separate step labeled as 'Mandatory disclosure constraints'" />
                             <figcaption style="text-align: center">View of the proof generation steps.</figcaption>
                         </figure>
 
@@ -1066,39 +1075,35 @@
 
                         <figure id="di_crypto_sd_data-figure">
                             <img style="margin: auto; display: block; width: 90%" src="diagrams/di_crypto_sd_data.svg"
-                                alt="Simple flow diagram, with steps from left to right, labeled as 'Data', 'Transform Data', 'Hash Data', 'Generate Proof', and 'Data with Proof'. (TBD)" />
+                                alt="Simple flow diagram, with steps from left to right, labeled as 'Data with base proof', 'Transform data', 'Hash data', 'Generate derived proof', and 'Selectively disclosed data with derived proof'. Additionally, the 'Transform data' step is also linked to a separate step labeled as 'Selective disclosure constraints'" />
                             <figcaption style="text-align: center">View of the proof generation steps.</figcaption>
                         </figure>
 
                         <p>
-                            In both steps the issuer, respectively the holder, produces complex data structures that include the mandatory and the
+                            In both steps the issuer, respectively the holder, produce complex data structures that include the mandatory and the
                             non-mandatory (respectively constrained) claims, accompanied by cryptographic signatures that make the derived credential
-                            verifiable without revealing extra information. These structure are explained more in details in the
-                            <a data-cite="vc-data-integrity#GeneralSelectiveDisclosure">explanatory section</a> of the
-                            [[[vc-data-integrity]]] [[vc-data-integrity]], which also contains the detailed normative steps.
+                            verifiable without revealing extra information. These structures are explained in more details in the
+                            <a data-cite="vc-data-integrity#GeneralSelectiveDisclosure">explanatory section</a> of the [[vc-data-integrity]] specification.
                         </p>
                      </section>
                 </section>
-                <section id="s_di">
-                    <h4>Proofs in credentials</h4>
+                <section id="s_embed_proofs">
+                    <h4>Embedding proofs</h4>
                     <p>
-                        The [[[vc-data-integrity]]] [[vc-data-integrity]] specification starts with the general structure and defines a set
-                        of standard properties describing the details of the proof generation process. The specific details (i.e., the
-                        transformation, hash, and/or proof method algorithms) are defined by separate
-                        <a data-cite="vc-data-integrity#cryptographic-suites">Cryptographic Suites</a> (or cryptosuites, for short). The
-                        Working Group has defined a number of such cryptosuites, see <a href="#cryptosuites"></a> below.
+                        The [[[vc-data-integrity]]] [[vc-data-integrity]] specification defines a set of standard properties describing the
+                        details of the proof generation process and the way of adding the proofs to a credential.
                     </p>
 
                     <p>
                         The core property, in the general structure, is called <a data-cite="vc-data-integrity#proofs">`proof`</a>. This
                         property embeds a claim in the credential, referring to a separate collection of claims (referred to as a
-                        <em>Proof Graph</em>) detailing all the claims about the proof itself:
+                        <em>Proof Graph</em>) detailing all the additional claims about the proofs themselves. <a href="#secured_example_di_skeleton"></a> shows the structure for a single proof:
                     </p>
 
                     <pre
                         id="secured_example_di_skeleton"
                         class="example nohighlight"
-                        title="Skeleton of an embedded proof added to a credential."
+                        title="Skeleton of a single embedded proof added to a credential."
                         data-include="examples/secured_example_di_skeleton.json"
                     ></pre>
 
@@ -1108,24 +1113,29 @@
                     </p>
 
                     <p>
-                        The <a data-cite="vc-data-integrity#proofs">definition of `proof`</a> introduces a number of additional properties.
-                        Some of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. Others provide
-                        the necessary details on the proof generation process itself, like `cryptosuite`, `nonce` (if needed), or
-                        `verificationMethod` that usually refers to cryptographic keys. The exact format of the public keys, when used for
-                        credentials, is defined in the [[cid-1.0]] specification, and is based on either the JWK [[rfc7517]] format or a
-                        <a data-cite="cid-1.0#multibase-0">Multibase</a> encoding of the keys, called
-                        <a data-cite="cid-1.0#Multikey">Multikey</a>. Details of the key values are defined by other communities (IETF,
-                        cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
+                        The <a data-cite="vc-data-integrity#proofs">definition of `proof`</a> introduces a number of additional properties. Some
+                        of these are metadata properties on the proof itself, like `created`, `expires`, or `domain`. Others provide the
+                        necessary details on the proof generation process itself, like `cryptosuite`, that, essentially, specifies the
+                        cryptographic scheme and whether full or selective disclosure is used. The `verificationMethod` property usually refers
+                        to the public cryptographic key.
+                    </p>
+
+                    <p>
+                        The exact encoding format of the public keys, when used for credentials, is defined in the [[cid-1.0]] specification,
+                        and is based on either the JWK [[rfc7517]] format or a <a data-cite="cid-1.0#multibase-0">Multibase</a> encoding of the
+                        keys, called <a data-cite="cid-1.0#Multikey">Multikey</a>. Details of the key values are defined by other communities
+                        (IETF, cryptography groups, etc.) and are dependent on the specific cryptographic functions they operate with.
                     </p>
 
                     <p>
                         It is possible to embed several proofs for the same credential. These may be a set of independent proofs (based, for
                         example, on different cryptosuites, to accommodate to the specificities of different verifiers), but may also be a
-                        chain of proofs that must be evaluated in a given order.
+                        chain of proofs that must be evaluated in a given order and where a specific proof also "signs" the proofs preceding it
+                        (if applicable).
                     </p>
 
                     <p>
-                        A proof may also specify its purpose via the `proofPurpose` property: different proofs may be provided for
+                        Finally, a proof may also specify its purpose via the `proofPurpose` property: different proofs may be provided for
                         authentication, for assertion, or for key agreement protocols. These details are also defined in the [[cid-1.0]]
                         specification. The verifier is supposed to choose the right proof depending on the purpose of its own operations,
                         which is yet another possible reason why the holder or the issuer may provide several proofs for the same
@@ -1133,35 +1143,24 @@
                     </p>
                 </section>
 
-                <section>
+                <section id="s_crs">
                     <h4>Cryptosuites</h4>
 
                     <p>
                         The Working Group has published several cryptosuite documents: [[[vc-di-eddsa]]] [[vc-di-eddsa]],
                         [[[vc-di-ecdsa]]] [[vc-di-ecdsa]], [[[vc-di-bbs]]] [[vc-di-bbs]], and
-                        [[[vc-di-quantum-resistant]]] [[vc-di-quantum-resistant]]. As their name suggests, the documents rely on existing
-                        cryptographic signature schemes: the Edwards-Curve Digital Signature Algorithm (EdDSA) specification [[rfc8032]], the
-                        Elliptic Curve Digital Signature Algorithm (ECDSA) specification [[fips-186-5]], the BBS Signature
-                        Scheme [[cfrg-bbs-signature]], and a collection of quantum resistant schemes, namely the Module-Lattice-Based Digital
-                        Signature Standard (ML-DSA) [[fips-204]], the Stateless Hash-Based Digital Signature Standard (SHL-DSA) [[fips-205]],
-                        the FAst Fourier Lattice-based COmpact signatures over NTRU [[FALCON]], or SQISign [[SQIsign]].
+                        [[[vc-di-quantum-resistant]]] [[vc-di-quantum-resistant]]. As their titles suggests, the documents rely on existing
+                        cryptographic signature schemes: the Edwards-Curve Digital Signature Algorithm (EdDSA)
+                        specification [[rfc8032]], the Elliptic Curve Digital Signature Algorithm (ECDSA) specification [[fips-186-5]], the BBS
+                        Signature Scheme [[cfrg-bbs-signature]], and a collection of quantum resistant schemes, namely the Module-Lattice-Based
+                        Digital Signature Standard (ML-DSA) [[fips-204]], the Stateless Hash-Based Digital Signature Standard
+                        (SHL-DSA) [[fips-205]], the FAst Fourier Lattice-based COmpact signatures over NTRU [[FALCON]], or SQISign [[SQIsign]].
+                        These specifications are conceptually simple. They all rely on the general algorithms defined in the
+                        [[vc-data-integrity]] document by “plugging in” the specificities of the respective cryptographic signature schemes
+                        into the general frameworks for full or for selective disclosures.
                     </p>
 
-                    <p>
-                        These specifications are conceptually simple: they all rely on the general algorithms defined in the
-                        [[vc-data-integrity]] document. They “plug in” the specificities of the respective cryptographic signature schemes
-                        into the general frameworks for full and for selective disclosures, respectively.
-                    </p>
-
-                    <p class="note">
-                        Applications may define their own cryptosuites by applying different transformation and/or cryptographic signature
-                        schemes in similar patterns. For example, it would be possible to define a cryptosuite using the SM2
-                        algorithm [[rfc9563]] similarly to EdDSA.
-                    </p>
-
-                    <section id="s_qr">
-                        <h4>Quantum resistance</h4>
-
+                    <div id="s_qr">
                         <p>
                             Publication of quantum-resistant cryptosuites is especially timely, in view of some
                             <a
@@ -1171,23 +1170,20 @@
                             keys could be broken by the early 2030s. As a result, organizations have already started to convert their
                             authentication services to use, eventually, quantum resistant cryptographic algorithms, with deadlines as early
                             as 2029.
-                        </p>
-                        <p>
                             For [=verifiable credentials=] this means that ECDSA or EdDSA based signatures may become vulnerable. The
                             collection
                             of quantum resistant cryptosuites provide alternative digital signature schemes, using the best stable
                             algorithms known today.
+                            (The final list of quantum resistant cryptosuites may still change, depending on the stability and
+                            acceptance of the underlying cryptographic algorithms.)
                         </p>
-                        <aside class="note">
-                            The final list of quantum resistant cryptosuites may still change, depending on the stability and
-                            acceptance of the underlying cryptographic algorithms.
-                        </aside>
-                    </section>
-                </section>
+                    </div>
 
-                <section id="s_cryptosuites_list">
-                    <h4>Comprehensive list of cryptosuites</h4>
-
+                    <p class="note">
+                        Applications may define their own cryptosuites by applying different transformation and/or cryptographic signature
+                        schemes. For example, it would be possible to define a cryptosuite using the SM2 algorithm [[rfc9563]] similarly to,
+                        say, EdDSA.
+                    </p>
 
                     <p>
                         <a href="#cryptosuites-table"></a> provides an overall view of the cryptosuites defined by the Recommendations. They all
@@ -1334,8 +1330,8 @@
                         </tbody>
                     </table>
 
-                    <p class="note">
-                        A common characteristic of all these cryptosuites is that keys must always be encoded using the
+                    <p>
+                        A common characteristic of all these cryptosuites is that keys must be encoded using the
                         <a data-cite="cid-1.0#Multikey">Multikey</a> encoding. For the ECDSA case the keys may also carry the choice of the
                         hash function to be used by the proof generation algorithm. This provides yet another differentiation axis among
                         cryptosuites.
@@ -1345,7 +1341,7 @@
                         It is worth noting that all selective disclosure cryptosuites use RDFC for canonicalization. The reason is that
                         selective disclosure relies on individual claims rather than JSON structures (see <a
                             href="#s_full-disclosure-proofs"></a>) and RDFC is based on converting data serialized in JSON-LD into individual
-                        claims before the specific canonicalization steps.
+                        claims before the specific canonicalization steps. That makes RDFC better adapted for this step than JCS.
                     </p>
                 </section>
                 <section>
@@ -1353,8 +1349,7 @@
 
                     <p>
                         <a href="#base_example_secured_di"></a> shows the Alumni Credential example, shown in
-                        <a href="#base_example"></a> and enriched with reference to JSON Schema, and Rendering/Confidence Methods. It is
-                        secured by two different embedded proofs, using the `ecdsa-rdfc-2019` and `eddsa-rdfc-2022` cryptosuites
+                        <a href="#example_credential"></a>, using the `ecdsa-rdfc-2019` and `eddsa-rdfc-2022` cryptosuites,
                         respectively.
                     </p>
 
@@ -1379,7 +1374,7 @@
                         data-include="examples/ecdsa_public_key.json"
                     ></pre>
                     <p>
-                        Note however that the value of the `verificationMethod` property may have been the public key itself, instead of a
+                        Note that the value of the `verificationMethod` property may have been the public key itself, instead of a
                         reference to a separate resource containing the key.
                     </p>
                 </section>
@@ -1764,7 +1759,7 @@
                     </dt>
                     <dd>
                         Property name definitions in the
-                        <a href="#s_di">VC Data Integrity</a> and the Controlled Identifiers specifications.
+                        <a href="#s_embed_proofs">VC Data Integrity</a> and the Controlled Identifiers specifications.
                     </dd>
 
                     <dt>
