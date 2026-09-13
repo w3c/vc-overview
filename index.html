@@ -417,8 +417,8 @@
 
             <p>
                 The [[[vc-render-method]]] [[vc-render-method]] specification also defines an extensible mechanism for issuers; the goal
-                is to provide preferred mechanisms for the presentation of a credential. These presentations may use images, simple
-                cards in a digital wallet, complex visual presentations, or HTML, CSS, and JavaScript in a secure execution environment.
+                is to provide preferred mechanisms for the display of a credential. Rendering may use images, simple
+                cards in a digital wallet, complex visual displays, or HTML, CSS, and JavaScript in a secure execution environment.
             </p>
 
             <p>
@@ -469,7 +469,7 @@
                 interoperable mechanism to express and communicate the recognition of entities that perform known actions like issuing
                 or verifying specific types of credential. For example, that an issuer is recognized to assess conformance to a specific
                 standard, that an organization is authorized to issue a specific type of federated identifier, or that a university is
-                recognized as being able to issue under graduate degrees.
+                recognized as being able to issue undergraduate degrees.
             </p>
 
             <p>
@@ -490,7 +490,7 @@
                     two documents will be published as Web Standards eventually. </p>
                 <p>
                     A revision cycle for some of these specifications has started in 2026. Some documents have been re-issued as Working
-                    Drafts (marked with a higher minor version number). But, more importantly and a number of new specifications have been
+                    Drafts (marked with a higher minor version number). But, more importantly, a number of new specifications have been
                     added to the family of documents, to be published, eventually, as Recommendations as well.
                 </p>
                 <p>
@@ -657,7 +657,7 @@
                     <img
                         style="margin: auto; display: block; width: 100%"
                         src="diagrams/credential_example.svg"
-                        alt="Diagram showing an example of a Verifiable Credential. At top, there is an ellipse labeled 'https://university.example/Credential123 (Type: VerifiableCredential, ExampleAlumniCredential)'. This ellipse has two arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'validFrom', angles to the right, and terminates at a box labeled as '2010-01-01T00:00:00Z'. The second arrow is at the middle of the ellipse, is labeled as 'credentialSubject', and ends at an ellipse labeled as 'https://www.example.org/persons/pat'. This ellipse has two more arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'name', and angles to the right, terminating at a box labeled as 'Pat'. The second arrow is nearer the left side of the ellipse, labeled as 'alumniOf', and ends at another ellipse labeled as 'did:example:c276e12ec21ebfeb1f712ebc6f1'. This ellipse has a final arrow going down, which is labeled as 'name' and ends at a final box labeled as 'Example University'."
+                        alt="Diagram showing an example of a Verifiable Credential. At top, there is an ellipse labeled 'https://university.example/Credential123 (Type: VerifiableCredential, ExampleAlumniCredential)'. This ellipse has three arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'validFrom', angles to the right, and terminates at a box labeled as '2010-01-01T00:00:00Z'. The second arrow is at the middle of the ellipse, is labeled as 'credentialSubject', and ends at an ellipse labeled as 'https://www.example.org/persons/pat'. This ellipse has two more arrows going down. One arrow is nearer the right side of the ellipse, is labeled as 'name', and angles to the right, terminating at a box labeled as 'Pat'. The second arrow is nearer the left side of the ellipse, labeled as 'alumniOf', and ends at another ellipse labeled as 'did:example:c276e12ec21ebfeb1f712ebc6f1'. This ellipse has a final arrow going down, which is labeled as 'name' and ends at a final box labeled as 'Example University'. Finally, the third arrow from the top is nearer to the left side of the top ellipse, angles to the left, and terminates at an ellipse labeled as 'did:example:university.example:CSSchool'."
                     />
                     <figcaption style="text-align: center">
                         The credential in <a href="#base_example"></a> represented as a collection of claims.
@@ -672,7 +672,7 @@
                 <p>
                     The credential in <a href="#base_example"></a>, issued by Example University, is stored by a holder (who may be a
                     person, a digital wallet, or any other entity). On request, the holder may “present” the credential to a verifier,
-                    encapsulated in a Presentation. This is how the credential looks like in the JSON-LD serialization:
+                    encapsulated in a presentation. This is how the presentation looks like in the JSON-LD serialization:
                 </p>
 
                 <pre
@@ -1134,13 +1134,13 @@
                         (if applicable).
                     </p>
 
-                    <p>
+                    <!-- <p>
                         Finally, a proof may also specify its purpose via the `proofPurpose` property: different proofs may be provided for
                         authentication, for assertion, or for key agreement protocols. These details are also defined in the [[cid-1.0]]
                         specification. The verifier is supposed to choose the right proof depending on the purpose of its own operations,
                         which is yet another possible reason why the holder or the issuer may provide several proofs for the same
                         credential.
-                    </p>
+                    </p> -->
                 </section>
 
                 <section id="s_crs">
@@ -1374,8 +1374,10 @@
                         data-include="examples/ecdsa_public_key.json"
                     ></pre>
                     <p>
-                        Note that the value of the `verificationMethod` property may have been the public key itself, instead of a
-                        reference to a separate resource containing the key.
+                        The value of the `verificationMethod` property may have been the public key itself, instead of a reference to a separate
+                        resource containing the key. Note that the verifier needs to check that the public key belongs to the issuer, otherwise
+                        the credential could be simply tempered with by replacing the signature. This is where <a
+                        href="#s_confidence_method">confidence methods</a> may come into play.
                     </p>
                 </section>
             </section>
@@ -1395,14 +1397,14 @@
                 </p>
 
                 <p>
-                    However,this approach has a major drawback for even moderately sized [=verifiable credentials=]: the result of the direct CBOR
+                    However, this approach has a major drawback for even moderately sized [=verifiable credentials=]: the result of the direct CBOR
                     conversion may create a QR Code that is too large for the available space, which has a severe size limitation. To solve
                     this problem, the [[[vc-barcodes]]] [[vc-barcodes]] specification takes a slightly different approach. Instead of using
                     a generic CBOR conversion, it relies on the CBOR-LD [[cbor-ld]] representation of the credential. CBOR-LD is a CBOR
                     encoding tailored for JSON-LD: it includes the possibility for a semantic compression of the data, targeted at a
                     particular application vocabulary. It is possible to achieve compression ratios in excess of 60% better than general
                     compression schemes, which makes it possible to represent [=verifiable credentials=] for, say, driving licenses, birth
-                    certificate,s and conformity certificates.
+                    certificates, and conformity certificates.
                 </p>
 
                 <figure id="bcert-barcode">
@@ -1436,8 +1438,8 @@
 
                 <p>
                     The card includes a machine-readable zone (MRZ) containing information designed to be read through optical character
-                    recognition. The goal is to generate a [=verifiable credential=] securing that MRZ data; this requires a special Credential
-                    whose subject cannot be simply expressed in JSON:
+                    recognition. The goal is to generate a verification mechanism that would also secure that MRZ data beyond the claims
+                    expressed by the [=verifiable credential=] proper:
                 </p>
 
                 <pre
@@ -1447,13 +1449,11 @@
                     data-include="examples/mrz_credential.json"
                 ></pre>
 
-                <p>The `MachineReadableZone` type means to take the data directly from the MRZ, without change.</p>
-
                 <p>
-                    Note the usage of the `ecdsa-xi-2023` cryptosuite (listed in <a href="#cryptosuites-table"></a>): it allows the addition
-                    of additional, external data to the canonicalized JSON-LD data before signature. This is how the proof for the MRZ data
-                    is combined with that of the full credential. The result is a QR Code appearing on the front of the employment card on
-                    <a href="#ead-front"></a>:
+                    Note the usage of the `ecdsa-xi-2023` cryptosuite (listed in <a href="#cryptosuites-table"></a>): it allows the
+                    concatenation of an additional, external data with the canonicalized JSON-LD data before signature. In the case of a
+                    `MachineReadableZone` type credential this external data is the one expressed in the MRZ. The result is a QR Code
+                    appearing on the front of the employment card on <a href="#ead-front"></a>:
                 </p>
 
                 <figure id="ead-front">
@@ -1620,7 +1620,7 @@
 
                 <p>We can also extend the Alumni Credential with the possibility for the verifier to trace back the Web of Recognition to a
                     possible “root”. In <a href="#example_with_recognizedin"></a> the data about the issuer contains the <code>recognizedIn</code>
-                    claim, the refers back to the credential in <a href="#recognized_entities_credential"></a>.
+                    claim, that refers back to the credential in <a href="#recognized_entities_credential"></a>.
                 </p>
 
                 <pre id="example_with_recognizedin"
