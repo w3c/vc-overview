@@ -6,11 +6,11 @@ When editing the diagram in draw.io
 - Under "Diagram" no background color
 
 When creating/updating a diagram in SVG from draw.io:
-- Export to SVG with 
+- Export to SVG with
   - zoom 100%
   - border width: 20
   - size: diagram
-  - transparent background
+  - do not check transparent background
   - appearance: light
   - no shadow
   - no copy of my diagram
@@ -20,4 +20,4 @@ When creating/updating a diagram in SVG from draw.io:
 
 then run draw-svg (this cleans up the header to make the image scalable).
 
-The dark/light mode of draw.io only creates difficulties; the W3C stye automatically sets a background to white (there is an entry in CSS to make it "less" white).
+The dark/light mode of draw.io only creates difficulties; the W3C style automatically sets a background to white (there is an entry in CSS to make it "less" white).

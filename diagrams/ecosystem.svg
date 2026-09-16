@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="background:0 0;background-color:transparent;color-scheme:light" viewBox="0 0 864 123">
+<svg xmlns="http://www.w3.org/2000/svg" style="background:#fff;background-color:#fff;color-scheme:light" viewBox="0 0 864 123">
+    <rect width="100%" height="100%" fill="#fff" style="fill:#fff"/>
     <g data-cell-id="0">
         <g data-cell-id="1">
             <g data-cell-id="CqYlGcgU1QHX9f7NfkNa-4">
@@ -28,7 +29,7 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="446" y="60" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="12" text-anchor="middle">Holder...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="446" y="46" font-family="Helvetica" font-size="12" style="fill:#000" text-anchor="middle"><tspan x="446" y="46">Holder</tspan><tspan x="446" y="60">Acquires, stores, presents</tspan><tspan x="446" y="74">VCs</tspan></text>
                 </switch>
             </g>
             <g data-cell-id="CqYlGcgU1QHX9f7NfkNa-5">
@@ -58,7 +59,7 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="767" y="60" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="12" text-anchor="middle">Verifier...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="767" y="53" font-family="Helvetica" font-size="12" style="fill:#000" text-anchor="middle"><tspan x="767" y="53">Verifier</tspan><tspan x="767" y="67">Verifies VCs</tspan></text>
                 </switch>
             </g>
             <g data-cell-id="CqYlGcgU1QHX9f7NfkNa-6">
@@ -88,7 +89,7 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="125" y="60" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="12" text-anchor="middle">Issuer...</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="125" y="53" font-family="Helvetica" font-size="12" style="fill:#000" text-anchor="middle"><tspan x="125" y="53">Issuer</tspan><tspan x="125" y="67">Issues VCs</tspan></text>
                 </switch>
             </g>
             <g data-cell-id="CqYlGcgU1QHX9f7NfkNa-11">
@@ -105,7 +106,7 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="272" y="60" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="12" text-anchor="middle">Issue Credentials</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="272" y="60" font-family="Helvetica" font-size="12" style="fill:#000" text-anchor="middle">Issue Credentials</text>
                 </switch>
             </g>
             <g data-cell-id="CqYlGcgU1QHX9f7NfkNa-13">
@@ -120,9 +121,12 @@
                             </div>
                         </div>
                     </foreignObject>
-                    <text xmlns="http://www.w3.org/2000/svg" x="594" y="61" fill="light-dark(#000000, #ffffff)" font-family="Helvetica" font-size="16" text-anchor="middle">Send Presentation</text>
+                    <text xmlns="http://www.w3.org/2000/svg" x="594" y="61" font-family="Helvetica" font-size="16" style="fill:#000" text-anchor="middle">Send Presentation</text>
                 </switch>
             </g>
         </g>
     </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+    </switch>
 </svg>
